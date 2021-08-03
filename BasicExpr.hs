@@ -9,16 +9,34 @@ module BasicExpr where
 data PrimExpr a = Lit a |
                   BinExpr BinOp (PrimExpr a) (PrimExpr a) |
                   UnaryExpr UnaryOp (PrimExpr a)
+                  deriving Show
 
-data BinOp = OpEq | OpAnd | OpPlus | OpMinus
+            --OpEq | OpAnd |
+data BinOp = OpPlus | OpMinus
+    deriving Show
 
 data UnaryOp = OpNeg
---TODO show instance?
-eval :: PrimExpr a -> a
+    deriving Show
+
+--We can push the Num constraint onto the interpreter handling the eval type for now I guess
+eval :: (Num a) => PrimExpr a -> a
 eval (Lit a) = a
+
+--TODO GADT to handle Bools
 --eval (BinExpr OpEq x y) = (==) (eval x) (eval y)
 --eval (BinExpr OpAnd x y) = (&&) (eval x) (eval y)
---eval (BinExpr OpPlus x y) = (+) (eval x) (eval y)
---eval (UnaryExpr OpNeg x) = -(eval x)
+eval (BinExpr OpPlus x y) = (+) (eval x) (eval y)
+eval (BinExpr OpMinus x y) = (-) (eval x) (eval y)
+eval (UnaryExpr OpNeg x) = -(eval x)
 
+equ :: (Eq a, Num a) => PrimExpr a -> PrimExpr a -> Bool
+equ lhs rhs = eval lhs == eval rhs
+
+--------------------------------------------------------------------------------
+--Test expressions
+--------------------------------------------------------------------------------
+ts :: PrimExpr Integer
 ts = (UnaryExpr OpNeg (Lit 5))
+
+ta :: PrimExpr Integer
+ta = (UnaryExpr OpNeg (BinExpr OpPlus (Lit 2) (Lit 3)))
