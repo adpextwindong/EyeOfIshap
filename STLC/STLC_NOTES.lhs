@@ -2,10 +2,10 @@ https://wwtch?v=j2xYSxMkXew.youtube.com/waQ
 
 STLC (Simply Typed Lambda Calculus) has 4 typing rules
 
-- Variables ![Variables](rule1.svg)
-- Constants ![Constants](rule2.svg)
-- Lambda Expressions ![Lambda Expressions](rule3.svg)
-- Applications ![Applications](rule4.svg)
+- Variables ![Variables](STLC_Rule1.svg)
+- Constants ![Constants](STLC_Rule2.svg)
+- Lambda Expressions ![Lambda Expressions](STLC_Rule3.svg)
+- Applications ![Applications](STLC_Rule4.svg)
 
 \begin{code}
 {-# LANGUAGE GADTs #-}
@@ -262,7 +262,40 @@ step (AppE e1 e2)   = Just $ stepApp e1 e2 where
 
 stepApp :: Exp '[] (t1 :-> t2) -> Exp '[] t1 -> Exp '[] t2
 --stepApp (IntE x) e2 = error "Type Error" --inaccesible case, can't even compile this
+--This is infered by (t1 :-> t2) not being IntTy in the signature
+
 stepApp (VarE n) e2     = case n of {}
 stepApp (LamE t e1) e2  = subst (singleSub e2) e1 --Type checking this line will require the subst library knowing about type checking
 stepApp (AppE e1' e2') e2 = AppE (stepApp e1' e2') e2
 ```
+
+Strongly-typed substituion library
+
+```haskell
+
+-- Substitution applies to indices in context g1
+-- and produces terms in context g2
+
+type Sub (a:: [k] -> k -> Type) (g1 :: [k]) (g2 :: [k])
+
+class SubstDB (a :: [k] -> k -> Type) where
+    Var   :: Idx g t -> a g t
+    subst :: Sub a g1 g2 -> a g1 t -> a g2 t   --Type is preservered and context is changed
+
+singleSub :: a g t -> Sub a (t:g) g
+
+instance SubstDB Exp where
+    var :: Idx g t -> Exp g t
+    var = VarE
+
+    --Virtually the same but the type information prevents lack of lifting/applySub/subst
+    subst :: Sub Exp g1 g2 -> Exp g1 t -> Exp g2 t
+    subst s (IntE x)        = IntE x
+    subst s (VarE x)        = applySub s x
+    subst s (LamE ty e)     = LamE ty (subst (lift s) e)
+    subst s (AppE e1 e2)    = AppE (subst s e1) (subst s e2)
+```
+
+From STLC to System F
+
+SLTC + Two typing rules
