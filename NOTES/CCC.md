@@ -22,7 +22,7 @@ We apply a number of transformation steps to the seamnntics of the language. The
 
 The process is simplified by combining the seperate transformation steps, resulting in a simple but powerful new approach.
 
-## 2.1 Define the language semantics
+## 2.1 - Define the language semantics
 
 ```haskell
 eval :: Expr -> Int
@@ -34,6 +34,28 @@ Key point to note is that eval is compositional.
 
 // Conal Elliot really harped on this in his [denotational design talk](https://www.youtube.com/watch?v=bmKYiUOEo2A)
 
+### 2.2 - Step 2 - Transform into a stack transformer
+```haskell
+type Stack = [Int]
+--Head is the top element of the stack
+
+--then we seek to derrive a function
+
+evalS :: Expr -> Stack -> Stack
+evalS = undefined
+```
+
+such that:
+
+```
+evalS x s = eval x : s                                  -- (1)
+```
+
+"Rather than first defining the function evalS and then seperately proving by induction that it satisfies the above equation, we aim to calculate a deifnition for evalS that satisfies the equation by `constructive induction` (Backhouse, 2003) on the expression x, using the desire to apply the induction hypotheses as the driving force for the calculation process."
+
+#### Transformation on term `evalS x s` gradually by equational reasoning
+
+Note: The layout of this is weird and I think comes from Backhouse.
 
 # Refs
 
