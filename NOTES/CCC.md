@@ -55,8 +55,10 @@ evalS x s = eval x : s                                  -- (1)
 
 #### Transformation on term `evalS x s` gradually by equational reasoning
 
-Note: The layout of this is weird and I think comes from Backhouse.
+--TODO Read through Backhouse to look at these Calculational Proofs
 
+Note: The layout of this is weird and I think comes from Backhouse.
+Note2: The explicit stack transformation and cps transformation reminds me of Bartosz's talk [Replacing function with data](https://www.youtube.com/watch?v=wppzFzzD4b8)
 # Refs
 
 - Backhouse, Roland (2003). Program Construction: Calculating Implementations from Specifications. John Wiley and Sons, Inc.
