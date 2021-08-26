@@ -103,3 +103,115 @@ Glaser, H., Hankin, C., and Till, D. 1984. Principles of Functional Programming.
 [Turner, D.A. 1985. Miranda — a non-strict functional language with polymorphic types. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. |-16. Jouannaud (editor), LNCS 201. Springer Verlag.](turner85_Miranda.pdf)
 
 [Wadler, P. 1985. Introduction to Orwell. Programming Research Group, University of Oxford.](Wadler85_orwell.pdf)
+
+# Chapter 2 - The Lambda Calculus
+
+The lambda calculus as an intermediate language has two things going for it:
+
+Simplicity and Expressiveness
+
+You only need to support a few constructs and it has simple semantics for reasoning about correctness of the implementation. It can also express all functional prgorams (and all computable functions) meaning we can implement other functional languages by translating them down to the lambda calculus.
+
+## 2.1 The Syntax of the Lambda Calculus
+
+A simple expression
+```
+(+ 4 5)
+```
+
+All function applications in the lambda calculus are written in the prefix form. A more complex example.
+
+NOTE: The Vim digraph command for Lambda is <ctrl>kl*
+      See :digraphs for more.
+```
+(+ (* 5 6) (* 8 3))
+
+-- A Haskell version of this being
+(\x y -> x + y) ((\x y -> x * y) 5 6) ((\x y -> x * y) 8 3)
+
+-- An even more verbose version being
+(\x -> \y -> x + y) ((\x -> \y -> x * y) 5 6) ((\x -> \y -> x * y) 8 3)
+
+-- Traditional
+((λx.λy.x + y) ((λx.λy x * y) 5 6) ((λx.λy.x * y) 8 3))
+```
+
+Evaluation proceeds by repeatedly selecting a _reducible expression_ (or _redex_) and reducing it.
+
+When there are several avalible redexes we have a choice of which one to reduce first.
+
+## 2.2 Function Application and Currying
+
+In the lambda calculus function application is denoted by simple juxtaposition
+
+```
+f x
+```
+
+This denotes f applied to the argument x.
+
+When expressing the application of a function to serveral arguments how do we do that?
+
+```
+-- This would force (x,y) to be a pair or some C style syntax
+(f (x,y))
+
+-- Instead, for example the sum of 3 and 4 can be expressed as
+(+ 3 4)
+
+((+ 3) 4)
+
+((λx.λy.x + y) 3) 4)
+
+--In this situation the redex taken are
+--β reduction -- Function Application
+((λy.3 + y) 4)
+
+--β reduction
+(3 + 4)
+
+--δ Reduction -- Calculation with predefined function on predefined data types
+```
+
+By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstractions (functions) taking only one argument. This process is known as _currying_, originally introduced by [Schonfinkel in 1924](Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf) and extensively used by [Curry and Feys 1958](Curry58_CombinatoryLogic.djvu).
+
+--TODO PAGE 10
+
+### [Summary of reduction rules](Huch_LambdaCalculusNotes.pdf#page=6)
+
+- α-reduction: Renaming of Parameters
+
+- β-reduction: Function Application
+
+- η-reduction: Elimination of redundant λ-abstractions
+
+- δ-reduction: Calculation with predefined function on predefined data types
+
+## CH2 References
+
+Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.
+Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.
+[Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.](Curry58_CombinatoryLogic.djvu)
+Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction
+Orders in Replacement Systems. CSA/19/1984, School of information Systems, University of East Anglia. March.
+Levy, J.J. 1980. Optimal reductions in the lambda calculus. In Essays on Combinatory Logic, pp.159-92. Hindley and Seldin (editors). Academic Press.
+Rosser, J.B. 1982. Highlights of the history of the lambda calculus. Proceedings of the ACM Symposium on Lisp and Functional Programming, Pittsburgh, pp. 216-25. August.
+
+[Schonfinkel, M. 1924. Uber die Bausteine der mathematischen Logik. Mathematische Annalen, Vol. 92, pp. 305-16.](Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf)
+
+Scott, D. 1981. Lectures on a Mathematical Theory of Computation. PRG-19.
+Programming Research Group, Oxford. May.
+36
+Chapter 2 TheLambda Calculus
+Staples, J. 1980a. Computation on graph-like expressions. Theoretical Computer
+Science. Vol. 10, pp. 171-85.
+Staples,
+J.
+1980b. Optimal evaluations of graph-like expressions.
+Theoretical
+Computer Science. Vol. 10, pp. 297-316.
+Staples, J. 1980c. Speeding up subtree replacement systems. Theoretical Computer
+Science, Vol. 11, pp. 39-47.
+Stoy, J.E. 1981. Denotational Semantics. MIT Press.
+Welch,P. 1975. Some Noteson the Martin-LofProofofthe Church Rosser Theorem as
+Rediscovered by Park. Computer Lab., University ofKent. October.
