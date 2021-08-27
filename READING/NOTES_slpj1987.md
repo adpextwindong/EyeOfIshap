@@ -213,3 +213,11 @@ Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction 
 [Stoy, J.E. 1981. Denotational Semantics. MIT Press.](stoy81_DenotationalSemantics.djvu)
 
 Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem as Rediscovered by Park. Computer Lab., University of Kent. October.
+
+# CH3
+
+## References
+
+[Gordon, M.J.C. 1979. The Denotational Description of Programming Languages. Springer Verlag.](gordon79_DenotationalDescriptionOfProgrammingLanguages.djvu)
+
+[Turner, D.A. 1985. Miranda — a non-strict functional language with polymorphic types. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 1-16, Jouannaud(editor). LNCS 201. Springer Verlag.](turner85_Miranda.pdf)
