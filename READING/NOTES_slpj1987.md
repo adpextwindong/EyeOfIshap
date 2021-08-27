@@ -188,13 +188,16 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 - δ-reduction: Calculation with predefined function on predefined data types
 
 ## CH2 References
+[Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.](BarendregtLambdaCalculus.pdf)
 
-Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.
-Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.
+[Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.](Church41_TheCalculiOfLambdaConversion.pdf)
+
 [Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.](Curry58_CombinatoryLogic.djvu)
-Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction
-Orders in Replacement Systems. CSA/19/1984, School of information Systems, University of East Anglia. March.
-Levy, J.J. 1980. Optimal reductions in the lambda calculus. In Essays on Combinatory Logic, pp.159-92. Hindley and Seldin (editors). Academic Press.
+
+Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction Orders in Replacement Systems. CSA/19/1984, School of information Systems, University of East Anglia. March.
+
+[Levy, J.J. 1980. Optimal reductions in the lambda calculus. In Essays on Combinatory Logic, pp.159-92. Hindley and Seldin (editors). Academic Press.](80curry.pdf)
+
 Rosser, J.B. 1982. Highlights of the history of the lambda calculus. Proceedings of the ACM Symposium on Lisp and Functional Programming, Pittsburgh, pp. 216-25. August.
 
 [Schonfinkel, M. 1924. Uber die Bausteine der mathematischen Logik. Mathematische Annalen, Vol. 92, pp. 305-16.](Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf)
