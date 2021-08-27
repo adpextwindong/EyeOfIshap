@@ -198,23 +198,18 @@ Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction 
 
 [Levy, J.J. 1980. Optimal reductions in the lambda calculus. In Essays on Combinatory Logic, pp.159-92. Hindley and Seldin (editors). Academic Press.](80curry.pdf)
 
-Rosser, J.B. 1982. Highlights of the history of the lambda calculus. Proceedings of the ACM Symposium on Lisp and Functional Programming, Pittsburgh, pp. 216-25. August.
+[Rosser, J.B. 1982. Highlights of the history of the lambda calculus. Proceedings of the ACM Symposium on Lisp and Functional Programming, Pittsburgh, pp. 216-25. August.](rosser82.pdf)
 
 [Schonfinkel, M. 1924. Uber die Bausteine der mathematischen Logik. Mathematische Annalen, Vol. 92, pp. 305-16.](Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf)
 
-Scott, D. 1981. Lectures on a Mathematical Theory of Computation. PRG-19.
-Programming Research Group, Oxford. May.
-36
-Chapter 2 TheLambda Calculus
-Staples, J. 1980a. Computation on graph-like expressions. Theoretical Computer
-Science. Vol. 10, pp. 171-85.
-Staples,
-J.
-1980b. Optimal evaluations of graph-like expressions.
-Theoretical
-Computer Science. Vol. 10, pp. 297-316.
-Staples, J. 1980c. Speeding up subtree replacement systems. Theoretical Computer
-Science, Vol. 11, pp. 39-47.
-Stoy, J.E. 1981. Denotational Semantics. MIT Press.
-Welch,P. 1975. Some Noteson the Martin-LofProofofthe Church Rosser Theorem as
-Rediscovered by Park. Computer Lab., University ofKent. October.
+[Scott, D. 1981. Lectures on a Mathematical Theory of Computation. PRG-19. Programming Research Group, Oxford. May.](DanaScott82_LecturesOnAMathematicalTheoryOfComputation.pdf)
+
+[Staples, J. 1980a. Computation on graph-like expressions. Theoretical Computer Science. Vol. 10, pp. 171-85.](staples1980a_ComputationsOnGraphLikeExpressions.pdf)
+
+[Staples, J. 1980b. Optimal evaluations of graph-like expressions. Theoretical Computer Science. Vol. 10, pp. 297-316.](staples1980b_OptimalEvaluationOnGraphLikeExpressions.pdf)
+
+[Staples, J. 1980c. Speeding up subtree replacement systems. Theoretical Computer Science, Vol. 11, pp. 39-47.](staples1980c_SpeedingUpSubtreeReplacementSystems.pdf)
+
+[Stoy, J.E. 1981. Denotational Semantics. MIT Press.](stoy81_DenotationalSemantics.djvu)
+
+Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem as Rediscovered by Park. Computer Lab., University of Kent. October.

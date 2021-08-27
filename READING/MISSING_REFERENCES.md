@@ -10,3 +10,5 @@ ISBN-10: 0121673502](https://www.amazon.com/Distributed-Computing-Apic-Studies-P
 ## CH2
 
 Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction Orders in Replacement Systems. CSA/19/1984, School of information Systems, University of East Anglia. March.
+
+Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem as Rediscovered by Park. Computer Lab., University of Kent. October.
