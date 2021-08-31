@@ -355,6 +355,8 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 
 ## CH13
 
+### CH13 References
+
 [Barendregt, H.P. 1984. The Lambda Calculus: Its Syntax and Semantics, 2nd edition,p.24. North-Holland.](SLPJ_READING\Barendregt80_LambdaCalculus.pdf)
 
 [Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.](Curry58_CombinatoryLogic.djvu)
@@ -376,3 +378,11 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 [Landin, P.J. 1964. The mechanical evaluation of expressions. Computer Journal. Vol. 6, pp. 308-20.](Landin64.pdf)
 
 [O’Donnell, M.J. 1977. Computing in Systems Described by Equations. LNCS 58, Springer Verlag.](ODonnell77_ComputingInSystesmDescribedByEquations.djvu)
+
+## CH14
+
+### CH14 References
+
+[Hudak, P., and Kranz, D. 1984. A combinator based compiler for a functional language. In Proceedings of the 11th ACM Symposium on  Principles of Programming Languages, pp. 122-32. January.](Hudak84_ACombinatorBasedCompilerForAFunctionalLanguage.pdf)
+
+[Johnsson, T. 1985. Lambda-lifting— transforming programsto recursive equations. In Conference on Functional Programming and Computer Architecture, Nancy, pp. 190-203. Jouannaud (editor). LNCS 201. Springer Verlag](johnsson85_LambdaLiftingTransformingProgramsToRecursiveEquations.pdf)
