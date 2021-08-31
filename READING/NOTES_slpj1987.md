@@ -265,3 +265,9 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 [Aho, A.V., Hopcroft, J.E., and Ullman, D. 1983b. Data Structures and Algorithms, pp. 221-2. Addison Wesley.](Aho85_DataStructuresAndAlgorithms.djvu)
 
 [Dijkstra, E.W. 1976. A Discipline of Programming, pp. 192-200. Prentice Hall.](Dijkstra76_ADisciplineOfProgramming.pdf)
+
+# CH7
+
+## References
+
+[Turner, D.A. 1982. Recursion equations as a programming language. In Functional Programming and Its Applications. Darlington et al. (editors). Cambridge University Press](turner82_RecursionEquations.pdf)
