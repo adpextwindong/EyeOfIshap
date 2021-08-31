@@ -239,3 +239,17 @@ Burstall, R.M. 1977. Design considerations for a functional programming language
 Turner, D.A., 1981.. Aspects of the implementation of programming languages. D.Phil. thesis, University of Oxford. February.
 
 Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Group, Oxford. January.
+
+# CH5
+
+## References
+
+[Augustsson, L. 1985. Compiling pattern matching. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 368-81. Jouannaud(editor), LNCS 201. Springer Verlag.](Augustsson85_CompilingPatternMatching.pdf)
+
+[Barrett, G., and Wadler, P. 1986. Derivation of a Pattern-matching Compiler. Programming Research Group, Oxford.](Barret86_DerivationOfAPatternMatchingCompiler.pdf)
+
+[Burstall, R.M., MacQueen, D.B., and Sanella, D.T. 1980. HOPE: an experimental applicative language. In Proceedings of the ACM Lisp Conference. August.](burstall80_Hope.pdf)
+
+[Hoffmann, C.M., and O’Donnell, M.J. 1983. Implementation of an interpreter for abstract equations. In 10th ACM Symposium on Principles of Programming Languages, pp. 111-21. ACM.](Hoffman83_ImplementationOfAnInterpreterForAbstractEquations.pdf)
+
+Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriting Systems. INRIA technical report 359.

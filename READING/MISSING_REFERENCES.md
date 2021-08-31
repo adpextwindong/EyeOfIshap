@@ -21,3 +21,6 @@ Turner, D.A., 1981.. Aspects of the implementation of programming languages. D.P
 
 Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Group, Oxford. January.
 
+## CH5
+
+Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriting Systems. INRIA technical report 359.
