@@ -221,3 +221,21 @@ Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem a
 [Gordon, M.J.C. 1979. The Denotational Description of Programming Languages. Springer Verlag.](gordon79_DenotationalDescriptionOfProgrammingLanguages.djvu)
 
 [Turner, D.A. 1985. Miranda — a non-strict functional language with polymorphic types. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 1-16, Jouannaud(editor). LNCS 201. Springer Verlag.](turner85_Miranda.pdf)
+
+# CH4
+
+## References
+
+[Burstall, R.M. 1969. Proving properties of programs by structural induction. The Computer Journal. Vol. 12, No. 1, pp. 41-8.](Burstall69_ProvingPropertiesOfProgramsByStructuralInduction)
+
+Burstall, R.M. 1977. Design considerations for a functional programming language. In Proceedings Infotech State of the Art Conference, Copenhagen, pp. 54-7.
+
+[Burstall, R.M., and Darlington, J. 1977. A transformation system for developing recursive programs. Journal of the ACM.Vol. 24, No. 1, pp. 44-67.](Burstall77_ATransformationSystemForDevelopingRecursivePrograms.pdf)
+
+[Burstall, R.M., and Gognen, J.A. 1982. Algebras, Theories, and Freeness: An Introduction for Computer Scientists. Report CSR-101-82, Dept of Computer Science, University of Edinburgh. February.](Burstall82_AlgebrasTheoriesAndFreeness_AnIntroductionForComputerScientists.pdf)
+
+[Landin, P.J. 1966. The next 700 programming langnages. Communications of the ACM.Vol. 9, No. 3, pp. 157-64.](Landin66.pdf)
+
+Turner, D.A., 1981.. Aspects of the implementation of programming languages. D.Phil. thesis, University of Oxford. February.
+
+Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Group, Oxford. January.
