@@ -398,3 +398,31 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 [Hughes, R.J.M. 1984. The design and implementation of programming languages. PhD thesis, PRG-40. Programming Research Group, Oxford. September.](Hughes84_TheDesignAndImplementationOfProgrammingLanguages.pdf)
 
 Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.
+
+## CH16
+
+### CH16 References
+
+[Burton, F.W. 1982. A linear space translation of functional programs to Turner combinators. /nformation Processing Letters. Vol. 14, no. 5, pp. 202-4.](burton82_ALinearSpaceTranslationOfFunctionalProgramsToTurnerCOmbinators.pdf)
+
+[Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland. Hughes, R.J.M. 1984. The design and implementation of programming languages. PhD thesis, PRG-40. Programming Research Group, Oxford.](Curry58_CombinatoryLogic.djvu)
+
+[Joy, M.S., Rayward-Smith, V.J., and Burton, F.W. 1985. Efficient combinator code. Computer Languages. Vol. 10, no. 3/4, pp. 211-24.](joy85_EfficientCombinatorCode.pdf)
+
+Kennaway, J.R. 1982. The Complexity of a Translation of Lambda Calculus to Combinators. Department of Computer Science, University of East Anglia.
+
+[Kennaway, J.R., and Sleep, M.R. 1982a. Director Strings as Combinators. Department ofComputer Science, University of East Anglia.](kennaway88_DirectorStringsAsCombinators.pdf)
+
+Kennaway, J.R., and Sleep, M.R. 1982b. Counting Director Strings. Department of Computer Science, University ofEast Anglia.
+
+[Scheevel, M., 1986. Norma: a graph reduction processor. In Proceedings ofthe ACM Conference on Lisp and Functional Programming, Cambridge, Mass., pp. 212-19. August.](scheevel86_NORMA_AGraphReductionProcessor.pdf)
+
+[Stoye, W.R. 1983. The SKIM microprogrammer’s guide. Technical Report 31. University of Cambridge. October.](stoy83_TheSKIMMicroprogrammersGuide.pdf)
+
+[Stoye, W.R. 1985. The implementation of functional languages using custom hardware. PhD thesis, Computer Lab., University ofCambridge. May.](stoye85_TheImplementationOfFunctionalLanguagesUsingCustomHardware.pdf)
+
+[Turner, D.A. 1976. SASL Reference Manual. University of St Andrews.](turner83_saslmanual.pdf)
+
+[Turner, D.A. 1979a. A new implementation technique for applicative languages. Software— Practice and Experience. Vol. 9, pp. 31-49.](turner79_ANewImplementationTechniqueForApplicativeLanguages.pdf)
+
+[Turner, D.A. 1979b. Another algorithm for bracket abstraction. Journal of Symbolic Logic. Vol. 44, no. 2, pp. 67-270](turner79_AnotherAlgorithmForBracketAbstraction.pdf)

@@ -40,3 +40,9 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 ## CH15
 
 Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.
+
+## CH16
+
+Kennaway, J.R. 1982. The Complexity of a Translation of Lambda Calculus to Combinators. Department of Computer Science, University of East Anglia.
+
+Kennaway, J.R., and Sleep, M.R. 1982b. Counting Director Strings. Department of Computer Science, University ofEast Anglia.
