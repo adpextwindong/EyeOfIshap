@@ -24,3 +24,9 @@ Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Grou
 ## CH5
 
 Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriting Systems. INRIA technical report 359.
+
+## CH11
+
+Arvind, Kathail, V., and Pingali, K. 1984. Sharing of Computation in Functional Language Implementations. Laboratory for Computer Science, MIT.July.
+
+Watson, P., Watson, I., and Woods, V. 1986. A Model of Computation for the Parallel Evaluation of Functional Languages. PMP/MU/PW/000001. Department of ComputerScience, University of Manchester. February.
