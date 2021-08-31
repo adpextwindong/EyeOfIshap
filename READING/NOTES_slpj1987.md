@@ -310,3 +310,7 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 ## CH10
 
 ### References
+
+[Clarke, T.J.W., Gladstone, P.J.S., Maclean, C., and Norman, A.C. 1980. SKIM — The SKI reduction machine. Proceedings of the ACM Lisp Conference, Stanford, Calif. 95044.](clarke80_TheSKIReductionMachine.pdf)
+
+[Richards, H. 1985. An Overview of Burroughs NORMA. Austin Research Center, Burroughs Corp., Austin, Texas. January](scheevel86_NORMA_AGraphReductionProcessor.pdf)
