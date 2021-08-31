@@ -31,7 +31,7 @@ The functional programming languages predating 1987:
 
 - Hope [Burstall et al., 1980](burstall80_Hope.pdf)
 
-- Ponder [Fairbairn, 1985](Fairbairn75DesignAndImplementationOfASimpleTypedLanguageBasedOnTheLambdaCalculus.pdf)
+- Ponder [Fairbairn, 1985](Fairbairn85DesignAndImplementationOfASimpleTypedLanguageBasedOnTheLambdaCalculus.pdf)
 
 - LML [Augustsson, 1984](augustsson84_ACompilerForLazyML.pdf)
 
@@ -386,3 +386,15 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 [Hudak, P., and Kranz, D. 1984. A combinator based compiler for a functional language. In Proceedings of the 11th ACM Symposium on  Principles of Programming Languages, pp. 122-32. January.](Hudak84_ACombinatorBasedCompilerForAFunctionalLanguage.pdf)
 
 [Johnsson, T. 1985. Lambda-lifting— transforming programsto recursive equations. In Conference on Functional Programming and Computer Architecture, Nancy, pp. 190-203. Jouannaud (editor). LNCS 201. Springer Verlag](johnsson85_LambdaLiftingTransformingProgramsToRecursiveEquations.pdf)
+
+## CH15
+
+### CH15 References
+
+[Fairbairn, J. 1985. The design and implementation of a simple typed language based on the lambda calculus, pp. 59-60. PhD thesis, Technical  Report 75. University of Cambridge. May.](Fairbairn85DesignAndImplementationOfASimpleTypedLanguageBasedOnTheLambdaCalculus.pdf)
+
+[Hudak, P., and Goldberg, B. 1985. Serial combinators. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 382-99. Jouannaud(editor). LNCS 201. Springer Verlag.](Hudak85_SerialCombinators.pdf)
+
+[Hughes, R.J.M. 1984. The design and implementation of programming languages. PhD thesis, PRG-40. Programming Research Group, Oxford. September.](Hughes84_TheDesignAndImplementationOfProgrammingLanguages.pdf)
+
+Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.
