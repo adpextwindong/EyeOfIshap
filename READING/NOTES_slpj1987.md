@@ -289,3 +289,15 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 [Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume Two. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol2.pdf)
 
 [Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume Three. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol3.pdf)
+
+# CH9
+
+[Damas-Hindley-Milner](http://dev.stephendiehl.com/fun/006_hindley_milner.html)
+
+## References
+
+[Damas,L. 1985.Type Assignment in Programming Languages. CST-33-35. Department of Computer Science, University of Edinburgh. April.](Damas84_TypeAssignmentInProgrammingLanguages.pdf)
+
+[Robinson, J.A. 1965. A machine-oriented logic based on the resolution principle. JournaloftheACM.Vol. 12,no. 1, pp. 23-41.](robinson65_AMachineOrientedLogicBasedOnTheResolutionPrinciple.pdf)
+
+[Wadler, P. 1985. How to replace failure by a list of successes. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud(editor). LNCS 201. Springer Verlag.](85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
