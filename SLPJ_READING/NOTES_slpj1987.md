@@ -1,21 +1,24 @@
-# Introduction
+# THE IMPLEMENTATION OF FUNCTIONAL PROGRAMMING LANGUAGES - Simon L. Peyton Jones
 
 ## CH1. Introduction
 
 Implementing functional programming languages using _lazy graph reduction_
 
-### 1.
+### 1
+
 - Translation from high level functional language into Lambda Calculus
 - Pattern Matching
 - Type Checking
 
-### 2.
+### 2
+
 - Refinements and alternatives such as:
 - Super Combinators
 - Full laziness
 - SK combinators
 
-### 3.
+### 3
+
 - G-machine
 
 The functional programming languages predating 1987:
@@ -105,7 +108,7 @@ Glaser, H., Hankin, C., and Till, D. 1984. Principles of Functional Programming.
 
 [Wadler, P. 1985. Introduction to Orwell. Programming Research Group, University of Oxford.](Wadler85_orwell.pdf)
 
-# Part I - Compiling High Level Functional Languages
+## Part I - Compiling High Level Functional Languages
 
 ## Chapter 2 - The Lambda Calculus
 
@@ -124,7 +127,7 @@ A simple expression
 
 All function applications in the lambda calculus are written in the prefix form. A more complex example.
 
-NOTE: The Vim digraph command for Lambda is <ctrl>kl*
+NOTE: The Vim digraph command for Lambda is \<ctrl>kl*
       See :digraphs for more.
 ```
 (+ (* 5 6) (* 8 3))
@@ -191,6 +194,7 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 - δ-reduction: Calculation with predefined function on predefined data types
 
 ### CH2 References
+
 [Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.](Barendregt80_LambdaCalculus.pdf)
 
 [Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.](Church41_TheCalculiOfLambdaConversion.pdf)
@@ -219,7 +223,7 @@ Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem a
 
 ## CH3
 
-### References
+### CH3 References
 
 [Gordon, M.J.C. 1979. The Denotational Description of Programming Languages. Springer Verlag.](gordon79_DenotationalDescriptionOfProgrammingLanguages.djvu)
 
@@ -227,7 +231,7 @@ Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem a
 
 ## CH4
 
-### References
+### CH4 References
 
 [Burstall, R.M. 1969. Proving properties of programs by structural induction. The Computer Journal. Vol. 12, No. 1, pp. 41-8.](Burstall69_ProvingPropertiesOfProgramsByStructuralInduction)
 
@@ -259,7 +263,7 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 ## CH6
 
-### References
+### CH6 References
 
 [Aho, A.V., Hopcroft, J.E., and Ullman, D. 1974. The Design and Analysis of Computer Algorithms, pp. 189-95. Addison Wesley.](Aho74_TheDesignAndAnalysisOfComputerAlgorithms.pdf)
 
@@ -271,13 +275,13 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 ## CH7
 
-### References
+### CH7 References
 
 [Turner, D.A. 1982. Recursion equations as a programming language. In Functional Programming and Its Applications. Darlington et al. (editors). Cambridge University Press](turner82_RecursionEquations.pdf)
 
 ## CH8
 
-### References
+### CH8 References
 
 [Gaeck, P., and Black, M. (editors) 1970. Function and concept. In Translations from the Philosophical Writings of Gottlob Frege. Basil Blackwell.](Gaeck70_TranslationsFromThePhilosophicalWritingsOfGottlobFregeBasilBlackwell.pdf)
 
@@ -297,7 +301,7 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 [Damas-Hindley-Milner](http://dev.stephendiehl.com/fun/006_hindley_milner.html)
 
-### References
+### CH9 References
 
 [Damas,L. 1985.Type Assignment in Programming Languages. CST-33-35. Department of Computer Science, University of Edinburgh. April.](Damas84_TypeAssignmentInProgrammingLanguages.pdf)
 
@@ -305,11 +309,11 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 [Wadler, P. 1985. How to replace failure by a list of successes. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud(editor). LNCS 201. Springer Verlag.](85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
 
-# Part II - Graph Reduction
+## Part II - Graph Reduction
 
 ## CH10
 
-### References
+### CH10 References
 
 [Clarke, T.J.W., Gladstone, P.J.S., Maclean, C., and Norman, A.C. 1980. SKIM — The SKI reduction machine. Proceedings of the ACM Lisp Conference, Stanford, Calif. 95044.](clarke80_TheSKIReductionMachine.pdf)
 
@@ -317,7 +321,7 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 ## CH11
 
-### References
+### CH11 References
 
 [Abelson, H., and Sussman, G.J. 1985. Structure and Interpretation of Computer Programs. MITPress.](sussman85_SICP.pdf)
 
@@ -341,10 +345,35 @@ Watson, P., Watson, I., and Woods, V. 1986. A Model of Computation for the Paral
 
 ## CH12
 
-### References
+### CH12 References
 
 [Hughes, R.J.M. 1985. Lazy memo functions. In Proceedings of the IFIP Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 129-46, Jouannaud(editor). LNCS 201. Springer Verlag. September.](Hughes85_LazyMemoFunctions.pdf)
 
 Mago, G.A. 1980. A cellular computer architecture for functional programming. IEEE Computer Society COMPCON,pp.179-87.
 
 Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.
+
+## CH13
+
+Barendregt, H.P. 1984. The Lambda Calculus:itssyntaxandsemantics, 2nd edition,p.24. North-Holland.
+
+Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.
+
+De Bruijn, N.G. 1972. Lambda calculus notation with nameless dummies. Indagationes Mathematicae. Vol. 34, pp. 381-92.
+
+Henderson, P. 1980. Functional Programming: application and implementation. Prentice-Hall.
+
+Hoffman, C.M., and O'Donnell, M.J. 1982. Programming with equations. ‘ACM TOPLAS.Vol. 4, no. 1, pp. 83-112.
+
+Hughes, R.J.M. 1984. The design and implementation of programming languages. PhDthesis, PRG-40, Programming Research Group, Oxford. September.
+
+Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceeding oftheACM Symposium on Compiler Construction, Montreal, pp. 58-69. June.
+
+Johnsson, T. 1985. Lambdalifting: transforming programs to recursive equations. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud (editor). LNCS 201. Springer Verlag.
+
+Keller, R.M. 1985. Distributed graph reduction from first principles. Department of ComputerScience, University ofUtah.' Klop, J.W.1980. Combinatory reduction systems. PhD thesis, Mathematisch
+Centrum, Amsterdam.
+
+[Landin, P.J. 1964. The mechanical evaluation of expressions. Computer Journal. Vol. 6, pp. 308-20.](Landin64.pdf)
+
+O’Donnell, M.J. 1977. Computing in Systems Described by Equations. LNCS 58,, Springer Verlag.
