@@ -1,19 +1,21 @@
-# Intro
+# Introduction
+
+## CH1. Introduction
 
 Implementing functional programming languages using _lazy graph reduction_
 
-## 1.
+### 1.
 - Translation from high level functional language into Lambda Calculus
 - Pattern Matching
 - Type Checking
 
-## 2.
+### 2.
 - Refinements and alternatives such as:
 - Super Combinators
 - Full laziness
 - SK combinators
 
-## 3.
+### 3.
 - G-machine
 
 The functional programming languages predating 1987:
@@ -40,7 +42,7 @@ ML and Hope being the strict languages in this group.
 
 A super set of Lambda Calculus called _enriched lambda calculus_ will be used to specifically allow a straightfoward translation of a Miranda program into an expression in the enriched lambda calculus. This will be shown in chapter 3.
 
-## Graph Reduction
+### Graph Reduction
 
 ```Haskell
 f x = (x + 1) * (x - 1)
@@ -77,8 +79,7 @@ Reductions may safely take place in a variety of orders, even parallel, since th
 
 When there are no further reducible expressions evaluation is completed.
 
-# CH1 References
---TODO link these
+### CH1 References
 
 [Abelson, H., and Sussman, G.J. 1985. Structure and Interpretation of Computer Programs. MIT Press.](https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book.html)
 
@@ -104,7 +105,9 @@ Glaser, H., Hankin, C., and Till, D. 1984. Principles of Functional Programming.
 
 [Wadler, P. 1985. Introduction to Orwell. Programming Research Group, University of Oxford.](Wadler85_orwell.pdf)
 
-# Chapter 2 - The Lambda Calculus
+# Part I - Compiling High Level Functional Languages
+
+## Chapter 2 - The Lambda Calculus
 
 The lambda calculus as an intermediate language has two things going for it:
 
@@ -112,7 +115,7 @@ Simplicity and Expressiveness
 
 You only need to support a few constructs and it has simple semantics for reasoning about correctness of the implementation. It can also express all functional prgorams (and all computable functions) meaning we can implement other functional languages by translating them down to the lambda calculus.
 
-## 2.1 The Syntax of the Lambda Calculus
+### 2.1 The Syntax of the Lambda Calculus
 
 A simple expression
 ```
@@ -140,7 +143,7 @@ Evaluation proceeds by repeatedly selecting a _reducible expression_ (or _redex_
 
 When there are several avalible redexes we have a choice of which one to reduce first.
 
-## 2.2 Function Application and Currying
+### 2.2 Function Application and Currying
 
 In the lambda calculus function application is denoted by simple juxtaposition
 
@@ -187,7 +190,7 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 
 - δ-reduction: Calculation with predefined function on predefined data types
 
-## CH2 References
+### CH2 References
 [Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.](BarendregtLambdaCalculus.pdf)
 
 [Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.](Church41_TheCalculiOfLambdaConversion.pdf)
@@ -214,17 +217,17 @@ Kennaway, J.R. 1984. An Outline of Some Results of Staples on Optimal Reduction 
 
 Welch,P. 1975. Some Notes on the Martin-Lof Proof of the Church Rosser Theorem as Rediscovered by Park. Computer Lab., University of Kent. October.
 
-# CH3
+## CH3
 
-## References
+### References
 
 [Gordon, M.J.C. 1979. The Denotational Description of Programming Languages. Springer Verlag.](gordon79_DenotationalDescriptionOfProgrammingLanguages.djvu)
 
 [Turner, D.A. 1985. Miranda — a non-strict functional language with polymorphic types. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 1-16, Jouannaud(editor). LNCS 201. Springer Verlag.](turner85_Miranda.pdf)
 
-# CH4
+## CH4
 
-## References
+### References
 
 [Burstall, R.M. 1969. Proving properties of programs by structural induction. The Computer Journal. Vol. 12, No. 1, pp. 41-8.](Burstall69_ProvingPropertiesOfProgramsByStructuralInduction)
 
@@ -240,9 +243,9 @@ Turner, D.A., 1981.. Aspects of the implementation of programming languages. D.P
 
 Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Group, Oxford. January.
 
-# CH5
+## CH5
 
-## References
+### References
 
 [Augustsson, L. 1985. Compiling pattern matching. In Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 368-81. Jouannaud(editor), LNCS 201. Springer Verlag.](Augustsson85_CompilingPatternMatching.pdf)
 
@@ -254,9 +257,9 @@ Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Grou
 
 Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriting Systems. INRIA technical report 359.
 
-# CH6
+## CH6
 
-## References
+### References
 
 [Aho, A.V., Hopcroft, J.E., and Ullman, D. 1974. The Design and Analysis of Computer Algorithms, pp. 189-95. Addison Wesley.](Aho74_TheDesignAndAnalysisOfComputerAlgorithms.pdf)
 
@@ -266,15 +269,15 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 [Dijkstra, E.W. 1976. A Discipline of Programming, pp. 192-200. Prentice Hall.](Dijkstra76_ADisciplineOfProgramming.pdf)
 
-# CH7
+## CH7
 
-## References
+### References
 
 [Turner, D.A. 1982. Recursion equations as a programming language. In Functional Programming and Its Applications. Darlington et al. (editors). Cambridge University Press](turner82_RecursionEquations.pdf)
 
-# CH8
+## CH8
 
-## References
+### References
 
 [Gaeck, P., and Black, M. (editors) 1970. Function and concept. In Translations from the Philosophical Writings of Gottlob Frege. Basil Blackwell.](Gaeck70_TranslationsFromThePhilosophicalWritingsOfGottlobFregeBasilBlackwell.pdf)
 
@@ -290,14 +293,20 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 [Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume Three. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol3.pdf)
 
-# CH9
+## CH9
 
 [Damas-Hindley-Milner](http://dev.stephendiehl.com/fun/006_hindley_milner.html)
 
-## References
+### References
 
 [Damas,L. 1985.Type Assignment in Programming Languages. CST-33-35. Department of Computer Science, University of Edinburgh. April.](Damas84_TypeAssignmentInProgrammingLanguages.pdf)
 
 [Robinson, J.A. 1965. A machine-oriented logic based on the resolution principle. JournaloftheACM.Vol. 12,no. 1, pp. 23-41.](robinson65_AMachineOrientedLogicBasedOnTheResolutionPrinciple.pdf)
 
 [Wadler, P. 1985. How to replace failure by a list of successes. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud(editor). LNCS 201. Springer Verlag.](85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
+
+# Part II - Graph Reduction
+
+## CH10
+
+### References
