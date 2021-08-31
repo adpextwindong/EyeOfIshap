@@ -338,3 +338,13 @@ Arvind, Kathail, V., and Pingali, K. 1984. Sharing of Computation in Functional 
 [Turner, D.A. 1983. The SASL Language Manual. University of Kent. November.](turner83_saslmanual.pdf)
 
 Watson, P., Watson, I., and Woods, V. 1986. A Model of Computation for the Parallel Evaluation of Functional Languages. PMP/MU/PW/000001. Department of ComputerScience, University of Manchester. February.
+
+## CH12
+
+### References
+
+[Hughes, R.J.M. 1985. Lazy memo functions. In Proceedings of the IFIP Conference on Functional Programming Languages and Computer Architecture, Nancy, pp. 129-46, Jouannaud(editor). LNCS 201. Springer Verlag. September.](Hughes85_LazyMemoFunctions.pdf)
+
+Mago, G.A. 1980. A cellular computer architecture for functional programming. IEEE Computer Society COMPCON,pp.179-87.
+
+Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.

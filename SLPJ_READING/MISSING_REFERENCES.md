@@ -30,3 +30,9 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 Arvind, Kathail, V., and Pingali, K. 1984. Sharing of Computation in Functional Language Implementations. Laboratory for Computer Science, MIT.July.
 
 Watson, P., Watson, I., and Woods, V. 1986. A Model of Computation for the Parallel Evaluation of Functional Languages. PMP/MU/PW/000001. Department of ComputerScience, University of Manchester. February.
+
+## CH12
+
+Mago, G.A. 1980. A cellular computer architecture for functional programming. IEEE Computer Society COMPCON,pp.179-87.
+
+Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4. PhD thesis, Oxford.
