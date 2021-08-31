@@ -253,3 +253,15 @@ Wadler, P. 1985. A Splitting Headache— and Its Cure. Programming Research Grou
 [Hoffmann, C.M., and O’Donnell, M.J. 1983. Implementation of an interpreter for abstract equations. In 10th ACM Symposium on Principles of Programming Languages, pp. 111-21. ACM.](Hoffman83_ImplementationOfAnInterpreterForAbstractEquations.pdf)
 
 Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriting Systems. INRIA technical report 359.
+
+# CH6
+
+## References
+
+[Aho, A.V., Hopcroft, J.E., and Ullman, D. 1974. The Design and Analysis of Computer Algorithms, pp. 189-95. Addison Wesley.](Aho74_TheDesignAndAnalysisOfComputerAlgorithms.pdf)
+
+[Aho, A.V., Hopcroft, J.E., and Ullman, D. 1983a. Data Structures and Algorithms, pp. 222-6. Addison Wesley.](Aho85_DataStructuresAndAlgorithms.djvu)
+
+[Aho, A.V., Hopcroft, J.E., and Ullman, D. 1983b. Data Structures and Algorithms, pp. 221-2. Addison Wesley.](Aho85_DataStructuresAndAlgorithms.djvu)
+
+[Dijkstra, E.W. 1976. A Discipline of Programming, pp. 192-200. Prentice Hall.](Dijkstra76_ADisciplineOfProgramming.pdf)
