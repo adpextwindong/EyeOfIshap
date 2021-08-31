@@ -355,25 +355,24 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 
 ## CH13
 
-Barendregt, H.P. 1984. The Lambda Calculus:itssyntaxandsemantics, 2nd edition,p.24. North-Holland.
+[Barendregt, H.P. 1984. The Lambda Calculus: Its Syntax and Semantics, 2nd edition,p.24. North-Holland.](SLPJ_READING\Barendregt80_LambdaCalculus.pdf)
 
-Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.
+[Curry, H.B., and Feys, R. 1958. Combinatory Logic, Vol. 1. North-Holland.](Curry58_CombinatoryLogic.djvu)
 
-De Bruijn, N.G. 1972. Lambda calculus notation with nameless dummies. Indagationes Mathematicae. Vol. 34, pp. 381-92.
+[De Bruijn, N.G. 1972. Lambda calculus notation with nameless dummies. Indagationes Mathematicae. Vol. 34, pp. 381-92.](SLPJ_READING\DeBruijn72_LambdaCalculusNotationWithNamelessDummies.pdf)
 
-Henderson, P. 1980. Functional Programming: application and implementation. Prentice-Hall.
+[Henderson, P. 1980. Functional Programming: application and implementation. Prentice-Hall.](SLPJ_READING\Henderson80_FunctionalProgramming.djvu)
 
-Hoffman, C.M., and O'Donnell, M.J. 1982. Programming with equations. ‘ACM TOPLAS.Vol. 4, no. 1, pp. 83-112.
+[Hoffman, C.M., and O'Donnell, M.J. 1982. Programming with equations. ‘ACM TOPLAS.Vol. 4, no. 1, pp. 83-112.](hoffman1982_ProgrammingWithEquations.pdf)
 
-Hughes, R.J.M. 1984. The design and implementation of programming languages. PhDthesis, PRG-40, Programming Research Group, Oxford. September.
+[Hughes, R.J.M. 1984. The design and implementation of programming languages. PhDthesis, PRG-40, Programming Research Group, Oxford. September.](Hughes84_TheDesignAndImplementationOfProgrammingLanguages.pdf)
 
-Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceeding oftheACM Symposium on Compiler Construction, Montreal, pp. 58-69. June.
+[Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceeding of the ACM Symposium on Compiler Construction, Montreal, pp. 58-69. June.](johnsson2004_84_EfficientCompilationOfLazyEvaluation.pdf)
 
-Johnsson, T. 1985. Lambdalifting: transforming programs to recursive equations. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud (editor). LNCS 201. Springer Verlag.
+[Johnsson, T. 1985. Lambdalifting: transforming programs to recursive equations. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud (editor). LNCS 201. Springer Verlag.](johnsson85_LambdaLiftingTransformingProgramsToRecursiveEquations.pdf)
 
-Keller, R.M. 1985. Distributed graph reduction from first principles. Department of ComputerScience, University ofUtah.' Klop, J.W.1980. Combinatory reduction systems. PhD thesis, Mathematisch
-Centrum, Amsterdam.
+[Keller, R.M. 1985. Distributed graph reduction from first principles. Department of Computer Science, University of Utah.' Klop, J.W.1980. Combinatory reduction systems. PhD thesis, Mathematisch Centrum, Amsterdam.](Keller85_DistributedComputationByGraphReduction.pdf)
 
 [Landin, P.J. 1964. The mechanical evaluation of expressions. Computer Journal. Vol. 6, pp. 308-20.](Landin64.pdf)
 
-O’Donnell, M.J. 1977. Computing in Systems Described by Equations. LNCS 58,, Springer Verlag.
+[O’Donnell, M.J. 1977. Computing in Systems Described by Equations. LNCS 58, Springer Verlag.](ODonnell77_ComputingInSystesmDescribedByEquations.djvu)
