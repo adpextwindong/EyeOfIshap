@@ -271,3 +271,21 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 ## References
 
 [Turner, D.A. 1982. Recursion equations as a programming language. In Functional Programming and Its Applications. Darlington et al. (editors). Cambridge University Press](turner82_RecursionEquations.pdf)
+
+# CH8
+
+## References
+
+[Gaeck, P., and Black, M. (editors) 1970. Function and concept. In Translations from the Philosophical Writings of Gottlob Frege. Basil Blackwell.](Gaeck70_TranslationsFromThePhilosophicalWritingsOfGottlobFregeBasilBlackwell.pdf)
+
+[Milner, R. 1978. A theory of type polymorphism in programming. Journal of Computer and System Science. Vol. 17, pp. 348-75.](Milner78_ATheoryOfTypePolymorphismInProgramming.pdf)
+
+[Mycroft, A. 1984. Polymorphic type schemes and recursive definitions. In Proceedings of the International Symposium on Programming, Toulouse, pp. 217-39. LNCS 167. Springer Verlag.](Mosses74.pdf)
+
+[Strachey, C. 1967. Fundamental concepts in programming languages. In Notes for the International Summer School in Computer Programming, Copenhagen.](strachey67_2000_FundamentalConceptsInProgrammingLanguages.pdf)
+
+[Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume One. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol1.pdf)
+
+[Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume Two. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol2.pdf)
+
+[Whitehead, A.N., and Russell, B.A.W. 1910-1913. Principia Mathematica, Volume Three. Cambridge University Press.](WhiteheadRussell_PrincipaMathematica_Vol3.pdf)
