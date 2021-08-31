@@ -20,7 +20,7 @@ Implementing functional programming languages using _lazy graph reduction_
 
 The functional programming languages predating 1987:
 
-- SASL [Turner, 1976](salsman.pdf)
+- SASL [Turner, 1976](turner83_saslmanual.pdf)
 
 - ML [Gorden et al., 1979](Gordon79_LectureNotesInComputerScience.pdf)
 
@@ -191,7 +191,7 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 - δ-reduction: Calculation with predefined function on predefined data types
 
 ### CH2 References
-[Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.](BarendregtLambdaCalculus.pdf)
+[Barendregt, H.P. 1984. The Lambda Calculus—Its Syntax and Semantics, 2nd edition. North-Holland.](Barendregt80_LambdaCalculus.pdf)
 
 [Church, A. 1941. The Calculi of Lambda Conversion. Princeton University Press.](Church41_TheCalculiOfLambdaConversion.pdf)
 
@@ -314,3 +314,27 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 [Clarke, T.J.W., Gladstone, P.J.S., Maclean, C., and Norman, A.C. 1980. SKIM — The SKI reduction machine. Proceedings of the ACM Lisp Conference, Stanford, Calif. 95044.](clarke80_TheSKIReductionMachine.pdf)
 
 [Richards, H. 1985. An Overview of Burroughs NORMA. Austin Research Center, Burroughs Corp., Austin, Texas. January](scheevel86_NORMA_AGraphReductionProcessor.pdf)
+
+## CH11
+
+### References
+
+Abelson, H., and Sussman, G.J. 1985. Structure and Interpretation of Computer Programs. MITPress.
+
+Arvind, Kathail, V., and Pingali, K. 1984. Sharing of Computation in Functional Language Implementations. Laboratory for Computer Science, MIT.July.
+
+Barendregt, H.P., Kennaway, J.R., Klop, J.W., and Sleep, M.R. 1986. Needed reduction and spine strategies for the lambdacalculus. Report CS-R8621. Centre for Mathematics and Computer Science, Amsterdam. May.
+
+Henderson, P. 1980. Functional Programming — Application and Implementation. Prentice-Hall.
+
+Peyton Jones, S.L. 1986. Functional programminglanguages asasoftware engineering tool. In Software Engineering - The Critical Decade. Ince (editor). Peter Peregrinus.
+
+[Scheevel, M. 1986. Norma: a graph reduction processor. In Proceedings of the ACM Conference on Lisp and Functional Programming, Cambridge, Mass., pp. 212-19. August.]()
+
+Schorr, H., and Waite, W. 1967. An efficient machine independent procedure for garbage collection. Communications ofthe ACM. Vol.10, no. 8, pp. 501-6.
+
+Stoye, W.R., Clarke, T.J.W., and Norman, A.C. 1984. Some practical methods for rapid combinator reduction. In Proceedings ofthe ACM Symposium on Lisp and Functional Programming, Austin, pp. 159-66. August.
+
+[Turner, D.A. 1983. The SASL Language Manual. University of Kent. November.](turner83_saslmanual.pdf)
+
+Watson, P., Watson, I., and Woods, V. 1986. A Model of Compuiation for the Parallel Evaluation of Functional Languages. PMP/MU/PW/000001. Department of ComputerScience, University of Manchester. February.
