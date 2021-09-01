@@ -62,3 +62,11 @@ Elworthy, D. 1985. Implementing a Ponder cross compiler for the SKIM processor. 
 Field, A. 1985. The Compilation of FP/M Programs into Conventional Machine Code. Dept Comp.Sci., Imperial College. June.
 
 Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Programming Research Group, Oxford. December.
+
+## CH19
+
+### References
+
+Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley. Bauer, F.L., and Eickel, J. 1976. Compiler Construction. Springer Verlag.
+
+--TODO SCAN THIS ONCE IT ARRIVES STATESIDE

@@ -506,3 +506,13 @@ Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Prog
 [Richards, M. 1971. The portability of the BCPL compiler. Software — Practice and Experience. Vol. 1, no. 2, pp. 135-46.](richards71_ThePortabilityOfTheBCPLCompiler.pdf)
 
 [Steele, G.L., and Sussman, G.J. 1978. The Revised Report on Scheme. Al Memo452, MIT. January.](steele78_TheRevisedReportOnScheme.pdf)
+
+## CH19
+
+### CH19 References
+
+Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley. Bauer, F.L., and Eickel, J. 1976. Compiler Construction. Springer Verlag.
+
+[Landin, P.J. 1964. The mechanical evaluation of expressions. ComputerJournal. Vol. 6, pp. 308-20.](Landin64_TheMechanicalEvaluationOfExpressions.pdf)
+
+[Wulf, W., Johnsson, R.K., Weinstock, C.B., Hobbs, S.O., and Geschke, C.M. 1975.The Design of an Optimising Compiler. Elsevier.](Wulf77_TheDesignOfAnOptimizingCompiler.djvu)
