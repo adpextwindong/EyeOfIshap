@@ -307,7 +307,7 @@ Huet, G., and Levy, J.J. 1979. Computations in Non-ambiguous Linear Term Rewriti
 
 [Robinson, J.A. 1965. A machine-oriented logic based on the resolution principle. JournaloftheACM.Vol. 12,no. 1, pp. 23-41.](robinson65_AMachineOrientedLogicBasedOnTheResolutionPrinciple.pdf)
 
-[Wadler, P. 1985. How to replace failure by a list of successes. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud(editor). LNCS 201. Springer Verlag.](85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
+[Wadler, P. 1985. How to replace failure by a list of successes. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud(editor). LNCS 201. Springer Verlag.](Jouannaud85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
 
 ## Part II - Graph Reduction
 
@@ -426,3 +426,49 @@ Kennaway, J.R., and Sleep, M.R. 1982b. Counting Director Strings. Department of 
 [Turner, D.A. 1979a. A new implementation technique for applicative languages. Software— Practice and Experience. Vol. 9, pp. 31-49.](turner79_ANewImplementationTechniqueForApplicativeLanguages.pdf)
 
 [Turner, D.A. 1979b. Another algorithm for bracket abstraction. Journal of Symbolic Logic. Vol. 44, no. 2, pp. 67-270](turner79_AnotherAlgorithmForBracketAbstraction.pdf)
+
+## CH17
+
+### CH17 References
+
+[Aerts, J.P.H. 1981. Implementing SASL without Garbage Collection. EUT-Report 81-WSK-05. Eindhoven Univ. of Technology. November.](Aerts81_ImplementingSASLWithoutGarbageCollection.pdf)
+
+[Baker, H. 1978. List processing in real time on a serial computer. Communications of the ACM.Vol. 21, no.4, pp. 280-94.](Baker78_ListProcessingInRealTimeOnASerialComputer.pdf)
+
+[Ben-Ari, M. 1984. Algorithms for on-the-fly garbage collection. ACM TOPLAS.Vol. 6, no. 3, pp. 333-44.](ben-ari84_AlgorithmsForOnTheFlyGarbageCollection.pdf)
+
+[Bobrow, D.G. 1980. Managing reentrant structures using reference-counts. ACM TOPLAS.Vol.2,no. 3, pp. 269-73.](bobrow80_ManagingReentraceStructuresUsingReferenceCounts.pdf)
+
+[Brownbridge, D. 1985. Cyclic reference-counting for combinator machines. in Proceedings ofthe IFIP Conference on Functional Programming and Computer Architecture, Nancy. September.](Jouannaud85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
+
+[Cohen,J. 1981. Garbage collection of linked datastructures. ACMComputing Surveys. Vol. 13, no. 3, pp. 341-67.](cohen81_GarbageCollectionOfLinkedDataStructures.pdf)
+
+[Dijkstra, E.W., Lamport, L., Martin, A.J., Scholten, C.S., and Steffens, E.F.M. 1978. On-the-fly garbage collection—an exercise in cooperation. Communications of the ACM.Vol. 21, no. 11, pp. 966-75.](Dijkstra78_OnTheFlyGarbageCollection.pdf)
+
+[Hudak, P. 1983a. Distributed Graph Marking. Research report 268, Computer Science Dept, Yale. January.](Hudak83_DistributedGraphMarking.pdf)
+
+[Hudak, P. 1983b. Distributed task and memory management. in Proceedings of the ACM Symposium on Principles of Distributed Computing, pp. 277-89. August.](Hudak83_DistributedTaskAndMemoryManagement.pdf)
+
+Hughes, R.J.M. 1982. Reference-counting with Circular Structures in Virtual Memory Applicative Systems. Programming Research Group, Oxford.
+
+[Hughes, R.J.M. 1985. A distributed garbage collection algorithm. in Proceedings of the IFIP Conf. on Functional Programming and Computer Architecture, Nancy, pp 256-72. Jouannaud(editor). LNCS 201, Springer Verlag. September.](Jouannaud85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
+
+[Knuth, D. 1976. The Art of Computer Programming. Vol. 1, Section 2.5. Addison Wesley.](TAOCP_Vol1_FundamentalAlgorithms.pdf)
+
+[Kung, H.T., and Wong, S.W. 1977. An Efficient Parallel Garbage Collection System, and its Correctness Proof. Dept of Comp. Sci., Carnegie-Mellon Univ. September.](Kung77_AnEfficientParallelGarbageCollectionSystemAndItsCorrectnessProof.pdf)
+
+[Lieberman, H., and Hewitt, C. 1983. A real time garbage collector based on the lifetimes of objects. Communications of the ACM.Vol. 26, no. 6, pp. 419-29.](Lieberman83_ARealTimeGarbageCollectorBasedOnTheLifetimesOfObjects.pdf)
+
+Mohamed-Ali, K.A. 1984. Object oriented storage management and garbage collection in distributed processing systems. PhD Thesis, report TRITA-CS-8406. Royal Institute of Technology, Stockholm. December.
+
+[Schorr, H., and Waite, W. 1967. An efficient machine independent procedure for garbage collection. Communications of the ACM.Vol. 10, no. 8, pp. 501-6.](schorr67_AnEfficientMachineIndependentProcedureForGarbageCollection.pdf)
+
+[Steele, G.L. 1975. Multiprocessing compactifying garbage collection. Communications of the ACM.Vol.18, no. 9, pp. 495-508.](steele75_MultiprocessingCompactifyingGarbageCollection.pdf)
+
+[Stoye, W.R., Clarke, T.J.W., and Norman, A.C. 1984. Some practical methods for rapid combinator reduction. In Proceedings of the ACM Symposium on Lisp and Functional Programming, Austin, pp. 159-66. August.](stoye84_SomePracticalMethodsForRapidCombinatorReduction.pdf)
+
+[Wadler, P. 1984. Listlessness is better than laziness: lazy evaluation and garbage collection at compile-time. In Proceedings ofthe ACM Symposium on Lisp and Functional Programming, Austin, pp. 45-52. August.](Wadler84_ListlessnessIsBetterThanLaziness.pdf)
+
+[Wise, D. 1985. Design for a multiprocessing heap with on-board reference-counting. In Functional Programming and Computer Architecture, Nancy, pp. 289-304. Jouannaud (editor). LNCS 201. Springer Verlag.](Jouannaud85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
+
+[Wise, D.S., and Friedman, D.P. 1977. The one-bit reference-count. B/T. Vol. 17, no. 3, pp. 351-9.](Wise77_The_one_bit_reference_count.pdf)

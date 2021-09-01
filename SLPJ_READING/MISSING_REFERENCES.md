@@ -46,3 +46,9 @@ Wadsworth, C.P. 1971. Semantics and pragmatics of the lambda calculus, Chapter4.
 Kennaway, J.R. 1982. The Complexity of a Translation of Lambda Calculus to Combinators. Department of Computer Science, University of East Anglia.
 
 Kennaway, J.R., and Sleep, M.R. 1982b. Counting Director Strings. Department of Computer Science, University ofEast Anglia.
+
+## CH17
+
+Hughes, R.J.M. 1982. Reference-counting with Circular Structures in Virtual Memory Applicative Systems. Programming Research Group, Oxford.
+
+Mohamed-Ali, K.A. 1984. Object oriented storage management and garbage collection in distributed processing systems. PhD Thesis, report TRITA-CS-8406. Royal Institute of Technology, Stockholm. December.
