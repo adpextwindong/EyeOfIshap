@@ -560,3 +560,19 @@ Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley.
 [Wadler, P. 1985b. Listiessness is better than laziness 11: composing listless functions. In Programs as Data Objects, Ganzinger, H., and Jones, N.D. (editors). LNCS 217. Springer Verlag.](Wadler86_ListlessnessII.pdf)
 
 [Wray, S.C. 1986. Implementation and programming techniques for functional languages. PhD thesis, University of Cambridge. January.](Wray86_ImplementationAndProgrammingTechniquesForFunctionalLanguages.pdf)
+
+## CH23
+
+### CH23 References
+
+[Backus, J. 1978. Can programming be liberated from the von Neumann style? A functional style  and its algebra of programs. Communications ofthe ACM. Vol. 21, no. 8, pp. 613-41.](Backus78_CanProgrammingBeLiberatedFromTheVonNeumannStyle.pdf)
+
+Hughes, R.J.M. 1984. Parallel Functional Programs use Less Space. Programming
+Research Group, Oxford.
+
+Meira, S.R.L. 1985. On the efficiency of applicative algorithms. PhD thesis, Computer
+Laboratory, University of Kent, p. 36. March.
+
+[Stoye, W. 1985. The implementation of functional languages using custom hardware. PhD thesis, Computer Lab., University of Cambridge. May.](stoye85_TheImplementationOfFunctionalLanguagesUsingCustomHardware.pdf)
+
+[Turner, D.A. 1981. The semantic elegance of applicative languages. In Proceedings of the ACM Conference on Functional Languages and Computer Architecture, pp. 85-92. ACM.](turner81_TheSemanticEleganceOfApplicativeLanguages.pdf)

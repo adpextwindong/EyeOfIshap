@@ -1,5 +1,7 @@
 # Referenced items to be found
 
+https://ethos.bl.uk/
+
 ## CH1 
 
 Darlington, J. 1984. Functional programming. In Distributed Computing. Duce (Editor). Academic Press. --NOTE Cannot find this online at all
@@ -70,3 +72,12 @@ Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Prog
 Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley. Bauer, F.L., and Eickel, J. 1976. Compiler Construction. Springer Verlag.
 
 --TODO SCAN THIS ONCE IT ARRIVES STATESIDE
+
+## CH23
+
+Hughes, R.J.M. 1984. Parallel Functional Programs use Less Space. Programming Research Group, Oxford.
+
+[Meira, S.R.L. 1985. On the efficiency of applicative algorithms. PhD thesis, Computer
+Laboratory, University of Kent, p. 36. March.](https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.353183)
+
+--TODO figure out the scanning fee
