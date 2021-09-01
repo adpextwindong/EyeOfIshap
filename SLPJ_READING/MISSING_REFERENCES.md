@@ -81,3 +81,12 @@ Hughes, R.J.M. 1984. Parallel Functional Programs use Less Space. Programming Re
 Laboratory, University of Kent, p. 36. March.](https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.353183)
 
 --TODO figure out the scanning fee
+
+## CH24
+
+### References
+
+Clack, C.D., and Peyton Jones, S.L. 1985. Generating Parallelism from Strictness Analysis. Internal Note 1679, Dept Comp. Sci., University College London. February.
+
+Cripps, M.D., and Field, A.J. 1983, An Asynchronous Structure-independent Switching System with System-level Fault Tolerance. Dept Comp. Sci., Imperial College, London.
+
