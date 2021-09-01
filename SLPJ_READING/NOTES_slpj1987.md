@@ -523,3 +523,14 @@ Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley.
 
 [Augustsson, L. 1985. Compiling pattern matching. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud (editor). LNCS 201. Springer Verlag.](Augustsson85_CompilingPatternMatching.pdf)
 
+## CH21
+
+### CH21 References
+
+[Cardelli, L. 1983. The functional abstract machine. Polymorphism. Vol. 1, no.1.](cardelli83_functional-abstract-machine.pdf)
+
+[Cardelli, L. 1984. Compiling a functional language. In Proceedings of the ACM Symposium on Lisp and Functional Programming, Austin, pp. 208-17. August.](cardelli84_CompilingAFunctionalLanguage.pdf)
+
+[Steele, G.L. 1977. Lambda — the ultimate goto. Al Memo 443. MIT Artificial Intelligence Lab. October.](steele77_LambdaTheUltimateGoto_AIM-443.pdf)
+
+[D.A. 1979. A new implementation technique for applicative languages. Software— Practice and Experience. Vol. 9, pp. 31-49.](turner79_ANewImplementationTechniqueForApplicativeLanguages.pdf)
