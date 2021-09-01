@@ -52,3 +52,9 @@ Kennaway, J.R., and Sleep, M.R. 1982b. Counting Director Strings. Department of 
 Hughes, R.J.M. 1982. Reference-counting with Circular Structures in Virtual Memory Applicative Systems. Programming Research Group, Oxford.
 
 Mohamed-Ali, K.A. 1984. Object oriented storage management and garbage collection in distributed processing systems. PhD Thesis, report TRITA-CS-8406. Royal Institute of Technology, Stockholm. December.
+
+## CH18
+
+### References
+
+Elworthy, D. 1985. Implementing a Ponder cross compiler for the SKIM processor. Dip. Comp.Sci. Dissertation, Computer Lab., Cambridge. July.

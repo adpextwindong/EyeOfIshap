@@ -472,3 +472,37 @@ Mohamed-Ali, K.A. 1984. Object oriented storage management and garbage collectio
 [Wise, D. 1985. Design for a multiprocessing heap with on-board reference-counting. In Functional Programming and Computer Architecture, Nancy, pp. 289-304. Jouannaud (editor). LNCS 201. Springer Verlag.](Jouannaud85_ConferenceOnFunctionalProgrammingLanguagesAndComputerArchitecture.djvu)
 
 [Wise, D.S., and Friedman, D.P. 1977. The one-bit reference-count. B/T. Vol. 17, no. 3, pp. 351-9.](Wise77_The_one_bit_reference_count.pdf)
+
+## CH18
+
+### CH18 References
+
+[Augustsson, L. 1984. A compiler for lazy ML. In Proceedings of the ACM Symposium on Lisp and Functional Programming, Austin, pp. 218-27, August.](augustsson84_ACompilerForLazyML.pdf)
+
+[Burstall, R.M., MacQueen, D.B., and Sanella, D.T. 1980. HOPE: an experimental applicative language. In Proceedings of the ACM Lisp Conference, pp. 136-43, August.](burstall80_Hope.pdf)
+
+[Clark, R. (editor) 1981. UCSD P-system and UCSD Pascal Users’ Manual, 2nd edition. Softech Microsystems, San Diego.](Clark81_UCSD_PSystemAndUCSDPascalUsersManual.pdf)
+
+Elworthy, D. 1985. Implementing a Ponder cross compiler for the SKIM processor. Dip. Comp.Sci. Dissertation, Computer Lab., Cambridge. July.
+
+[Fairbairn, J. 1982. Ponder and its type system. Technical Report 31. Computer Lab., Cambridge. November.](Fairbairn82_PonderAndItsTypeSystem.pdf)
+
+[Fairbairn,J. 1985. Design and implementationofa simple typed language based on the lambda calculus. Technical Report 75. Computer Lab., Cambridge. May.](Fairbairn85DesignAndImplementationOfASimpleTypedLanguageBasedOnTheLambdaCalculus.pdf)
+
+[Fairbairn, J., and Wray, S.C. 1986. Code generation techniques for functional languages. In Proceedings of the ACM Conference on Lisp and Functional Programming, Boston, pp. 94-104, August.](fairbairn86_CodeGenerationTechniquesForFunctionalLanguages.pdf)
+
+Field, A. 1985. The Compilation of FP/M Programs into Conventional Machine Code. Dept Comp.Sci., Imperial College. June.
+
+Griss, M.L., and Hearn, A.C. 1981. A portable Lisp compiler. Software— Practice and Experience. Vol. 11, pp. 541-605.
+
+[Hudak, P., and Kranz, D. 1984. A combinator based compiler for a functional language. In Proceedings of the llth ACM Symposium on Principles of Programming Languages, pp. 122-32, January.](Hudak84_ACombinatorBasedCompilerForAFunctionalLanguage.pdf)
+
+Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceedings of the ACM Conference on Compiler Construction, Montreal, pp. 58-69, June.
+
+Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Programming Research Group, Oxford. December.
+
+Rees, J.A., and Adams, N.1. 1982. T—a dialect of LISP. In Proceedings oftheACM Symposium on Lisp and Functional Programming, pp. 114-22, August.
+
+[Richards, M. 1971. The portability of the BCPL compiler. Software — Practice and Experience. Vol. 1, no. 2, pp. 135-46.](richards71_ThePortabilityOfTheBCPLCompiler.pdf)
+
+[Steele, G.L., and Sussman, G.J. 1978. The Revised Report on Scheme. Al Memo452, MIT. January.](steele78_TheRevisedReportOnScheme.pdf)
