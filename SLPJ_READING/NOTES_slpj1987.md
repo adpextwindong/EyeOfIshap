@@ -516,3 +516,10 @@ Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley.
 [Landin, P.J. 1964. The mechanical evaluation of expressions. ComputerJournal. Vol. 6, pp. 308-20.](Landin64_TheMechanicalEvaluationOfExpressions.pdf)
 
 [Wulf, W., Johnsson, R.K., Weinstock, C.B., Hobbs, S.O., and Geschke, C.M. 1975.The Design of an Optimising Compiler. Elsevier.](Wulf77_TheDesignOfAnOptimizingCompiler.djvu)
+
+## CH20
+
+### CH20 References
+
+[Augustsson, L. 1985. Compiling pattern matching. In Conference on Functional Programming Languages and Computer Architecture, Nancy. Jouannaud (editor). LNCS 201. Springer Verlag.](Augustsson85_CompilingPatternMatching.pdf)
+
