@@ -58,3 +58,7 @@ Mohamed-Ali, K.A. 1984. Object oriented storage management and garbage collectio
 ### References
 
 Elworthy, D. 1985. Implementing a Ponder cross compiler for the SKIM processor. Dip. Comp.Sci. Dissertation, Computer Lab., Cambridge. July.
+
+Field, A. 1985. The Compilation of FP/M Programs into Conventional Machine Code. Dept Comp.Sci., Imperial College. June.
+
+Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Programming Research Group, Oxford. December.

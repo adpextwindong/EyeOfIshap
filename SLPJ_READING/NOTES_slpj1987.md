@@ -493,15 +493,15 @@ Elworthy, D. 1985. Implementing a Ponder cross compiler for the SKIM processor. 
 
 Field, A. 1985. The Compilation of FP/M Programs into Conventional Machine Code. Dept Comp.Sci., Imperial College. June.
 
-Griss, M.L., and Hearn, A.C. 1981. A portable Lisp compiler. Software— Practice and Experience. Vol. 11, pp. 541-605.
+[Griss, M.L., and Hearn, A.C. 1981. A portable Lisp compiler. Software— Practice and Experience. Vol. 11, pp. 541-605.](griss81_APortableLispCompiler.pdf)
 
 [Hudak, P., and Kranz, D. 1984. A combinator based compiler for a functional language. In Proceedings of the llth ACM Symposium on Principles of Programming Languages, pp. 122-32, January.](Hudak84_ACombinatorBasedCompilerForAFunctionalLanguage.pdf)
 
-Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceedings of the ACM Conference on Compiler Construction, Montreal, pp. 58-69, June.
+[Johnsson, T. 1984. Efficient compilation of lazy evaluation. In Proceedings of the ACM Conference on Compiler Construction, Montreal, pp. 58-69, June.](johnsson2004_84_EfficientCompilationOfLazyEvaluation.pdf)
 
 Lester, D. 1985. The correctness of a G-machine compiler. MSc dissertation, Programming Research Group, Oxford. December.
 
-Rees, J.A., and Adams, N.1. 1982. T—a dialect of LISP. In Proceedings oftheACM Symposium on Lisp and Functional Programming, pp. 114-22, August.
+[Rees, J.A., and Adams, N.1. 1982. T —a dialect of LISP. In Proceedings of the ACM Symposium on Lisp and Functional Programming, pp. 114-22, August.](rees82_T_ADialectOfLispOrLambdaTheUltimateSoftwareTool.pdf)
 
 [Richards, M. 1971. The portability of the BCPL compiler. Software — Practice and Experience. Vol. 1, no. 2, pp. 135-46.](richards71_ThePortabilityOfTheBCPLCompiler.pdf)
 
