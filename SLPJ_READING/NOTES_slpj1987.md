@@ -534,3 +534,29 @@ Aho, A.V., and Ullman, J.D. 1977. Principles of Compiler Design. Addison Wesley.
 [Steele, G.L. 1977. Lambda — the ultimate goto. Al Memo 443. MIT Artificial Intelligence Lab. October.](steele77_LambdaTheUltimateGoto_AIM-443.pdf)
 
 [D.A. 1979. A new implementation technique for applicative languages. Software— Practice and Experience. Vol. 9, pp. 31-49.](turner79_ANewImplementationTechniqueForApplicativeLanguages.pdf)
+
+## CH22
+
+### CH22 References
+
+[Burn, G., Hankin, C.L., and Abramsky, S. 1985. Strictness analysis of higher order functions. Science of Computer Programming (to appear); also DoC 85/6, Dept Comp.Sci., Imperial College, London. April.](Burn85_StrictnessAnalysisOfHigherOrderFunctions.pdf)
+
+[Clack, C.D., and PeytonJones, S.L. 1985. Strictness Analysis —a practical approach.In Conference on Functional Programming and Computer Architecture, Nancy. pp. 35-49. Jouannaud (editor). LNCS 201. Springer Verlag.](Clack85_StrictnessAnalysisAPracticalApproach.pdf)
+
+[Cousot, P., and Cousot, R. 1977. Abstract interpretation: a unified lattice model for static analysis of programs by construction or approximation of fixed points. In Proceedings of the 4th ACM Symposium on Principles of Programming Languages, Los Angeles, pp. 238-52.](cousot77_AbstractInterpretation.pdf)
+
+[Hudak, P., and Young, J. 1986. Higher order strictness analysis in untyped lambda calculus. In Proceedings of the 12th ACM Symposium on Principles of Programming Languages, pp. 97-109, January.](Hudak86_HigherOrderStrictnessAnalysisInUntypedLambdaCalculus.pdf)
+
+[Hughes, R.J.M. 1985. Strictness Detection in Non-flat Domains. Programming Research Group, Oxford. August.](Hughes85_StrictnessDectionInNonFlatDomains.pdf)
+
+[Mycroft, A. 1981. Abstract interpretation and optimising transformations for applicative  programs. PhD thesis, Dept Computer Science, University of Edinburgh.](Mycroft81_AbstractInterpretationAndOptimisingTransformationsForApplicativePrograms.pdf)
+
+[Stoy, J.E. 1981. Denotational Semantics. MIT Press.](stoy81_DenotationalSemantics.djvu)
+
+[Wadler, P. 1984. Listlessness is better than laziness: lazy evaluation and garbage collection at compile-time. In Proceedings ofthe ACM Symposium on Lisp and Functional Programming, Austin, Texas. August.](Wadler84_ListlessnessIsBetterThanLaziness.pdf)
+
+[Wadler, P. 1985a. Strictness Analysis on Non-flat Domains. Programming Research Group, Oxford. November.](Wadler85_StrictNonFlat.pdf)
+
+[Wadler, P. 1985b. Listiessness is better than laziness 11: composing listless functions. In Programs as Data Objects, Ganzinger, H., and Jones, N.D. (editors). LNCS 217. Springer Verlag.](Wadler86_ListlessnessII.pdf)
+
+[Wray, S.C. 1986. Implementation and programming techniques for functional languages. PhD thesis, University of Cambridge. January.](Wray86_ImplementationAndProgrammingTechniquesForFunctionalLanguages.pdf)
