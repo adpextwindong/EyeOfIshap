@@ -57,4 +57,15 @@ K E1 f (E2 f)   -- Apply S, distributes the f
 E1 (E2 f)       -- Apply K, tosses the f and now there are no more redexes..
 ```
 
+Well we need this in a form where we can supply the expressions and the function.
+```
+S ... f g h
+```
+
+TODO the K S f ( K f ) g h middle step
+
+So this leads us to use S again
+```
+S (K S) K f g h
+```
 TODO finish writing up the notes.
