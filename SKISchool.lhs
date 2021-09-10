@@ -69,3 +69,5 @@ So this leads us to use S again
 S (K S) K f g h
 ```
 TODO finish writing up the notes.
+
+[TODO notes on Combinatory Logic](https://en.wikipedia.org/wiki/Combinatory_logic)
