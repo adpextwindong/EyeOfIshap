@@ -72,10 +72,10 @@ truthTableFeed f = (perms, vals)
 evaldTruthTable :: Prop Char -> [(Valuation, Bool)]
 evaldTruthTable f = second eval <$> truthTable f
 
-evalTable :: Functor f => Prop Char -> f [(Char, Bool)] -> f (Prop Bool)
+evalTable :: Functor f => Prop Char -> f Valuation -> f (Prop Bool)
 evalTable f = fmap ((\p -> p f) . val . M.fromList)
 
-tablePermutations :: Prop Char -> [[(Char, Bool)]]
+tablePermutations :: Prop Char -> [Valuation]
 tablePermutations = allPropositions . S.toList . collectPvars
 
 --https://stackoverflow.com/a/29711470
