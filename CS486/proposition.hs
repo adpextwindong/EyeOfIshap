@@ -3,6 +3,7 @@ import qualified Data.Map as M
 import qualified Data.Set as S
 import Data.Maybe ( fromJust )
 import Control.Monad ( forM_ )
+import Data.Bifunctor
 
 --https://www.youtube.com/watch?v=5fZ_RnhvGMQ
 
@@ -47,20 +48,29 @@ tx :: Prop Char
 tx = POr (PImplies (PAnd (PVar 'p') (PVar 'q')) (PVar 'r'))
          (PImplies (PNot (PVar 'p')) (PVar 's'))
 
-truthTable :: Prop Char -> IO ()
-truthTable f = do
+showTruthTable :: Prop Char -> IO ()
+showTruthTable f = do
                  print pvars
                  forM_ (zip3 tablePerms vals (fmap eval vals)) print
     where
         pvars = S.toList $ collectPvars f
-        tablePerms = tablePermutations f
-        vals = fmap ((\p -> p f) . val . M.fromList) tablePerms
+        (tablePerms, vals) = truthTableFeed f
 
-truthTableValues :: Prop Char -> [([(Char, Bool)], Bool)]
-truthTableValues f = zip perms (fmap eval vals)
+type Valuation = [(Char, Bool)]
+
+truthTable :: Prop Char -> [(Valuation, Prop Bool)]
+truthTable f = zip perms vals
+    where
+        (perms, vals) = truthTableFeed f
+
+truthTableFeed :: Prop Char -> ([Valuation], [Prop Bool])
+truthTableFeed f = (perms, vals)
     where
         perms = tablePermutations f
         vals = evalTable f perms
+
+evaldTruthTable :: Prop Char -> [(Valuation, Bool)]
+evaldTruthTable f = second eval <$> truthTable f
 
 evalTable :: Functor f => Prop Char -> f [(Char, Bool)] -> f (Prop Bool)
 evalTable f = fmap ((\p -> p f) . val . M.fromList)
@@ -73,4 +83,4 @@ allPropositions :: [a] -> [[(a, Bool)]]
 allPropositions = mapM (\v -> [(v, True),(v, False)])
 
 tautological :: Prop Char -> Bool
-tautological f = and (snd <$> truthTableValues f)
+tautological f = and (snd <$> evaldTruthTable f)
