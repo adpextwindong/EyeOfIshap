@@ -50,12 +50,27 @@ tx = POr (PImplies (PAnd (PVar 'p') (PVar 'q')) (PVar 'r'))
 truthTable :: Prop Char -> IO ()
 truthTable f = do
                  print pvars
-                 forM_ (zip3 tablePermutations vals (fmap eval vals)) print
+                 forM_ (zip3 tablePerms vals (fmap eval vals)) print
     where
         pvars = S.toList $ collectPvars f
-        tablePermutations = allPropositions pvars
-        vals = fmap ((\p -> p f) . val . M.fromList) tablePermutations 
+        tablePerms = tablePermutations f
+        vals = fmap ((\p -> p f) . val . M.fromList) tablePerms
+
+truthTableValues :: Prop Char -> [([(Char, Bool)], Bool)]
+truthTableValues f = zip perms (fmap eval vals)
+    where
+        perms = tablePermutations f
+        vals = evalTable f perms
+
+evalTable :: Functor f => Prop Char -> f [(Char, Bool)] -> f (Prop Bool)
+evalTable f = fmap ((\p -> p f) . val . M.fromList)
+
+tablePermutations :: Prop Char -> [[(Char, Bool)]]
+tablePermutations = allPropositions . S.toList . collectPvars
 
 --https://stackoverflow.com/a/29711470
 allPropositions :: [a] -> [[(a, Bool)]]
 allPropositions = mapM (\v -> [(v, True),(v, False)])
+
+tautological :: Prop Char -> Bool
+tautological f = and (snd <$> truthTableValues f)
