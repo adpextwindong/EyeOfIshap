@@ -48,8 +48,8 @@ tx :: Prop Char
 tx = POr (PImplies (PAnd (PVar 'p') (PVar 'q')) (PVar 'r'))
          (PImplies (PNot (PVar 'p')) (PVar 's'))
 
-showTruthTable :: Prop Char -> IO ()
-showTruthTable f = do
+printTruthTable :: Prop Char -> IO ()
+printTruthTable f = do
                  print pvars
                  forM_ (zip3 tablePerms vals (fmap eval vals)) print
     where
@@ -59,9 +59,7 @@ showTruthTable f = do
 type Valuation = [(Char, Bool)]
 
 truthTable :: Prop Char -> [(Valuation, Prop Bool)]
-truthTable f = zip perms vals
-    where
-        (perms, vals) = truthTableFeed f
+truthTable f = uncurry zip $ truthTableFeed f
 
 truthTableFeed :: Prop Char -> ([Valuation], [Prop Bool])
 truthTableFeed f = (perms, vals)
