@@ -82,3 +82,11 @@ allPropositions = mapM (\v -> [(v, True),(v, False)])
 
 tautological :: Prop Char -> Bool
 tautological f = and (snd <$> evaldTruthTable f)
+
+--Kasriel CH1 Excercises
+
+ex1 :: Prop Char
+ex1 = PImplies (PImplies (PNot (PVar 'q')) (PNot (PVar 'p')))
+               (PImplies (PVar 'p') (PVar 'q'))
+
+--ex1 is a tautology
