@@ -41,7 +41,11 @@ import Control.Exception
 
 PropFormula : TPVar               { PVar (head $1) }
             | TNot PropFormula    { PNot $2 }
-
+            | TNot '(' PropFormula ')' { PNot $3 }
+            | '(' PropFormula TImplies PropFormula ')' { PImplies $2 $4}
+            | '(' PropFormula TOr PropFormula ')'      { POr $2 $4 }
+            | '(' PropFormula TAnd PropFormula ')'     { PAnd $2 $4 }
+            | '(' PropFormula ')' { $2 }
 {
 
 parseError :: [Token] -> Except String a
