@@ -1,9 +1,13 @@
 {-# LANGUAGE DeriveFunctor #-}
+module Prop.Syntax where
+
 import qualified Data.Map as M
 import qualified Data.Set as S
 import Data.Maybe ( fromJust )
 import Control.Monad ( forM_ )
 import Data.Bifunctor
+
+
 
 --https://www.youtube.com/watch?v=5fZ_RnhvGMQ
 
