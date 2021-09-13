@@ -15,6 +15,7 @@ import Data.Bifunctor
 
 --https://www.youtube.com/watch?v=5fZ_RnhvGMQ
 
+--TODO PConst Bool
 data Prop a = PVar a
             | POr (Prop a) (Prop a)
             | PAnd (Prop a) (Prop a)
