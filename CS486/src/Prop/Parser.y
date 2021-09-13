@@ -59,6 +59,7 @@ parseProp s = case parseProp' s of
                 Left msg -> error ("parse error:" ++ msg)
                 Right e  -> e
 
+parseProp' :: String -> Either String (Prop Char)
 parseProp' input = runExcept $ do
    tokenStream <- scanTokens input
    propBatch tokenStream
