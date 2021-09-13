@@ -1,5 +1,9 @@
 {-# LANGUAGE DeriveFunctor #-}
-module Prop.Syntax where
+module Prop.Syntax (Prop (..),
+                    val, eval, collectPvars,
+                    truthTable, evaldTruthTable, printTruthTable,
+                    tautological
+                    ) where
 
 import qualified Data.Map as M
 import qualified Data.Set as S
