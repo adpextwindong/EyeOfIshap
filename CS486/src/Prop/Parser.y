@@ -46,6 +46,9 @@ PropFormula : TPVar               { PVar (head $1) }
             | '(' PropFormula TOr PropFormula ')'      { POr $2 $4 }
             | '(' PropFormula TAnd PropFormula ')'     { PAnd $2 $4 }
             | '(' PropFormula ')' { $2 }
+            | PropFormula TImplies PropFormula { PImplies $1 $3}
+            | PropFormula TOr PropFormula      { POr $1 $3 }
+            | PropFormula TAnd PropFormula     { PAnd $1 $3 }
 {
 
 parseError :: [Token] -> Except String a
