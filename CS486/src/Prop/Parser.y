@@ -49,6 +49,7 @@ PropFormula : TPVar               { PVar (head $1) }
 {
 
 parseError :: [Token] -> Except String a
+parseError ((TPVar _ c): (TPVar p d) : _) = throwError $ "Propositional Variables must be one character only. Occured at character \'" ++ d ++ "\' " ++ show p
 parseError (l:ls) = throwError (show l)
 parseError []     = throwError "Unexpected end of Input"
 
