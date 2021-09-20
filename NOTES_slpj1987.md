@@ -181,6 +181,22 @@ When expressing the application of a function to serveral arguments how do we do
 
 By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstractions (functions) taking only one argument. This process is known as _currying_, originally introduced by [Schonfinkel in 1924](SLPJ_READING/Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf) and extensively used by [Curry and Feys 1958](SLPJ_READING/Curry58_CombinatoryLogic.djvu).
 
+#### [Schonfinkel 1924 - On the building blocks of mathematical logic](SLPJ_READING/Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf)
+
+```
+⌐a, a ∨ b, a ∧ b, a ⇒ b, a 〜 b
+```
+
+Schonfinkel notes that these three connectives can be defined in terms of negation and any one of them. This was shown by [Henry M. Sheffer in 1913](SLPJ_SUPPLEMENTARY/Sheffer13.pdf). Sheffer is the same person who discovered the Sheffer Stroke, which is also known as NAND, indepdently alongside Charles Sanders Peirce (who did so in 1880 but never published the findings).
+
+--TODO aside on NAND, Rosen DMC2012 Page 36 Exercise 45
+
+| Connective |Other|Other|
+| -----------|-----|-----|
+|a ∧ b|  
+|a ∨ b|
+|a ⇒ b| 
+--TODO
 --TODO PAGE 10
 
 ### [Summary of reduction rules](Huch_LambdaCalculusNotes.pdf#page=6)
