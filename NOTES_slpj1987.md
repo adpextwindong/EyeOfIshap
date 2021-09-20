@@ -187,7 +187,9 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 ⌐a, a ∨ b, a ∧ b, a ⇒ b, a 〜 b
 ```
 
-Schonfinkel notes that these three connectives can be defined in terms of negation and any one of them. This was shown by [Henry M. Sheffer in 1913](SLPJ_SUPPLEMENTARY/Sheffer13.pdf). Sheffer is the same person who discovered the Sheffer Stroke, which is also known as NAND, indepdently alongside Charles Sanders Peirce (who did so in 1880 but never published the findings).
+Schonfinkel notes that these three connectives can be defined in terms of negation and any one of them. This was shown briefly by [Henry M. Sheffer in 1913](SLPJ_SUPPLEMENTARY/Sheffer13.pdf). Sheffer is the same person who discovered the Sheffer Stroke, which is also known as NAND, indepdently alongside Charles Sanders Peirce (who did so in 1880 but never published the findings).
+
+Boaz Schuman has a [nice lecture on the functional completeness of the functional completeness of the Sheffer Stroke](https://www.youtube.com/watch?v=PRKXXJF9Mi0).
 
 --TODO aside on NAND, Rosen DMC2012 Page 36 Exercise 45
 
