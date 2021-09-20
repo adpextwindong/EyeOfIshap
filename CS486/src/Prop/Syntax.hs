@@ -2,7 +2,7 @@
 module Prop.Syntax (Prop (..),
                     val, eval, collectPvars,
                     truthTable, evaldTruthTable, printTruthTable,
-                    tautological
+                    tautological, logicallyEquivalent
                     ) where
 
 import qualified Data.Map as M
@@ -91,6 +91,9 @@ allPropositions = mapM (\v -> [(v, True),(v, False)])
 
 tautological :: Prop Char -> Bool
 tautological f = and (snd <$> evaldTruthTable f)
+
+logicallyEquivalent :: Prop Char -> Prop Char -> Bool
+logicallyEquivalent p q = evaldTruthTable p == evaldTruthTable q
 
 --Kasriel CH1 Excercises
 
