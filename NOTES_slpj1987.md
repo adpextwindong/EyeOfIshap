@@ -184,7 +184,7 @@ By expressing `(+ 3 4)` as `((+ 3) 4)` we can reason about lambda calculus abstr
 #### [Schonfinkel 1924 - On the building blocks of mathematical logic](SLPJ_READING/Schonfinkel24-OnTheBuildingBlocksOfMathematicalLogic.pdf)
 
 ```
-⌐a, a ∨ b, a ∧ b, a ⇒ b, a 〜 b
+¬a, a ∨ b, a ∧ b, a ⇒ b, a 〜 b
 ```
 
 Schonfinkel notes that these three connectives can be defined in terms of negation and any one of them. This was shown briefly by [Henry M. Sheffer in 1913](SLPJ_SUPPLEMENTARY/Sheffer13.pdf). Sheffer is the same person who discovered the Sheffer Stroke, which is also known as NAND, indepdently alongside Charles Sanders Peirce (who did so in 1880 but never published the findings).
@@ -194,10 +194,15 @@ Boaz Schuman has a [nice lecture on the functional completeness of the functiona
 --TODO aside on NAND, Rosen DMC2012 Page 36 Exercise 45
 
 | Connective |∧|∨|⇒|
-|-|-|-|-|
-|a ∧ b|-|TODO|TODO|  
-|a ∨ b|TODO|-|TODO|
-|a ⇒ b|TODO|TODO|-|
+|  -         |  -   |-   |-    |
+|a ∧ b       |-|¬(¬a∨¬b) |¬(a⇒¬b)|
+|a ∨ b       |¬(a∧b)     |-|¬a⇒b|
+|a ⇒ b       |¬(a∧¬b)    |¬a∨b|-|
+
+XOR can also be implemented similarly.
+| Connective |∧|∨|⇒|
+| - | - | - | - |
+| XOR | (a ∧ ¬b) ∧ (¬a ∧ b) | (¬(¬a ∨ b)) ∨ (¬(a ∨ ¬b)) | ¬(¬(a⇒¬b) ⇒ ¬(¬b ⇒ a)) |
 
 --TODO
 --TODO PAGE 10
