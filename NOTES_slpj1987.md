@@ -193,11 +193,12 @@ Boaz Schuman has a [nice lecture on the functional completeness of the functiona
 
 --TODO aside on NAND, Rosen DMC2012 Page 36 Exercise 45
 
-| Connective |Other|Other|
-| -----------|-----|-----|
-|a ∧ b|  
-|a ∨ b|
-|a ⇒ b| 
+| Connective |∧|∨|⇒|
+|-|-|-|-|
+|a ∧ b|-|TODO|TODO|  
+|a ∨ b|TODO|-|TODO|
+|a ⇒ b|TODO|TODO|-|
+
 --TODO
 --TODO PAGE 10
 
