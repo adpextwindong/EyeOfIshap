@@ -16,3 +16,5 @@ import Prop.Syntax
 
 --TODO add "and,not,or" "AND,NOT,OR" literal parsing to the lexer
 --TODO add a function that checks if two props are logically equivilant
+--TODO add quickcheck to make sure parsing regarding parens and NOT aren't swallowing the wrong amount of subformulas
+--TODO pretty printer
