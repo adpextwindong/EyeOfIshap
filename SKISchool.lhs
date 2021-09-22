@@ -62,12 +62,50 @@ Well we need this in a form where we can supply the expressions and the function
 S ... f g h
 ```
 
-TODO the K S f ( K f ) g h middle step
+Working backwards from:
 
-So this leads us to use S again
+```
+K f h (g h)
+```
+
+we can think about how h is common to both (g h) and the left subexpression (K f h). If we look towards S we could imagine supplying (K f) to it to distribute h to (K f) and (g). Leading us to:
+
+```
+S (K f) g h
+```
+
+Great. We're in a form to supply g and h as arguments on the right side and now we just need f in the same position. This next bit might seem like a jump. We have f nearly in place to be supplied with g and h directly, but we need to replace the ... portion.
+
+```
+GOAL: S ... K f g h
+UNKNOWN: ~~~~~
+HAVE: S (K f) g h
+```
+
+Considering S is the only tool we have really, lets work out a term for (S _ K f) that will get us some unknown to evaluate to what we have.
+
+Any term in this underscored position (the X argument to S) will be supplied f from the original S and must evaluate to S.
+
+```
+S (_) K f ...
+_ f (K f) ...
+S (K f) ...
+```
+
+Well considering we don't want to use the leftmost f in the middle step why don't we use K to ignore it? We can supply K an S to get us S in the leftmost on the 3rd row anyways.
+
 ```
 S (K S) K f g h
+K S f (K f) g h
+S (K f) g h
+K f h (g h)
+f (g h)
 ```
-TODO finish writing up the notes.
+
+This means the dot operation, composition, is achieved with:
+
+```
+S (K S) K
+```
 
 [TODO notes on Combinatory Logic](https://en.wikipedia.org/wiki/Combinatory_logic)
