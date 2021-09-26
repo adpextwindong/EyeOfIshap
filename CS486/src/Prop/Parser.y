@@ -42,13 +42,13 @@ import Control.Exception
 PropFormula : TPVar               { PVar (head $1) }
             | TNot PropFormula    { PNot $2 }
             | TNot '(' PropFormula ')' { PNot $3 }
-            | '(' PropFormula TImplies PropFormula ')' { PImplies $2 $4}
-            | '(' PropFormula TOr PropFormula ')'      { POr $2 $4 }
-            | '(' PropFormula TAnd PropFormula ')'     { PAnd $2 $4 }
+            | '(' PropFormula TImplies PropFormula ')' { PCon PImplies $2 $4}
+            | '(' PropFormula TOr PropFormula ')'      { PCon POr $2 $4 }
+            | '(' PropFormula TAnd PropFormula ')'     { PCon PAnd $2 $4 }
             | '(' PropFormula ')' { $2 }
-            | PropFormula TImplies PropFormula { PImplies $1 $3}
-            | PropFormula TOr PropFormula      { POr $1 $3 }
-            | PropFormula TAnd PropFormula     { PAnd $1 $3 }
+            | PropFormula TImplies PropFormula { PCon PImplies $1 $3}
+            | PropFormula TOr PropFormula      { PCon POr $1 $3 }
+            | PropFormula TAnd PropFormula     { PCon PAnd $1 $3 }
 {
 
 parseError :: [Token] -> Except String a

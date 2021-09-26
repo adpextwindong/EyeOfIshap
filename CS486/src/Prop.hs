@@ -1,5 +1,5 @@
 module Prop (parseProp, parseProp',
-            Prop(..), val, eval, collectPvars, truthTable, evaldTruthTable, printTruthTable, tautological, logicallyEquivalent
+            Prop(..), val, eval, collectPvars, truthTable, evaldTruthTable, printTruthTable, tautological, logicallyEquivalent, contrapositive
             ) where
 
 import Prop.Parser ( parseProp, parseProp' ) 
@@ -12,7 +12,8 @@ import Prop.Syntax
       truthTable,
       evaldTruthTable,
       tautological,
-      logicallyEquivalent)
+      logicallyEquivalent,
+      contrapositive)
 
 --TODO add "and,not,or" "AND,NOT,OR" literal parsing to the lexer
 --TODO add a function that checks if two props are logically equivilant

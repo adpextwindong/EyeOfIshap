@@ -27,8 +27,8 @@ library
         Prop,
         Prop.Lexer,
         Prop.Parser,
-        Prop.Syntax
-
+        Prop.Syntax,
+        Kasriel
     build-depends:    base ^>=4.13.0.0
                      ,array >= 0.5.4.0
                      ,mtl   >= 2.2.2

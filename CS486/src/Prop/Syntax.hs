@@ -1,8 +1,8 @@
 {-# LANGUAGE DeriveFunctor #-}
-module Prop.Syntax (Prop (..),
+module Prop.Syntax (Prop (..), LogicalConnective(..),
                     val, eval, collectPvars,
                     truthTable, evaldTruthTable, printTruthTable,
-                    tautological, logicallyEquivalent
+                    tautological, logicallyEquivalent, contrapositive
                     ) where
 
 import qualified Data.Map as M
@@ -15,12 +15,14 @@ import Data.Bifunctor
 
 --https://www.youtube.com/watch?v=5fZ_RnhvGMQ
 
+data LogicalConnective = POr
+                        | PAnd
+                        | PImplies
+                        deriving (Show)
 --TODO PConst Bool
 data Prop a = PVar a
-            | POr (Prop a) (Prop a)
-            | PAnd (Prop a) (Prop a)
+            | PCon LogicalConnective (Prop a) (Prop a)
             | PNot (Prop a)
-            | PImplies (Prop a) (Prop a)
             deriving (Functor, Show)
 
 --Throws error if prop var is missing
@@ -29,10 +31,10 @@ val table = fmap (fromJust . flip M.lookup table)
 
 eval :: Prop Bool -> Bool
 eval (PVar b) = b
-eval (POr p q) = eval p || eval q
-eval (PAnd p q) = eval p && eval q
+eval (PCon POr p q) = eval p || eval q
+eval (PCon PAnd p q) = eval p && eval q
 eval (PNot p) = not $ eval p
-eval (PImplies p q) = case eval p of
+eval (PCon PImplies p q) = case eval p of
                         False -> True
                         True -> eval q
 
@@ -49,13 +51,9 @@ eval (PImplies p q) = case eval p of
 collectPvars :: Ord a => Prop a -> S.Set a
 collectPvars (PVar c) = S.singleton c
 collectPvars (PNot p) = collectPvars p
-collectPvars (POr p q) = S.union (collectPvars p) (collectPvars q)
-collectPvars (PAnd p q) = S.union (collectPvars p) (collectPvars q)
-collectPvars (PImplies p q) = S.union (collectPvars p) (collectPvars q)
-
-tx :: Prop Char
-tx = POr (PImplies (PAnd (PVar 'p') (PVar 'q')) (PVar 'r'))
-         (PImplies (PNot (PVar 'p')) (PVar 's'))
+collectPvars (PCon POr p q) = S.union (collectPvars p) (collectPvars q)
+collectPvars (PCon PAnd p q) = S.union (collectPvars p) (collectPvars q)
+collectPvars (PCon PImplies p q) = S.union (collectPvars p) (collectPvars q)
 
 printTruthTable :: Prop Char -> IO ()
 printTruthTable f = do
@@ -95,10 +93,10 @@ tautological f = and (snd <$> evaldTruthTable f)
 logicallyEquivalent :: Prop Char -> Prop Char -> Bool
 logicallyEquivalent p q = evaldTruthTable p == evaldTruthTable q
 
+contrapositive :: Prop Char -> Prop Char
+contrapositive (PCon c (PNot p) (PNot q)) = PCon c p q --Flattens the nots to prevent building a massive tree
+contrapositive (PCon c p q) = PCon c (PNot p) (PNot q)
+contrapositive p = undefined -- there must be a better way to split this out
 --Kasriel CH1 Excercises
-
-ex1 :: Prop Char
-ex1 = PImplies (PImplies (PNot (PVar 'q')) (PNot (PVar 'p')))
-               (PImplies (PVar 'p') (PVar 'q'))
 
 --ex1 is a tautology
