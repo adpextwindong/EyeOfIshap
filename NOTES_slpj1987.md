@@ -191,8 +191,6 @@ Schonfinkel notes that these three connectives can be defined in terms of negati
 
 Boaz Schuman has a [nice lecture on the functional completeness of the functional completeness of the Sheffer Stroke](https://www.youtube.com/watch?v=PRKXXJF9Mi0).
 
---TODO aside on NAND, Rosen DMC2012 Page 36 Exercise 45
-
 | Connective |∧|∨|⇒|
 |  -         |  -   |-   |-    |
 |a ∧ b       |-|¬(¬a∨¬b) |¬(a⇒¬b)|
@@ -396,8 +394,7 @@ Proof.
 Qed.
 ```
 
---TODO
---TODO PAGE 10
+--TODO SLPJ PAGE 10
 
 ### [Summary of reduction rules](Huch_LambdaCalculusNotes.pdf#page=6)
 
