@@ -33,3 +33,103 @@ The following exercises will assume that the sets involved are subsets of the re
 
 {x:|x - 1| <= 3 or |x| <= 2}
 [-2,4]
+
+
+# [Richard Southwell - Point-Set Topology 1: Open and Closed Sets](https://www.youtube.com/wastch?v=kmMiZHSvON)
+
+Notation: 2^X will be the powerset.
+
+Let X be a non empty set. Now Tau, a collection of subsets of X, is a topology on X if three conditions hold.
+
+Conditions for a toplogy
+1. X, empty set are both members of Tau.
+2. If S is a collection of subsets of Tau, then the union of those members is also a member of Tau.
+
+The union of elements of a topology are also in the topology.
+
+3. For any pair of elements in the topology, their intersection is in the topology.
+
+forall A B in Tau, A intersection B is in the topology.
+
+Once Tau satisfies these three conditions (X, Tau) is a topological space.
+
+--DEF Open Sets
+As short hand, we call the members of Tau Open Sets.
+
+--Alt 3rd condition
+We can write the third condition as: The intersection of any finite subset of Tau belongs to Tau.
+
+Every finite subset can be written as the repeated intersection of open set pairs. Thus if these open set pairs are in Tau, it follows from the forall pairs statement that any finite subset of Tau intersected belongs to Tau by induction.
+
+A subtle asymmetry emerges from intersections of open sets involving finite subsets and unions dealing with subsets...
+
+--Examples of Topologies
+
+Tau = Powerset of X is the discrete topology on non empty set X
+(X, 2^X) the discrete space.
+
+Proposition 1 (X,T) such that that all singletons of X are open sets in Tau, then T is a discrete topology.
+
+Proof: forall subsets of X, it can be written as the union of singletons from X, which are open sets, thus making S an open set in Tau, via condition 2 of the Topology definition.
+
+--Indiscrete Topology
+
+Tau = {empty set, X}
+(X,T) is the indiscrete topology on X/= empty set
+
+This has the property of having the least possible open sets, as opposed to the discrete topology which has the most.
+
+--Closed Sets
+
+Let (X,T) be a topological space,
+
+now S subset of X, is closed when X - S is open.
+
+--Prop 2
+
+If (X,T) is a topolical space
+
+1. Empty set, X are closed sets.
+
+X - X = Empty set, which is in Tau
+X - Empty Set = X, which is in Tau.
+
+2. The intersection of any collection of closed sets is closed.
+
+For any S collection belong to 2^X, forall S in A, s is closed.
+
+X - S is open, by def 2 of open the union of all s from A U(X-S) is open. Thus X - intersections S for all S from A is an open set.
+
+This implies The intersection S is closed because its complement is open.
+
+3 The union of any finite collection of closed sets is closed.
+
+Similarily to 2 we can take the intersection of its complements and use the open set definition.
+
+This set of finite collection of closed sets intersected can be written as
+
+(X - S1) /\ (X - S2) /\ ... (X - Sn) which is open
+
+= X - (S1 \/ S2 \/ S3 ... \/ Sn). Thusly the union of open sets is open, making its complement closed which is the union of these finite collection of closed sets.
+
+--Finite Closed Topology
+
+Let X be a nonempty set Tau on X, is called the finite closed topology if the closed sets of X are X and all finite subsets of X.
+
+--Pitfall example
+
+The evens in natural numbers is not a closed set because the complement is not finite.
+
+--T0 space
+
+(X,T) is T0 when forall distinct a,b in X, a /= b,
+There exists S in T : a in S, b not in S
+                   or a not in S, b in S.
+
+We can distinguish between a and b using this open set that exists.
+
+--T1 Space
+
+(X,T) is T1, if each {x} singleton subset is closed, forall x in X.
+
+Show T1 implies T0.
