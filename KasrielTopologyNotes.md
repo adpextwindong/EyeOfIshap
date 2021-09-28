@@ -53,18 +53,19 @@ forall A B in Tau, A intersection B is in the topology.
 
 Once Tau satisfies these three conditions (X, Tau) is a topological space.
 
---DEF Open Sets
+## DEF Open Sets
 As short hand, we call the members of Tau Open Sets.
 
---Alt 3rd condition
+## Alt 3rd condition
 We can write the third condition as: The intersection of any finite subset of Tau belongs to Tau.
 
 Every finite subset can be written as the repeated intersection of open set pairs. Thus if these open set pairs are in Tau, it follows from the forall pairs statement that any finite subset of Tau intersected belongs to Tau by induction.
 
 A subtle asymmetry emerges from intersections of open sets involving finite subsets and unions dealing with subsets...
 
---Examples of Topologies
+## Examples of Topologies
 
+### Discrete Topology
 Tau = Powerset of X is the discrete topology on non empty set X
 (X, 2^X) the discrete space.
 
@@ -72,7 +73,7 @@ Proposition 1 (X,T) such that that all singletons of X are open sets in Tau, the
 
 Proof: forall subsets of X, it can be written as the union of singletons from X, which are open sets, thus making S an open set in Tau, via condition 2 of the Topology definition.
 
---Indiscrete Topology
+### Indiscrete Topology
 
 Tau = {empty set, X}
 (X,T) is the indiscrete topology on X/= empty set
@@ -102,7 +103,7 @@ X - S is open, by def 2 of open the union of all s from A U(X-S) is open. Thus X
 
 This implies The intersection S is closed because its complement is open.
 
-3 The union of any finite collection of closed sets is closed.
+3. The union of any finite collection of closed sets is closed.
 
 Similarily to 2 we can take the intersection of its complements and use the open set definition.
 
@@ -112,15 +113,15 @@ This set of finite collection of closed sets intersected can be written as
 
 = X - (S1 \/ S2 \/ S3 ... \/ Sn). Thusly the union of open sets is open, making its complement closed which is the union of these finite collection of closed sets.
 
---Finite Closed Topology
+### Finite Closed Topology
 
 Let X be a nonempty set Tau on X, is called the finite closed topology if the closed sets of X are X and all finite subsets of X.
 
---Pitfall example
+### Pitfall example
 
 The evens in natural numbers is not a closed set because the complement is not finite.
 
---T0 space
+### T0 space
 
 (X,T) is T0 when forall distinct a,b in X, a /= b,
 There exists S in T : a in S, b not in S
@@ -128,8 +129,8 @@ There exists S in T : a in S, b not in S
 
 We can distinguish between a and b using this open set that exists.
 
---T1 Space
+### T1 Space
 
 (X,T) is T1, if each {x} singleton subset is closed, forall x in X.
 
-Show T1 implies T0.
+Exercise: Show T1 implies T0.
