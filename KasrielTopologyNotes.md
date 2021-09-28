@@ -243,7 +243,7 @@ Theorem. X(g hole'd torus) = 2 - 2g
 
 These multi-holed tori came up from the theory of complex functions/complex analysis. Thanks to Bernhard Riemann (1826 - 1866).
 
-Complex Functions
+### Complex Functions
 
 f: C -> C
 
@@ -278,5 +278,60 @@ Well this is a double-valued function. For example we bisect the angle to the pl
 
 Riemann looked at z and its square root when "dragging" Z around the unit circle. He observed that you need to get Z around twice to see the square root function properly.
 
---Riemann Onion
+### Riemann Onion
 To conduct this with the Riemann sphere idea, Riemann came up with layering two Riemann spheres within each other. In the plane example, we navigated around the unit circle. To achieve this "going around twice bit" we can navigate around the sphere (like along the unit circle) then slicing the outer sphere (vertically), then slicing the inner sphere and stitching the outer sphere to the inner sphere. Then navigate around and stitch the inner sphere back to the outer sphere.
+
+Instead of this Onion idea Riemann saw that topologically its the same as taking two spheres with a hole in them and gluing them together into a dumbbell shape. But this leads us homemorphically back to a sphere.
+
+What about?
+
+y^2 = z(z-a)(z-b)
+y = sqrt(z(z-a)(z-b))
+
+Well then you need to cut two holes in the sphere, 0 to alpha, B to inf in the two spheres and stitch them together. Then we get a Torus.
+
+So a Cubic curve in the complex plane gets associated to a torus.
+
+### Clasification of 2 dimensional surfaces
+
+X = 2,  X = 0, X = -2,       X = -4
+Sphere, Torus, 2-hole torus, 3-hole torus, ...
+
+These all the compact orrientable surfaces.
+
+--Orrientable, if you're an ant on the surface you can distinguish between left handed and right handed ants.
+
+Mobius discovered a surface that doesn't have this orrientable property.
+
+A mobius band (mobius strip) is an example.
+
+This surface is non-orrientable surface. Theres no sense of lefthand/righthand on this surface.
+
+When considering the edge of a mobius strip, we notice it has one single contious ege going around the whole thing.
+
+--Sewing a disc and a mobius strip together
+--Sewing a disc of cloth onto a mobius doesn't work in 3d space as it'll get in its own way. Apparently in 4d space its possible and its a projective plane.
+
+This has X = 1
+
+Other non-orrientable surfaces:
+
+Take a torus and add a crosscap to it. Same with 2hole and the others.
+These have  X = -1, X = -2 ....
+
+Dehn & Heegaard (1907)
+
+### The Sphere
+
+The sphere is distinguished (in contrast to the other 2d surfaces) in that its simply connected.
+
+Any closed curve drawn on the sphere can be shrunk continiously on the surface down to a point.
+
+--For the torus you have two types of curves, one where the torus hole prevents you, and another (one facing outwards on the surface for a lack of a picture) that can get shrunk to a point.
+--For the sphere nothing is getting in the way of a loop on the curface from shrinking into a point. The torus hole however stops this.
+
+## Poincaré Conjecture
+
+S3 is the only simply connected 3 dimensional surface.
+
+Grigori Perelman proved this in 2002, building on Richard S. Hamilton's work of Ricci flow.
