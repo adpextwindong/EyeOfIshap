@@ -134,3 +134,71 @@ We can distinguish between a and b using this open set that exists.
 (X,T) is T1, if each {x} singleton subset is closed, forall x in X.
 
 Exercise: Show T1 implies T0.
+
+# [Topology | Math History | NJ Wildberger](https://www.youtube.com/watch?v=aaXk23JHFck)
+
+Topology is the study of (continuous) shapes.
+
+Especially interested in properties unchanged by continuous deformation.
+
+For example deforming a sphere (S2) into a dumbell without introducing any cuts/pinches/discontinuities results in an homeomorphic (equal) shape.
+
+--Note: The circle being S1.
+
+A discrete aspect of topology is that we can turn a sphere into a polyhedron. So topology can span this continuous and discrete/combinatorial aspect.
+
+## Euler Characteristic of a polyhedron P - 1752
+
+An important concept/invariant:
+
+    X ≡ V - E + F
+
+V = Number of Vertices
+E = Number of Edges
+F = Number of Faces
+
+ex: Cube Euler Characteristic
+
+Cube = 8 - 12 + 6
+Cube = 2
+
+ex: Tetrahedron Euler Characteristic
+
+Tetrahedron = 4 - 6 + 4
+Tetrahedron = 2
+
+Thereom: polyhedron P is homemorphic to S2 (Sphere), then X(P) = 2 (It's Euler Characteristic)
+
+This is an example of a topological invariant.
+
+What about the Torus? What are polyhedral objects homeomorphic to it?
+
+Cube with a square hole drilled through it.
+
+Theorem: If Polyhedron P ≃ Torus, then X(P) = 0.
+
+Henri Poincaré (1895) clarified the topological aspect of the Euler Characteristic.
+
+Suppose we have a sphere, and we decompose it into a lot of little faces. Any two of them meet along a vertex/edge. A polygonal map to compute the Euler charactersitic.
+
+X = V - E + F
+
+Suppose we add a vertex to an edge:
+    V := V + 1
+    E := E + 1
+    F := F
+
+X is unchanged. (The additions cancel.)
+
+Supposed we add an edge from one vertex to another (unconnected vertex)
+    E := E + 1
+    F := F + 1
+    V := V
+
+X is unchanged. (The additions cancel.)
+
+Thusly subdividing this polygonal map further and further does not change the Euler Characteristic.
+
+--Two different polygonal maps of a sphere can agree to a common refinement (triangulation/subdivisions) the Euler characterstic will obviously be the same and the shapes are the same to begin with. This means the Euler characteristic is independent of the map and depends on the surface.
+
+## Descartes (Letter to Leibnitz 1676) studied curvature of Polyhedra
