@@ -379,3 +379,74 @@ True. All preimages on the open sets in N will be some member of the power set M
 ## d) A subset U of M, of a topological space (M,O)
 TODO play with some real number intervals and look at the definitions of Open and Closed sets again.
 [CONT](https://youtu.be/_XkhZQ-hNLs?t=729)
+
+# [Lecture 2: Topological Manifolds (International Winter School on Gravity and Light 2015)](https://www.youtube.com/watch?v=93f-ayezCqE)
+
+Toplogical spaces: ∃ so many that mathematicians cannot even classify them.
+
+Homeomorphism, invertible continuous maps from one topological space to another in both directions.
+This map has to be a [bijection](https://en.wikipedia.org/wiki/Bijection) (one-to-one and onto).
+
+For classical space time physics, we may focus on topological spaces (M,O) that can be 'charted', analogously to how the surface of the earth is charted in an atlas.
+
+-Charts and Atlases
+
+## Topological Manifolds
+
+[Def. A topological space (M,O) is called a d-dimensional topological manifold](https://youtu.be/93f-ayezCqE?t=255)
+
+if
+
+∀ p ∈ M  : ∃ U ∈ O, open set U containing the point p : ∃ x : U -> x(U) ⊆ Rᵈ:
+
+--For every point, there exists an open set in the topology, there exists an open set with a map that takes every point around the set of this point to a subset of Rd in an invertible one to one manner.
+
+1. x invertible:
+x⁻¹ : x(U) -> U
+2. x continuous (We can get this by Rᵈ having the standard toplogy and u being a subset on M)
+
+3. x⁻¹ continuous (x being one to one and onto isn't enough to show the inverse is continous. This was shown in the [first lecture](https://www.youtube.com/watch?v=7G4SqIboeig) TODO TIMESTAMP.)
+
+[Example](https://youtu.be/93f-ayezCqE?t=611):
+
+Doughnut shape = M ⊆ R³ we can give R³ the std topology and inherit on M a subset topology from R³.
+
+Claim: This is a 2 dimensional topological manifold.
+
+For any point in the set (on the surface of the doughnut),
+    there exists an open subset U satisfies (we can an open set in R³ without the boundary and 
+    intersect it with the doughnut, giving us the open set patch around x without the boundary.)
+    [there exists a map from every point in this open set to some part of R² ](https://youtu.be/93f-ayezCqE?t=774)
+
+We could do the same for the Earth and charts.
+
+Eiffel Tower example
+
+R² is simply R X R = {(m,n) |m, n ∈ R}.
+
+So lets say (1,2) represents the foot of the Eiffel Tower with respect to this specific chart. Key part being specific, the publisher of the chart could swap the axes/ordering of the pair or scale the chart differently.
+
+Terminology : (U,x) called a chart.
+
+x(p) for the leg of the Eiffel tower (1,2)
+
+For every point of the mainfold, there exists a chart that contains the point.
+
+[2nd Example. Figure 8 wire](https://youtu.be/93f-ayezCqE?t=1118)
+
+For this figure 8 wire loop can take it in R³, take the standard topology then inherit on M a subset from the R³ std topology, then chart out points and their open set regions loop onto R¹.
+
+[3rd example. Y Wishbone Bifurcating line](https://youtu.be/93f-ayezCqE?t=1183)
+M ⊆ (R², Ostd)
+(M, Ostd |ₘ ) O restricted to M
+
+Now we have a topological space but it fails to be a topological manifold.
+
+Theres no problems with the legs of the Wishbone. The joint however it is not possible to find an open neighborhood
+
+>Take an open set in R² and the subset topology is open
+>We can't find an invertible in both directions, continous map in either R¹ or R² due to the bifurcation.
+
+This is not a ?-dim. top mfd.
+
+[CONT](https://youtu.be/93f-ayezCqE?t=1624)
