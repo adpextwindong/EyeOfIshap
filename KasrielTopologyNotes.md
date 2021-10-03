@@ -335,3 +335,47 @@ Any closed curve drawn on the sphere can be shrunk continiously on the surface d
 S3 is the only simply connected 3 dimensional surface.
 
 Grigori Perelman proved this in 2002, building on Richard S. Hamilton's work of Ricci flow.
+
+# [Tutorial 1: Topology (International Winter School on Gravity and Light 2015)](https://www.youtube.com/watch?v=_XkhZQ-hNLs&list=WL)
+
+a)
+    - A topological space is a set "equipped" with a topology. A pair (X,T).
+    - This topology then gives forth a notion of open sets within the topological space.
+    - "Always has integer dimension" isn't something we can talk about just from the notion of a topological space. You can talk about the members of the set but that is not about the topological space per se.
+
+-- A topological space is the minimal structure required to define the continuity of a map.
+
+[An initial example](https://youtu.be/7G4SqIboeig?list=PL_-fOl2l5yUhQSPWkt-lAs7fm0SGQkYgb&t=3038)
+
+A continuous map being a continuous function between two topological spaces. [We're concerned with the pre-images of f on the open sets being open sets.]
+
+[Def: A map F : X -> Y is continuous iff the preimage of any open set is open.](https://mathworld.wolfram.com/ContinuousMap.html)
+
+b) The chaotic topology on a set M, {Empty Set, M}
+    - The empty set of course exists in the chaotic topology by definition but also by the first axiom of a topology.
+
+    - "It is the coarsest topology on M"
+
+    Define: A topology O2 is coarser than a topology O1 if O2 is contained in O1. (This 'containing' doesn't define a total order because there can be topologies that aren't subsets of eachother. Thusly it defines a partial order)
+
+    Thus by this definition it is the coarsest topology on M.
+
+    "The chaotic topology on a set M, makes all maps f : N -> M continuous, where the domain may carry an arbitrary topology"
+
+    If we look at the preimage of open sets in M (Empty set and M) are open in N.
+
+    The preimage of the empty set being the empty set, and the preimage of M is the set N. Which are both open in a topological space in N. Thus by the definition of continuity this statement is true.
+
+## c) Consider a map f: M -> N between topological spaces (M,Om) and (N, On)
+
+--Undergraduate analysis notion of continuity - the Epsilon Delta criteria.
+
+We need to have an understanding of the Codomain for any map as well as the domain for the map as the open sets in the codomain and their pre-images being open sets is the criteria for continuity.
+
+"Choosing the discrete topology on M makes all maps from M to N makes all maps from M to N continuous."
+
+True. All preimages on the open sets in N will be some member of the power set M, by the definition of the discrete topology, therefore be in the topology making it the preimages open sets. Therefore making it continuous. In this case N can be any arbitrary topology.
+
+## d) A subset U of M, of a topological space (M,O)
+TODO play with some real number intervals and look at the definitions of Open and Closed sets again.
+[CONT](https://youtu.be/_XkhZQ-hNLs?t=729)
