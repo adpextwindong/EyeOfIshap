@@ -62,3 +62,12 @@ Note2: The explicit stack transformation and cps transformation reminds me of Ba
 # Refs
 
 - Backhouse, Roland (2003). Program Construction: Calculating Implementations from Specifications. John Wiley and Sons, Inc.
+
+### 2.6 Reflection
+#### Partiality
+
+//This is the exact concrete bit on dependant types I've been looking for ever.
+
+```
+Because the ADD instruction fails if the stack does not contain at least two values, the function exec the implements the virtual machine is partial. As remarked by Ager et al. (2003a), is “inherent to such partiality programming abstract machines in an ML-like language”. If desired, exec could be turned into a total function by using a dependently typed language to make the stack demands of each machine instruction explicit in its type (McKinna & Wright, 2006).
+```
