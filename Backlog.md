@@ -10,7 +10,52 @@ It also show cases the link between code and data in a nonLisp context.
 
 ## Well Typed Programs and Type Safety
 
-TODO
+[Alexis King - Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
+
+This is probably what openned my eyes to type safety.
+
+TODO READ THIS: [Ghosts of Departed Proofs (Functional Pearl)](https://kataskeue.com/gdp.pdf)
+
+### DSLs
+We need a clean representation of the ideas from [Daan Leijen, Meijer Domain Specific Embedded Compilers](https://www.usenix.org/legacy/events/dsl99/full_papers/leijen/leijen.pdf).
+
+```haskell
+data Expr = Lit Int
+            Add Expr Expr
+            Equals Expr Expr
+```
+
+Phantom Type Version
+
+```haskell
+data Expr a = Lit a
+            | Add (Expr a) (Expr a)
+            | Equals (Expr a) (Expr a)
+```
+
+```haskell
+{-# LANGUAGE GADTs #-}
+
+data Expr a where
+    Lit :: a -> Expr a
+    Add :: Expr Int -> Expr Int -> Expr Int
+    And :: Expr Bool -> Expr Bool -> Expr Bool
+    Equals :: Expr Int -> Expr Int -> Expr Bool
+```
+
+### GADTs
+
+Morrow's post on [Tying your Shoes with GADTs](https://www.morrowm.com/posts/2021-08-02-shoes.html)
+
+### Partial VS Total
+
+From [Calculating Correct Compilers](https://www.cs.nott.ac.uk/~pszgmh/ccc.pdf)
+
+```
+Partiality Because the ADD instruction fails if the stack does not contain at least two values, the function exec the implements the virtual machine is partial. As remarked by Ager et al. (2003a), such partiality is “inherent to programming abstract machines in an ML-like language”. If desired, exec could be turned into a total function by using a  dependently typed language to make the stack demands of each machine instruction explicit in its type (McKinna & Wright, 2006). However, we do not require such additional effort  here as we are only interested in the behaviour of exec for well-formed code produced by our compiler, as expressed in specifications (3) and (4).
+```
+
+TODO read McKinna & Wright 2006.
 
 ## [Continuation Passing Style](https://en.wikipedia.org/wiki/Continuation-passing_style), Normal Order Evaluation, Applicative Order Evaluation
 
