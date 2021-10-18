@@ -170,13 +170,48 @@ SLPJ's book [2.3.1 Normal Order Reduction](SLPJ_READING/slpj-book-1987.pdf#page=
 
 - [Reynolds93 - The Discoveries of Continuations](https://homepages.inf.ed.ac.uk/wadler/papee/reynolds-discors/papers-we-lovveries.pdf)
 
-One thing to note is that CPS is orthoginal to normal and applicative evaluation order. Given a CPS'd program with all of its reducible subexpressions reduced, the evaluation order under applicative order and normal form order is the same. TODO find a proof for this and write an example.
+One thing to note is that CPS is orthoginal to normal and applicative evaluation order. Given a CPS'd program with all of its reducible subexpressions reduced, the evaluation order under applicative order and normal form order is the same.
+
+Thanks to Jagen and Codingbuddy this intuition is confirmed to be correct. Apparently a proof exists in [Plotkin's 1975 "Call-By-Name, Call-By-Value and the λ-Calculus"](https://homepages.inf.ed.ac.uk/gdp/publications/cbn_cbv_lambda.pdf)
+
+```
+adpx — Today at 12:09 AM
+for a continuation passing style program, is applicative order evaluation practically indistinguishable from normal order evaluation? (Assuming reducible subexpressions are already reduced before cps'ing it) (edited)
+
+codingbuddy — Today at 12:14 AM
+yeah
+
+Gooby — Today at 12:24 AM
+I am not sure what those things are tbhdesu, can you define them uwu
+
+adpx — Today at 12:33 AM
+http://www.cs.columbia.edu/~aho/cs3261/Lectures/L24-Lambda_Calculus_II.html
+
+adpx — Today at 9:58 AM
+I wonder if theres a proof of this written somewhere.
+
+codingbuddy — Today at 9:59 AM
+absolutely
+@jagen 's the expert on this
+
+jagen — Today at 10:06 AM
+definitely not preserved for eternity in a paper from 1975 called "call by name, call by value, and the lambda calculus"
+the proof is that you can use call by name reduction after cpsing and it will be observationally equivalent to call by value lambda calculus
+it will be closed as well, so performing beta reduction on a cps'd term will yield a cps'd term
+and since you're using call by name beta reduction you can prove more equations
+```
 
 From ["(LEFTMOST-OUTERMOST) BETA REDUCTION IS INVARIANT, INDEED" by BENIAMINO ACCATTOLI AND UGO DAL LAGO](https://arxiv.org/pdf/1601.01233.pdf) page 3.
 ```
 Such an evaluation strategy [Normal Order Evaluation] is standard, in the sense of the standardization theorem, one of the central theorems in the theory of λ-calculus, first proved by Curry and Feys [CF58].
 ```
 TODO We should dig up this bit on the Standardization theorem from the [Curry and Feys book on Combinatory Logic](SLPJ_READING/Curry58_CombinatoryLogic.djvu). The intro paragraph on [wikipedia about reduction strategy mentions it.](https://en.wikipedia.org/wiki/Reduction_strategy#Lambda_calculus).
+
+## Other topics
+
+- Boolean blindness and the significance of Sum types (or algebraic data types)
+
+Implementing modes in my [ThreeJS Last Viewer](https://github.com/adpextwindong/Last-Viewer) was painful without sum types. For a long while it was just bools (and too many of them) with associated data lieing around. It could've been possible to emulate them with a tagged union and [object freezing on symbols](https://github.com/adpextwindong/Last-Viewer/blob/abdfd0645f3a10336c046cf16474a99d0949536a/src/engine/scene/landmark_utils.js#L57) but I don't find that particularly safe or fun to do in such a weak language.
 
 ## READING BACKLOG
 
