@@ -33,13 +33,14 @@ TODO READ THIS: [Ghosts of Departed Proofs (Functional Pearl)](https://kataskeue
 ### DSLs
 We need a clean representation of the ideas from [Daan Leijen, Meijer Domain Specific Embedded Compilers](https://www.usenix.org/legacy/events/dsl99/full_papers/leijen/leijen.pdf).
 
+#### Simple illtyped Expr
 ```haskell
 data Expr = Lit Int
             Add Expr Expr
             Equals Expr Expr
 ```
 
-Phantom Type Version
+#### TODO Phantom Type Version
 
 ```haskell
 data Expr a = Lit a
@@ -47,6 +48,7 @@ data Expr a = Lit a
             | Equals (Expr a) (Expr a)
 ```
 
+#### GADTs version similar to Haskell Wikibook example
 ```haskell
 {-# LANGUAGE GADTs #-}
 
@@ -56,6 +58,68 @@ data Expr a where
     And :: Expr Bool -> Expr Bool -> Expr Bool
     Equals :: Expr Int -> Expr Int -> Expr Bool
 ```
+
+#### GADTs version with DataKinds,TypeFamilies,ConstraintKinds.
+
+A nice introduction to [ConstraintKinds I read by Kwang Yul Seo](https://kseo.github.io/posts/2017-01-13-constraint-kinds.html).
+I originally ran into some of these techniques when I was trying to express ["Tainted and Untainted" types for expressing natural deduction proofs](https://github.com/adpextwindong/NDNotes) while reading [Wadler 2015 Propositions as Types](https://dl.acm.org/doi/10.1145/2699407). [Example1](https://github.com/adpextwindong/NDNotes/blob/main/TaintedExample1.hs) and [Example2](https://github.com/adpextwindong/NDNotes/blob/main/TaintedExample2.hs). This initial stab at expressing proofs in Haskell with typesafety wasn't that successful but the techniques I learned from it were great. I should probably read into how proofs are expressed in other systems.
+
+```haskell
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE DataKinds #-}       --For 'Measurable
+{-# LANGUAGE TypeFamilies #-}    --For KMetric'
+{-# LANGUAGE ConstraintKinds #-} --For KMetric t
+
+data Line = KLine
+data Point = KPoint
+
+data Measurable = 'Measurable               --Measurable Types Constraint TypeFamily
+
+type family KMetric' a where                --Measurable Primitives Constraint Type Family
+    KMetric' Line = 'Measurable
+
+type KMetric t = (KMetric' t ~ 'Measurable) --Measurable ConstraintKind
+
+data KExpr a where
+    K :: a -> KExpr a
+    C :: ConstExpr a -> KExpr a
+    KLength :: (KMetric a) => KExpr a -> KExpr Float
+    KConLine :: KExpr Point -> KExpr Point -> KExpr Line
+    KAdd :: (Num a) => KExpr a -> KExpr a -> KExpr a
+
+--Used with KExpr C constructor to provide labeled and typed constants.
+--Pattern found from https://stackoverflow.com/a/37359542
+data ConstExpr a where
+    ConstF :: String -> ConstExpr Float
+```
+
+Example error
+```
+<interactive>:1:1: error:
+    • Couldn't match type ‘KMetric' Point’ with ‘'Measurable’
+        arising from a use of ‘KLength’
+    • In the expression: KLength (K KPoint)
+      In an equation for ‘it’: it = KLength (K KPoint)
+```
+
+Alternative minimal version without 'Measurable DataKind for improved type error messages.
+
+```haskell
+type family KMetric' a where
+    KMetric' Line = 'True
+
+type KMetric t = (KMetric' t ~ 'True)
+```
+
+```
+<interactive>:1:1: error:
+    • Couldn't match type ‘KMetric' Point’ with ‘'True’
+        arising from a use of ‘KLength’
+    • In the expression: KLength (K KPoint)
+      In an equation for ‘it’: it = KLength (K KPoint)
+```
+
+As you can see this leads to readability issues. Adding a 'Measurable datakind adds readability at the cost of polluting the namespace.
 
 ### GADTs
 
