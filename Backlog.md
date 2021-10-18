@@ -42,6 +42,8 @@ data Expr = Lit Int
 
 #### TODO Phantom Type Version
 
+TODO read through [Fun with Phantom Types by R. Hinze 2003](https://www.cs.ox.ac.uk/ralf.hinze/publications/With.pdf)
+
 ```haskell
 data Expr a = Lit a
             | Add (Expr a) (Expr a)
