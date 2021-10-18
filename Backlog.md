@@ -135,7 +135,44 @@ From [Calculating Correct Compilers](https://www.cs.nott.ac.uk/~pszgmh/ccc.pdf)
 Partiality Because the ADD instruction fails if the stack does not contain at least two values, the function exec the implements the virtual machine is partial. As remarked by Ager et al. (2003a), such partiality is “inherent to programming abstract machines in an ML-like language”. If desired, exec could be turned into a total function by using a  dependently typed language to make the stack demands of each machine instruction explicit in its type (McKinna & Wright, 2006). However, we do not require such additional effort  here as we are only interested in the behaviour of exec for well-formed code produced by our compiler, as expressed in specifications (3) and (4).
 ```
 
-TODO read McKinna & Wright 2006.
+### Dependent Types
+
+#### Epigram1
+
+[A type-correct, stack-safe, provably correct, expression compiler in Epigram by James McKinna and Joel Wright 2006](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.62&rep=rep1&type=pdf)
+TODO figure out how to run Epigram1. [This might require some fixing.](https://github.com/david-christiansen/epigram1). It might be easiest to run under WSL or a Linux VM.
+
+### Other
+
+TODO EXPLORE Phantom Types for Vectors denoting which space its in. This might be a nice application of TypeOperators.
+```
+adpx — 06/18/2021
+Do you guys do any type level programming to handle transformations between coordinate spaces at all?
+
+Rotaerk — 06/18/2021
+@adpx what are you imagining that to look like?
+
+adpx — 06/18/2021
+Like phantom types for Vectors
+denoting which space its in.
+
+Rotaerk — 06/18/2021
+ah
+
+adpx — 06/18/2021
+I'm curious because I've tried writing raycasting code in Rust before but im' very clumsy at organizing that stuff
+
+Rotaerk — 06/18/2021
+maybe just use https://hackage.haskell.org/package/tagged-0.8.6.1/docs/Data-Tagged.html
+
+adpx — 06/18/2021
+Oh nice. I'll have to play with this. Man, I feel like theres always a Kmett library for anything useful and challenging to write.
+
+Rotaerk — 06/18/2021
+you can basically have a function that transforms from X space to Y space with a type like Tagged X Vector4 -> Tagged Y Vector4
+can construct one like Tagged @X someVector4
+if that's a bit too repetitive for you, you can make an alias like type SpaceVector4 s = Tagged s Vector4 and then xToY :: SpaceVector4 X -> SpaceVector4 Y
+```
 
 ## [Continuation Passing Style](https://en.wikipedia.org/wiki/Continuation-passing_style), Normal Order Evaluation, Applicative Order Evaluation
 
