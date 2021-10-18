@@ -8,6 +8,20 @@ Probably the most concrete proof I've seen of the truth that recursion and imper
 
 It also show cases the link between code and data in a nonLisp context.
 
+## Trace Trick
+
+[From this reddit comment.](https://www.reddit.com/r/haskell/comments/py8u24/why_did_haskell_not_succeed/hetrqzv/)
+
+```haskell
+import Debug.Trace
+
+fib :: Integer -> Integer
+fib n | trace ("fib " ++ show n) False = undefined
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n - 1) + fib (n - 2)
+```
+
 ## Well Typed Programs and Type Safety
 
 [Alexis King - Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
