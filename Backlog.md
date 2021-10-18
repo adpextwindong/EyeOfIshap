@@ -123,6 +123,12 @@ type KMetric t = (KMetric' t ~ 'True)
 
 As you can see this leads to readability issues. Adding a 'Measurable datakind adds readability at the cost of polluting the namespace.
 
+One thing to note is the difference of usage between Type Classes and Type Families in the KExpr example. In this case the type families are closed. [More information here from Serokell](https://seype-families-hasrokell.io/blog/tkell). While type class constraints can express a lot about your types, you're still restricted to talking about a single type a. Introducing a second parameter to KExpr has its own issues. Generally if you can work with the types you build up in the language then you can use type families to compute a type using those types. This is hte primary mechanism for type safety in the KExpr example.
+
+Additionally the ConstF constructor is a phantom type trick that lets us use strings in place for float constants. The semmantics of this are up to the eval/compile function but in the scheme of things its used to placehold a value while allowing for the rest of the parent expression to be type-safe.
+
+TODO READ [Foundations for Structured Programming with GADTs.](https://strathprints.strath.ac.uk/33726/1/ghani_popl08.pdf)
+
 ### GADTs
 
 Morrow's post on [Tying your Shoes with GADTs](https://www.morrowm.com/posts/2021-08-02-shoes.html)
