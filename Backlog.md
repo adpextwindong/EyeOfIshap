@@ -68,24 +68,30 @@ I originally ran into some of these techniques when I was trying to express ["Ta
 
 ```haskell
 {-# LANGUAGE GADTs #-}
-{-# LANGUAGE DataKinds #-}       --For 'Measurable
-{-# LANGUAGE TypeFamilies #-}    --For KMetric'
-{-# LANGUAGE ConstraintKinds #-} --For KMetric t
+{-# LANGUAGE DataKinds #-}       --For 'Primitive
+{-# LANGUAGE TypeFamilies #-}    --For KPrim'
+{-# LANGUAGE ConstraintKinds #-} --For KPrim t
 
+data Image = Png
 data Line = KLine
 data Point = KPoint
 
-data Measurable = 'Measurable               --Measurable Types Constraint TypeFamily
+data Primitive = 'Primitive
 
-type family KMetric' a where                --Measurable Primitives Constraint Type Family
-    KMetric' Line = 'Measurable
+type family KPrim' a where
+    KPrim' Line = 'Primitive
+    KPrim' Point = 'Primitive
 
-type KMetric t = (KMetric' t ~ 'Measurable) --Measurable ConstraintKind
+type KPrim t = (KPrim' t ~ ' Primitive)
+
+class Measure a
+instance Measure Line
 
 data KExpr a where
     K :: a -> KExpr a
     C :: ConstExpr a -> KExpr a
-    KLength :: (KMetric a) => KExpr a -> KExpr Float
+    KLength :: (Measure a) => KExpr a -> KExpr Float
+    KRender :: (KPrim a) => KExpr a -> KExpr Image
     KConLine :: KExpr Point -> KExpr Point -> KExpr Line
     KAdd :: (Num a) => KExpr a -> KExpr a -> KExpr a
 
@@ -107,25 +113,47 @@ Example error
 Alternative minimal version without 'Measurable DataKind for improved type error messages.
 
 ```haskell
-type family KMetric' a where
-    KMetric' Line = 'True
+type family KPrim' a where
+    KPrim' Line = 'True
 
-type KMetric t = (KMetric' t ~ 'True)
+type KPrim t = (KPrim' t ~ 'True)
 ```
 
 ```
 <interactive>:1:1: error:
-    • Couldn't match type ‘KMetric' Point’ with ‘'True’
+    • Couldn't match type ‘KPrim' Point’ with ‘'True’
         arising from a use of ‘KLength’
     • In the expression: KLength (K KPoint)
       In an equation for ‘it’: it = KLength (K KPoint)
 ```
 
-As you can see this leads to readability issues. Adding a 'Measurable datakind adds readability at the cost of polluting the namespace.
+As you can see this leads to readability issues. Adding a 'Primitive datakind adds readability at the cost of polluting the namespace.
 
-One thing to note is the difference of usage between Type Classes and Type Families in the KExpr example. In this case the type families are closed. [More information here from Serokell](https://seype-families-hasrokell.io/blog/tkell). While type class constraints can express a lot about your types, you're still restricted to talking about a single type a. Introducing a second parameter to KExpr has its own issues. Generally if you can work with the types you build up in the language then you can use type families to compute a type using those types. This is hte primary mechanism for type safety in the KExpr example.
+One thing to note is the difference of usage between Type Classes and Type Families in the KExpr example. In this case the type families are closed. [More information here from Serokell](https://seype-families-hasrokell.io/blog/tkell). While type class constraints can express a lot about your types, you're still restricted to talking about a single type a. Introducing a second parameter to KExpr has its own issues. Where type families are nice is when you want to work with types at the type level. For example having a 2ary typefamily accept Tainted kinded types to curse and uncurse a type. Or matrix/vector sizing like in [Hylogen](https://github.com/adpextwindong/hylogen/blob/protofeature/matrix/hylogen/src/Hylogen/Types/Mat.hs). In this example so far they closed type family KPrim' and Measure achieve similar constraints but express different things about the types. KPrim tells us primitives within the KExpr can be rendered to an image while Measure talks about values that have a measure instance outside of the KExpr language.
+
+Generally if you can work with the types you build up in the language then you can use type families to compute a type using those types. This is hte primary mechanism for type safety in the KExpr example.
 
 Additionally the ConstF constructor is a phantom type trick that lets us use strings in place for float constants. The semmantics of this are up to the eval/compile function but in the scheme of things its used to placehold a value while allowing for the rest of the parent expression to be type-safe.
+
+Example from Hylogen.
+
+```haskell
+type family MulR a b where
+    MulR (Expr (FloatVec 2)) (Expr (FloatMat 2 2)) = Expr (FloatVec 2)
+    MulR (Expr (FloatVec 3)) (Expr (FloatMat 3 3)) = Expr (FloatVec 3)
+    MulR (Expr (FloatVec 4)) (Expr (FloatMat 4 4)) = Expr (FloatVec 4)
+
+    MulR (Expr (FloatMat 2 2)) (Expr (FloatVec 2)) = Expr (FloatVec 2)
+    MulR (Expr (FloatMat 3 3)) (Expr (FloatVec 3)) = Expr (FloatVec 3)
+    MulR (Expr (FloatMat 4 4)) (Expr (FloatVec 4)) = Expr (FloatVec 4)
+
+    MulR (Expr (FloatMat 2 2)) (Expr (FloatMat 2 2)) = Expr (FloatMat 2 2)
+    MulR (Expr (FloatMat 3 3)) (Expr (FloatMat 3 3)) = Expr (FloatMat 3 3)
+    MulR (Expr (FloatMat 4 4)) (Expr (FloatMat 4 4)) = Expr (FloatMat 4 4)
+
+mul :: (OrMatVec a, OrMatVec b, MulR a b ~ Expr c, b ~ Expr b0, a ~ Expr a0, ToGLSLType a0, ToGLSLType b0, ToGLSLType c) => a -> b -> MulR a b
+mul = op2 "*"
+```
 
 TODO READ [Foundations for Structured Programming with GADTs.](https://strathprints.strath.ac.uk/33726/1/ghani_popl08.pdf)
 
