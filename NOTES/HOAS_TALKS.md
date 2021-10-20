@@ -244,3 +244,6 @@ app = lam $ \a -> lam $ \f -> f $$ a
 ```
 
 [Code Gen for Javascript using this construction](https://youtu.be/8DdyWgRYEeI?t=4211).
+
+
+# [Higher-order Abstract Syntax for Cartesian Closed Categories](https://blog.functorial.com/posts/2017-10-08-HOAS-CCCs.html)
