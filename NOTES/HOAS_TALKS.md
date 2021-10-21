@@ -245,5 +245,29 @@ app = lam $ \a -> lam $ \f -> f $$ a
 
 [Code Gen for Javascript using this construction](https://youtu.be/8DdyWgRYEeI?t=4211).
 
+We can extend HOAS with true/false/if like this
+
+```haskell
+class HOAS f where
+    ...
+    true :: f Bool
+    false :: f Bool
+    ife :: f Bool -> f a -> f a -> f a
+```
+
+One thing to note is that this is a model language so we need to differentiate "functions between models" or a "model of a function".
+
+Instances for these typeclasses are interpretations. Using these typeclasses as constraints we can be clear about the form of composition we seek then offer different interpretations of the same program.
+
+From [Oleg Kiselyov's page on Tagless-final style](https://okmij.org/ftp/tagless-final/index.html)
+
+```
+Doing a tagless-final embedding is literally writing a denotational semantics for the DSL -- in a host programming language rather than on paper.
+```
+[Finally tagless, partially evaluated: Tagless staged interpreters for simpler typed languages](https://doi.org/10.1017/S0956796809007205)
+
+[As per usual we relevant Kmett comment](https://www.reddit.com/r/haskell/comments/424txm/what_is_the_advantage_of_tagless_final_style_over/cz7t6km/).
+
+[A Roman Cheplyaka post on boilerplate in finally tagless style]https://ro-che.info/articles/2016-02-03-finally-tagless-boilerplate).
 
 # [Higher-order Abstract Syntax for Cartesian Closed Categories](https://blog.functorial.com/posts/2017-10-08-HOAS-CCCs.html)
