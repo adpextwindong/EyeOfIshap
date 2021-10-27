@@ -1,10 +1,11 @@
 The code for Conal Elliott's ["Compiling to Categories"](http://conal.net/papers/compiling-to-categories/compiling-to-categories.pdf) can be found on [his github](https://github.com/conal/concat)
 
-This is a reading through ConCat's source, that should hopefully compile, presented in the order of the paper.
+This is a reading through ConCat's source (as of commit [a185ee5](https://github.com/conal/concat/tree/a185ee5bf2f950a39d6d985aef281ad2607e955f)), that should hopefully compile, presented in the order of the paper. Primarily to see how the sausage is made for such a library and peek at the GHC plugin.
 
 NOTE: Language Extensions will be declared in order of addition (to get things compiled) with notes on what is using them.
 
 \begin{code}
+--PART1
 {-# LANGUAGE RankNTypes #-}        -- explicit-forall in Category (.)
 {-# LANGUAGE PolyKinds #-}         -- kind variable u in con constraint
 {-# LANGUAGE TypeOperators #-}     -- `k` TypeOperator in Category
