@@ -13,12 +13,20 @@ NOTE: Language Extensions will be declared in order of addition (to get things c
 {-# LANGUAGE ConstraintKinds #-}   -- con ConstraintKind
 {-# LANGUAGE TypeFamilies #-}      -- Indexed type families for Ok k in Category class declaration
 
+--PART2
+{-# LANGUAGE DataKinds #-} -- '[]
+{-# LANGUAGE MultiParamTypeClasses #-} -- && for Type Computations, which introduces potential superclass cycle
+{-# LANGUAGE UndecidableSuperClasses #-}
+
 import Prelude hiding (id, (.))    -- Category defines these so we need to avoid import clashing
 import qualified Prelude as P
 
 import GHC.Types (Type,Constraint) -- con and C3
 
---src/Concat/Misc.hs:145
+--src/Concat/Misc.hs:142
+class    Yes0
+instance Yes0
+
 class    Yes1 a
 instance Yes1 a
 
@@ -41,4 +49,37 @@ class Category k where
 instance Category (->) where
     id = P.id
     (.) = (P..)
+
 \end{code}
+
+Okn is a huge constraint. And src/ConCat/Misc.hs:185 defines a lot of typelevel computations to deal with them.
+
+These introduce DataKinds to work on them.
+
+\begin{code}
+infixr 3 &&
+class    (a,b) => a && b
+instance (a,b) => a && b
+
+type family FoldrC op b0 as where
+    FoldrC op z '[]      = z
+    FoldrC op z (a : as) = a `op` FoldrC op z as
+
+type family MapC f us where
+    MapC f '[]      = '[]
+    MapC f (u : us) = f u : MapC f us
+
+type AndC   cs = FoldrC (&&) Yes0 cs
+type AllC f us = AndC (MapC f us)
+
+\end{code}
+
+All of this is to introduce Category.hs:306
+
+\begin{code}
+
+type Oks k as = AllC (Ok k) as
+
+\end{code}
+
+--TODO rework explanation of Ok constraint after reading section 6 "Constrainted Categories"
