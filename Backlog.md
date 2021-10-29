@@ -300,3 +300,7 @@ Implementing modes in my [ThreeJS Last Viewer](https://github.com/adpextwindong/
 - [Compiler Design CS4410](https://course.ccs.neu.edu/cs4410sp20)
 
 - [Andrew Appel - Modern Compiler Implementation in ML](https://www.cs.princeton.edu/~appel/modern/ml/)
+
+- [Concept Techniques and Models of Computer Programming](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.102.7366&rep=rep1&type=pdf)
+
+Particularly the relational and constraint programming.
