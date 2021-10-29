@@ -71,6 +71,8 @@ data Expr a where
     Equals :: Expr Int -> Expr Int -> Expr Bool
 ```
 
+TODO read through [A Foundation for Embedded Languages](http://web.archive.org/web/20170809090906/https://www.brics.dk/RS/02/34/BRICS-RS-02-34.pdf)
+
 #### GADTs version with DataKinds,TypeFamilies,ConstraintKinds.
 
 A nice introduction to [ConstraintKinds I read by Kwang Yul Seo](https://kseo.github.io/posts/2017-01-13-constraint-kinds.html).
