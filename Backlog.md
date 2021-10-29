@@ -28,7 +28,17 @@ fib n = fib (n - 1) + fib (n - 2)
 
 This is probably what openned my eyes to type safety.
 
-TODO READ THIS: [Ghosts of Departed Proofs (Functional Pearl)](https://kataskeue.com/gdp.pdf)
+##[Ghosts of Departed Proofs (Functional Pearl)](https://kataskeue.com/gdp.pdf)
+
+```
+But despite this menagerie of powerful type systems, workaday Haskell programmers have already been able to encode suprisingly sophisticated invariants using nothing more than a few well-understood extensions to the Damas-Hindley-Milner type system.
+
+An early success story is the ST monad, which allows pure computations to make use of local, mutable state. A phantom type parameter and a clever use of rank-2 types in the ST monad's API gives a compile-time guarantee that the local mutable state is invisible from the outside, and hence the resulting computation really is pure...
+```
+From Ghost of Departed Proofs Introduction
+
+--TODO Read [A Foundation for Embedded Languages](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.4331&rep=rep1&type=pdf)
+
 
 ### DSLs
 We need a clean representation of the ideas from [Daan Leijen, Meijer Domain Specific Embedded Compilers](https://www.usenix.org/legacy/events/dsl99/full_papers/leijen/leijen.pdf).
