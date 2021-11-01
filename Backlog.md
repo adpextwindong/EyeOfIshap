@@ -316,3 +316,5 @@ Implementing modes in my [ThreeJS Last Viewer](https://github.com/adpextwindong/
 - [Concept Techniques and Models of Computer Programming](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.102.7366&rep=rep1&type=pdf)
 
 Particularly the relational and constraint programming.
+
+- [Fold and Unfold for Program Semantics](https://www.cs.nott.ac.uk/~pszgmh/semantics.pdf)
