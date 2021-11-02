@@ -7,7 +7,7 @@ STLC (Simply Typed Lambda Calculus) has 4 typing rules
 - Lambda Expressions ![Lambda Expressions](STLC_Rule3.svg)
 - Applications ![Applications](STLC_Rule4.svg)
 
-\begin{code}
+```haskell
 {-# LANGUAGE GADTs #-}
 data Ty = IntTy | Ty :=> Ty
 
@@ -20,7 +20,7 @@ data Exp where
 --TO BE DEFINED
 --de Bruijn indexes
 data Idx = Idx
-\end{code}
+```
 
 ```
 \(x :: t1, y :: t2) -> x y)
@@ -41,7 +41,7 @@ Using de Bruijn indices we can reference which binder we're refering to if there
 
 NOTE: This representation does not enforce well typed terms.
 
--- Small-step reduction, closed terms
+## Small-step reduction, closed terms
 
 We can write a function to reduce using small step operation semmantics.
 
@@ -51,7 +51,7 @@ NOTE: Closed terms, the type system doesn't know about it. We should only call t
       If we hit an unbound variable we will throw an error.
 
 
-\begin{code}
+```haskell
 step :: Exp -> Maybe Exp
 step (IntE x) = Nothing
 step (VarE n) = error "Unbound variable"
@@ -68,7 +68,7 @@ stepApp (LamE t e1) e2 = undefined -- ??? Do a beta redex
 
 --If we find another application, it could be a lambda expression so we must recurse
 stepApp (AppE e1' e2') e2 = AppE (stepApp e1' e2') e2
-\end{code}
+```
 
 Using de Bruijn indices how do we perform substitution??
 
@@ -116,7 +116,7 @@ If e2 is not closed, increment free variables in e2 by n.
 
 This algorithmn for binding is common to all languages with binding. Nothing special to SLTC.
 
-- Substitution Library
+# Substitution Library
 
 ```haskell
 
@@ -152,7 +152,7 @@ class SubstDB a where
 singleSub :: a -> Sub a         -- create a substitution
 ```
 
-- Using the library
+# Using the library
 
 ```haskell
 import Subst
@@ -181,7 +181,7 @@ Now we can neatly do a beta redex by creating a single substition with e2 then a
 
 NOTE: Doing this naively can be expensive. Will be talked about later.
 
-- Open vs Closed terms in STLC
+# Open vs Closed terms in STLC
 
 Closed term: All identifiers bound by closest containing abstraction
 
@@ -198,7 +198,7 @@ Open term: Some identifiers not bound
 Legal lambda calculus programs: all closed terms
 
 
-- A strongly-typed AST
+# A strongly-typed AST
 
 Lets use types to rule out errors
 
@@ -423,7 +423,7 @@ prop_axiom1 :: Sub Ty -> [Ty] -> Bool
 prop_axiom1 s g = map (subst (lift s)) (incList g) == incList (map (subst s) g)
 ```
 
--What did we learn
+# What did we learn
 
 This shows the kind of place where a proof needed pops up and we can't do it in Haskell.
 Weak internal logic means the definition can be simpler.
