@@ -318,3 +318,4 @@ Implementing modes in my [ThreeJS Last Viewer](https://github.com/adpextwindong/
 Particularly the relational and constraint programming.
 
 - [Fold and Unfold for Program Semantics](https://www.cs.nott.ac.uk/~pszgmh/semantics.pdf)
+- [Jeff Polakow - Embedding a Full Linear Lambda Calculus in Haskell](http://functorial.com/Embedding-a-Full-Linear-Lambda-Calculus-in-Haskell/linearlam.pdf)
