@@ -18,6 +18,8 @@ TODO annotate languages used.
 |[Cayenne](https://github.com/csgordon/cayenne)|
 |[Hamler](https://github.com/hamler-lang/hamler)|
 |[PureScript](https://github.com/purescript/purescript)|
+|[Dhall](https://github.com/dhall-lang/dhall-lang)|
+|[Hackett](https://github.com/lexi-lambda/hackett)|
 
 ## Language Projects
 
@@ -70,6 +72,7 @@ TODO annotate languages used.
 | | |
 |-|-|
 |[bf-hs - Brainfuck interpretter written in Haskell](https://github.com/MorrowM/bf-hs)|
+|[fckmaker - Esolang library in rust](https://github.com/uzkbwza/fckmaker)|Rust|
 
 ### λ-Calculi
 
@@ -94,6 +97,7 @@ TODO annotate languages used.
 
 | | |
 |-|-|
+|[legacy-cc - The earliest versions of the very first c compiler known to exist in the wild written by the late legend himself dmr.](https://github.com/mortdeus/legacy-cc)|
 |[Redwood - A simple imperative programming language built to make small games.](https://github.com/sjsch/redwood)|Haskell|
 
 ### Concatenative
@@ -128,6 +132,11 @@ TODO annotate languages used.
 |[gristle - This is the spiritial successor to ixshader.](https://github.com/schell/gristle)|Haskell|
 |[gelatin - EDSL for describing pictures and scenes.](https://github.com/schell/gelatin)|Haskell|
 |[Haskino - framework for exploring EDSL concepts with the Arduino](https://github.com/ku-fpg/haskino)|Haskell|ku-fpg|
+|[LambdaCube 3D](http://lambdacube3d.com/package-overview)||
+|[LambdaCube-edsl - Older version of the LambdaCube3D](https://github.com/lambdacube3d/lambdacube-edsl)|
+|[ImplicitCAD - A math-inspired CAD program in haskell. CSG, bevels, and shells; 2D & 3D geometry; 2D gcode generation...](https://github.com/Haskell-Things/ImplicitCAD)|Haskell|CAD|
+|[blank-canvas - HTML5 Canvas bindings](https://github.com/ku-fpg/blank-canvas)|Haskell|ku-fpg|
+|[static-canvas - HTML5 Canvas DSL for static non-interactive content](https://github.com/jeffreyrosenbluth/static-canvas)|
 
 ## Libraries / Reference Resources
 
@@ -147,6 +156,7 @@ TODO annotate languages used.
 |[unification-fd - generic functions for single-sorted first-order structural unification (think of programming in Prolog, or of the metavariables in type inference)](https://github.com/wrengr/unification-fd)|Haskell|Unification|
 |[data-reify - Type-safe observable sharing](https://github.com/ku-fpg/data-reify)|Haskell|ku-fpg, Related to ["Type-Safe Observable Sharing in Haskell" by Andy Gill](http://www.ittc.ku.edu/~andygill/papers/reifyGraph.pdf)|
 |[inversify - Parsing and printing in a single syntax description](https://github.com/brightly-salty/inversify)|Haskell|[Inversify uses the ideas from https://www.informatik.uni-marburg.de/~rendel/unparse/ to implement a featureful parser and pretty-printer from an invertible syntax description.](https://www.informatik.uni-marburg.de/~rendel/unparse/)
+|[hobbits: A library for canonically representing terms with binding](https://github.com/eddywestbrook/hobbits)|Haskell|[Hobbits for Haskell: a library for higher-order encodings in functional programming languages](https://doi.org/10.1145/2034675.2034681)|
 
 
 ## Misc Libraries
@@ -175,6 +185,7 @@ TODO annotate languages used.
 |[Calculating Correct Compilers supplementary material in Coq](https://github.com/pa-ba/calc-comp/commits/master)|Coq|Has stuff like call-by-name lambda calculus, call by need lambda calculus, call by value lc, etc|
 |[dth - Examples of Dependently-typed programs in Haskell by Stephanie Weirich and others](https://github.com/sweirich/dth)|Haskell,Agda|
 |[ghc-software-foundations - The Software Foundations books, in GHC](https://github.com/RyanGlScott/ghc-software-foundations)|Haskell|
+|[stoeffel simple Haskell dsl examples](https://github.com/stoeffel/haskell-simple-dsl-examples)|
 
 ## Books
 
@@ -246,3 +257,9 @@ Dragon book is good for generative parsing strategies
 |[cubicaltt - Experimental implementation of Cubical Type Theory](https://github.com/mortberg/cubicaltt)|Haskell|
 |[datatt - A dependent type theory with user defined data types](https://github.com/mmcqd/datatt)|Ocaml|
 |[Coq Library for SKI Combinatory Logic](https://github.com/markisus/coq-ski)|
+
+### COQ MISC
+
+|||
+|-|-|
+|[Tricks in Coq](https://github.com/tchajed/coq-tricks)|
