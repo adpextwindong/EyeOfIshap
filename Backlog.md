@@ -319,3 +319,5 @@ Particularly the relational and constraint programming.
 
 - [Fold and Unfold for Program Semantics](https://www.cs.nott.ac.uk/~pszgmh/semantics.pdf)
 - [Jeff Polakow - Embedding a Full Linear Lambda Calculus in Haskell](http://functorial.com/Embedding-a-Full-Linear-Lambda-Calculus-in-Haskell/linearlam.pdf)
+- [Haskell MicroKanren impl](https://github.com/seantalts/hasktrip/blob/master/doc/MicroKanren.md)
+- [µKanren: A Minimal Functional Core for Relational Programming by Jason Hemann Daniel P. Friedman](http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf)
