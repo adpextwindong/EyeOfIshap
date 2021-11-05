@@ -36,11 +36,17 @@ TODO annotate languages used.
 
 |||
 |-|-|
-|[Aith - low level functional programming language with linear types, kind based staging / macros, levity polymorphism, and monadic region](https://github.com/Superstar64/aith)|Haskell, TODO A lot of resources on the README|
 |[Poly - a WIP compiler](https://github.com/mb64/poly)|Haskell|
 |[RustScript V2](https://github.com/mkhan45/RustScript2)|Ocaml|
 |[SomewhatML sml-compiler](https://github.com/SomewhatML/sml-compiler)|Rust|
 |[Sunchao Tiger ML impl](https://github.com/sunchao/tiger)|SML|
+
+#### Linear Types
+
+|||
+|-|-|
+|[Aith - low level functional programming language with linear types, kind based staging / macros, levity polymorphism, and monadic region](https://github.com/Superstar64/aith)|Haskell, TODO A lot of resources on the README|
+|[Austral - Systems language with linear types](https://github.com/austral/austral)|Ocaml|
 
 #### Dependently typed
 
