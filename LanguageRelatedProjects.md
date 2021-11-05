@@ -31,6 +31,7 @@ TODO annotate languages used.
 |[A Tutorial Implementation of a Dependently Typed Lambda Calculus by Andres Löh, Conor McBride and Wouter Swierstra](https://www.andres-loeh.de/LambdaPi/)|Haskell|[Michael Peyton Jones's typing of the tutorial](https://github.com/michaelpj/lambda-pi)|
 |[Cubiml - ML w/ subtyping and full type inference. Cubiml uses cubic biunification, a faster and simpler type inference algorithm based on Algebraic Subtyping](https://github.com/Storyyeller/cubiml-demo)|Rust|
 |[POMPOM -  an attractive implementation of an extensional dependently typed language for functional programming and for people that want to have fun proving things](https://github.com/caotic123/PomPom-Language)|Haskell| "core is only 1000 lines aka the BASIC language of proof assistants"|
+|[Stephen Diehl's Write-You-A-Haskell](https://github.com/sdiehl/write-you-a-haskell)|Haskell|WIP|
 
 ### Functional
 
