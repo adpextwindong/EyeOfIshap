@@ -33,6 +33,12 @@ TODO annotate languages used.
 |[POMPOM -  an attractive implementation of an extensional dependently typed language for functional programming and for people that want to have fun proving things](https://github.com/caotic123/PomPom-Language)|Haskell| "core is only 1000 lines aka the BASIC language of proof assistants"|
 |[Stephen Diehl's Write-You-A-Haskell](https://github.com/sdiehl/write-you-a-haskell)|Haskell|WIP|
 
+#### Type Systems
+
+||||
+|-|-|-|
+|[Grow your own type system](https://github.com/tomprimozic/type-systems)|Ocaml|
+
 ### Functional
 
 |||
