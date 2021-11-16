@@ -183,6 +183,8 @@ Partiality Because the ADD instruction fails if the stack does not contain at le
 
 ### Dependent Types
 
+Read [RAE's Dependently typed programming with singletons](https://repository.brynmawr.edu/cgi/viewcontent.cgi?article=1009&context=compsci_pubs)
+
 #### Epigram1
 
 [A type-correct, stack-safe, provably correct, expression compiler in Epigram by James McKinna and Joel Wright 2006](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.94.62&rep=rep1&type=pdf)
