@@ -323,3 +323,9 @@ Particularly the relational and constraint programming.
 - [Jeff Polakow - Embedding a Full Linear Lambda Calculus in Haskell](http://functorial.com/Embedding-a-Full-Linear-Lambda-Calculus-in-Haskell/linearlam.pdf)
 - [Haskell MicroKanren impl](https://github.com/seantalts/hasktrip/blob/master/doc/MicroKanren.md)
 - [µKanren: A Minimal Functional Core for Relational Programming by Jason Hemann Daniel P. Friedman](http://webyrd.net/scheme-2013/papers/HemannMuKanren2013.pdf)
+
+### UI
+
+- [Comonads for user interfaces](https://arthurxavierx.github.io/ComonadsForUIs.pdf)
+- [A Real-World Application with a Comonadic User Interface](https://arthurxavierx.github.io/RealWorldAppComonadicUI.pdf)
+- [Comonads as Spaces by Phil Freeman](https://blog.functorial.com/posts/2016-08-07-Comonads-As-Spaces.html)
