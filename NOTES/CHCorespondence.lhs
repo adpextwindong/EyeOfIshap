@@ -131,3 +131,51 @@ Innocent Typing Rule
 Recall [lec19](https://cs3110.github.io/textbook/chapters/interp/typecheck.html)
 - Static environment is a map from identifiers to types
 - Typing relation `env |- e : t` says that e has type t in environment env
+
+"Env shows that e has type t"
+
+Typing rule for function application:
+
+if   env |- e1 : t -> u
+and  env |- e2 : t
+then env |- e1 e2 : u
+
+"If in an environment we can show that e1 is a function type from t to u, and show in the same environment we can show e2 is type t, then the environment shows that e2 applied to e1 results in type u."
+
+This is just like Modus Ponens.
+
+t => u
+t
+------
+u
+
+--- Intermission
+
+Logical proof systems
+
+Ways of formalizing what is _provable_
+Which may differ from what is _true_ or _decidable_
+
+Two styles:
+- Hilbert:
+    Lots of Axioms
+    Few inference rules (maybe just modus ponens)
+
+- Gentzen
+    Lots of inferences rules (a couple for each operator)
+    Few Axioms
+
+Inference Rules
+
+P1 P2 ... Pn
+------------
+     Q
+
+From premises P1, P2, ... Pn
+Infer conclusion Q
+Express allowed means of inference or deductive reasoning
+Axiom is an inference rule with zero premises
+
+In the type system thesThe ternary relation
+
+https://youtu.be/GdcOy6zVFC4?t=1549
