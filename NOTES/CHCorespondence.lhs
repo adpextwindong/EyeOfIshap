@@ -176,6 +176,107 @@ Infer conclusion Q
 Express allowed means of inference or deductive reasoning
 Axiom is an inference rule with zero premises
 
-In the type system thesThe ternary relation
+In the type system these are ternary relations
 
-https://youtu.be/GdcOy6zVFC4?t=1549
+These relations are judgements of what we're allowed to concluded.
+
+--- Judgments
+
+A1, A2, ... An |- B
+
+From assumptions A1, A2, ... An
+
+Traditional to write Γ  for set of assumptions.
+
+Judge that B is _derivable_ or _provable_
+
+Express allowed means of _hypothetical_ reasoning
+
+Γ ,A |- A is an axiom
+
+---- Inference rules for => and ∧  in a gentzen style system
+
+Implication
+
+ Γ , A|-B
+---------- => intro
+Γ |- A => B
+
+Γ |- A => B    Γ |- A
+---------------------- => elim
+         Γ |-B
+
+
+And
+
+ Γ  |- A  Γ  |- B
+----------------- => ∧ intro
+  Γ  |- A ∧  B
+
+
+  Γ  |- A ∧  B
+----------------- => ∧ ielim 1
+    Γ  |- A
+
+  Γ  |- A ∧  B
+----------------- => ∧ ielim 2
+    Γ  |-  B
+
+From the set of assumptions Γ  we can conclude, then we can decude ...
+
+Intro rules define an operator, elim rules define how to use them.
+
+Gentzen's insight being every operator should come with intro and elim rules.
+
+--- Innocent Typing Rule
+
+if   env |- e1 : t -> u
+and  env |- e2 : t
+then env |- e1 e2 : u
+
+env |- e1 : t -> u   env |- e2 : t    env |- t => u  env |- t
+-----------------------------------  -------------------------
+       env |- e1 e2 : u                       env |- u
+
+Modus ponens is function application.
+
+--- Computing with evidence
+
+Pretty much you're doing computing on evidence.
+
+You can't provide evidence for type void. If you apply 42 to something, you're giving evidence for type int.
+
+So e1 e2 is a program and proof (transformation of evidence for whatever e2 is to another kind of evidence).
+
+A well typed program demonstrates that there is at least one value of that type.
+    -i.e. the that type is inhabited
+    -a program is a proof that the type is inhabited
+
+A proof demonstrates that there is at least one way of deriving a formula
+    -i.e. that the fromula is provable by manipulating assumptions and doing inference
+    -a proof is a program that manipulates evidence
+
+Proofs are programs and programs are proofs.
+
+-- ACT III - Evaluation = Simplification (of proofs)
+
+A given proposition/type could have many proofs/programs
+
+Proposition/Type:
+
+A => (B => (A ∧  B))
+a -> (b -> (a,b))
+
+```
+foo = \x -> \y -> (\z -> (snd z, fst z)) (y,x)
+
+--Substitutions
+foo = \x -> \y -> (snd (y,x), fst (y,x))
+foo = \x -> \y -> (x,y)
+```
+
+All of these programs have the same type.
+
+The first two versions would correspond to larger proof trees than the last version. So evaluating simplifies theproof tree.
+
+Each is the result of small-stepping the previous, and it gets simpler.
