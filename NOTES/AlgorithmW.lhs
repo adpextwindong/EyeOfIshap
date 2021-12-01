@@ -126,3 +126,39 @@ instance Types Scheme where
 ti = undefined
 
 \end{code}
+
+TODO GRABMULLER
+
+-- http://steshaw.org/hm/hindley-milner.pdf
+
+Robinson Unification Algorithm
+
+A machine oriented logic based on the resolution principle. 1965.
+
+"Intended as a scheme for choosing instantiations of universally quantified variables in theorem proving with resolution which is the basis for logic programming languages like PROLOG"
+
+Unifcation is easier to understand in terms of arguments, type constructors being interpreted as a function of two arguments as well (like above).
+
+Polymorphic lists can be introduced using a unary type constructor function with an associated type-scheme.
+
+For example:
+
+unify f(a,y) with f(x,f(b,x)) with the subsitiution [a/x, f(b,a)/y]
+
+Read as "substitute a for x and then substitute f(b,a) for y". This substituion being the composition S
+
+S = [f(b,x)/y] . [a/x]
+
+of two seperate substitutions.
+
+Note that order matters due to order of composition.
+
+S applied to f(a,y) gives f(a,f(b,a))
+
+S applied to f(x,f(b,x)) yields the same
+
+Thus S is a _unifier_ of f(a,y) and f(x,f(b,x)).
+
+--- MOST GENERAL UNIFIER
+
+Most general unifier aka MGU, is the unifier U with the property that if there is any other unifier S' of those two terms then there is some substituion T such that T . U yields the unifier S'.
