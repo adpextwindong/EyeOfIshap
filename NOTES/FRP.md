@@ -1,6 +1,6 @@
 # FRP Notes
 
-## [Genuinely Functional GUIs](http://conal.net/papers/genuinely-functional-guis.pdf
+## [Genuinely Functional GUIs](http://conal.net/papers/genuinely-functional-guis.pdf)
 
 Arrowized FRP (AFRP) is based on two ideas:
 
@@ -79,3 +79,29 @@ Like a pair of signals is produced.
 ```
 
 where fstZ, sndZ and pairZ are the obvious projection and pairing functions for signals of pairs.
+
+#### ArrowLoop
+
+Pairs the second half of fa's output signal with an external input signal to form fa's input signal
+
+```haskell
+class Arrow a => ArrowLoop a where
+    loop :: a (b,d) (c,d) -> a b c
+```
+
+Formally, we define loop for signal transformers as:
+
+```
+[loop fa] = λs : Signal β. fstZ(Y(λr.[fa](pairZ s (sndZ r))))
+```
+
+where Y is the standard least fixed point operator.
+
+#### Discrete Events
+
+```haskell
+EventSource α = Signal (Maybe α)
+              = Time -> (Maybe α)
+```
+
+### Primitive Signal Transformers
