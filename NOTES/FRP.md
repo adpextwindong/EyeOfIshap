@@ -1,0 +1,81 @@
+# FRP Notes
+
+## [Genuinely Functional GUIs](http://conal.net/papers/genuinely-functional-guis.pdf
+
+Arrowized FRP (AFRP) is based on two ideas:
+
+- _signals_ which are functions from real-valued time to value
+- _signal transformers_ which are functions from signals to signals
+
+A newtype constructor ST is introduced for signal transformers
+
+```haskell
+newtype ST a b = ...
+```
+
+This provides a number of primitive signal transformers and a set of combinators (the arrow combinators) for assmebling new signal transformers from existing ones.
+
+Since ST is a type constructor, signal transformers are first-class values.
+
+Signals are not first-class _values_.
+
+```haskell
+Signal a = Time -> a
+```
+
+We outlaw signals as first-class values for two reasons.
+
+Signals alone are inherently non-modular: We can apply point-wise transofmrations to the observable output of a signal, fist-class signal values do not have an input signal.
+
+Signal transformers have _BOTH_ an input signal and an output signal, enabling us to transform both aspects of an ST value.
+
+ST as first-class values guarantees that every signal in the program is always _relative_ to some input signal.
+
+Secondly, signals as first class values inevitably leads to space time leaks. Due to the implementation needing the complete time-history of a signal to compute one sample. Structural induction on the ST type avoids t his.
+
+### Arrows
+
+[Hughes -  Generalizing Monads to Arrows](http://www.cse.chalmers.se/~rjmh/Papers/arrows.pdf)
+
+```haskell
+class Arrow a where
+    arr :: (b -> c) -> a b c
+    (>>>) :: a b c -> a c d -> a b d
+    first :: a b c -> a (b,d) (c,d)
+```
+
+#### Lifting
+
+Arr lifts a function into a signal transformer that maps `Signal b` to `Signal c` by applying f point-wise to the input signal.
+
+Formally, we define `arr f` for signal transformers as follows
+
+```
+[arr f] = λs : Signal α. λt : Time . [f](s(t))
+```
+
+#### Serial Composition
+
+The (>>>) operator composes two arrows.
+
+```
+fa :: ST b c
+ga :: ST c d
+
+fa >>> ga :: ST b d
+```
+
+Formally, we define serial composition for signal transformers as reverse function composition:
+
+[fa >>> ga] = ([ga] . [fa])
+
+#### Widening
+
+The first operator widens an arrow from b to c, to (b,d) to (c,d) for all types d.
+Like a pair of signals is produced.
+
+```
+[first fa] = λs : Signal (β x γ) . pairZ ([fa] (fstZ s)) (sndZ s)
+```
+
+where fstZ, sndZ and pairZ are the obvious projection and pairing functions for signals of pairs.
