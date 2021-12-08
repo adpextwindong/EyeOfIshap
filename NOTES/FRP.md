@@ -105,3 +105,28 @@ EventSource α = Signal (Maybe α)
 ```
 
 ### Primitive Signal Transformers
+
+## [Osabe](https://osabe-app.bitbucket.io/2021-12-07_frp.html)
+
+Osabe makes use of a delayed switch function
+
+```haskell
+dSwitch :: Monad m => Wire m i (o, Event (Wire m i o)) -> Wire m i o
+```
+
+"Takes a wire as an argument that it uses to process an input stream, emitting the regular stream-output values issue by the wire as its own output. It does this up until there is an Event output from the wire, after which it switches to behave like the Wire carried as the event payload."
+
+[Mun Hon Chegon's "Functional Programming and 3D Games" thesis](https://web.archive.org/web/20170706075201/http://www.cse.unsw.edu.au/~pls/thesis/munc-thesis.pdf) also talks about "delayed parallel switchin functions" with [dpSwitch](https://hackage.haskell.org/package/Yampa-0.13.3/docs/FRP-Yampa-Switches.html#v:dpSwitch)
+
+```haskell
+dpSwitch :: Functor col =>
+    (forall sf . (a -> col sf -> col (b, sf)))  -- Routing Function
+  -> col (SF b c)                               -- Reactive objects collections
+  -> SF (a, col c) (Event d)                    -- Update functor for objects in response to events from object
+  -> (col (SF b c) -> d -> SF a (col c))        -- Continuation of the game after a parallel switch occurs
+  -> SF a (col c)
+```
+
+In the space invaders example KillAndSpawn observes the outputs after input has been applied. When an object has to be added or removed it would produce a switching event that invokes the 4th arg, which is the continuation of the game.
+
+Listing 2.13 shows sugar for Arrow syntax that makes things more readable in Yampa.
