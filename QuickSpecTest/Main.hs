@@ -51,7 +51,7 @@ isn't found with just bind and return. Adding the Kliesi composition does give u
 frob :: [a] -> [a]
 frob xs = xs ++ xs
 
-main = quickSpec [
+frobFreeTheorem = quickSpec [
             con "frob" (frob :: [A] -> [A]),
             con "map" (map :: (A -> B) -> [A] -> [B])
         ]
@@ -68,3 +68,20 @@ This is the frob example from this talk by Lars Hupel https://www.youtube.com/wa
 Which originally is from Wadler's Theorem for Free "3.5 A result about map" https://home.ttic.edu/~dreyer/course/papers/wadler.pdf
 
 -}
+
+concatWadler = quickSpec [
+        con "(++)" ((++) :: [A] -> [A] -> [A])
+    ]
+
+-- This gives us append law discussed in Wadler's critique on SICP
+-- 1.2 Proving properties of programs
+-- https://www.cs.kent.ac.uk/people/staff/dat/miranda/wadler87.pdf
+
+{-
+
+== Laws ==
+  1. (xs (++) ys) (++) zs = xs (++) (ys (++) zs)
+
+-}
+
+main = concatWadler
