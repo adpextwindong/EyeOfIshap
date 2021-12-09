@@ -9,7 +9,7 @@ import QuickSpec
 -- QuickSpec: A Lightweight Theory Exploration Tool for Programmers (System Demonstration)
 -- https://www.youtube.com/watch?v=eTcq_QqhFfM
 
-main = quickSpec [
+monadLaws = quickSpec [
         -- Typeclass Polymorphism isn't understood yet, see page 2. https://smallbone.se/papers/quickspec2.pdf
         --con "(>>=)" ((>>=) :: Monad m => m a -> (a -> m b) -> m b),
         --con "(>>)" ((>>) :: Monad m => m a -> m b -> m b),
@@ -45,5 +45,26 @@ The associativity law
 isn't found with just bind and return. Adding the Kliesi composition does give us the associativity law when QuickSpec'd.
 
 7. (f >=> g) >=> h = f >=> (g >=> h)
+
+-}
+
+frob :: [a] -> [a]
+frob xs = xs ++ xs
+
+main = quickSpec [
+            con "frob" (frob :: [A] -> [A]),
+            con "map" (map :: (A -> B) -> [A] -> [B])
+        ]
+
+{-
+== Functions ==
+frob :: [a] -> [a]
+ map :: (a -> b) -> [a] -> [b]
+
+== Laws ==
+  1. map f (frob xs) = frob (map f xs)
+
+This is the frob example from this talk by Lars Hupel https://www.youtube.com/watch?v=sR1tEk5nTFU
+Which originally is from Wadler's Theorem for Free "3.5 A result about map" https://home.ttic.edu/~dreyer/course/papers/wadler.pdf
 
 -}
