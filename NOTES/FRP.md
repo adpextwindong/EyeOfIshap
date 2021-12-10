@@ -130,3 +130,19 @@ dpSwitch :: Functor col =>
 In the space invaders example KillAndSpawn observes the outputs after input has been applied. When an object has to be added or removed it would produce a switching event that invokes the 4th arg, which is the continuation of the game.
 
 Listing 2.13 shows sugar for Arrow syntax that makes things more readable in Yampa.
+
+From "Functional Reactive Programming, Refactored", Dunai can do Yampa's time arrowized frp with MSF by implemting
+
+```
+type SF a b = DTime -> a -> (b, SF a b)
+```
+
+as
+
+```
+type SF a b = MSF (Reader DTime) a b
+```
+
+then we need `integral` which integrates the input signal.
+
+WriterT can be used with an MSF to log things without running in IO.
