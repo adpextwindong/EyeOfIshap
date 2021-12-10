@@ -70,8 +70,7 @@ inputsPairs = liftA2 (,) vals vals
 
 xnorTruthTable = xnorGate' <$> inputsPairs
 
-main :: IO ()
-main = quickSpec [
+orGateRelatedLaws = quickSpec [
             con "wire" (wire :: Circuit Bool Bool),
             con "splittedWire" (splittedWire :: Circuit Bool (Bool, Bool)),
             con "nandGate" (nandGate :: Circuit (Bool, Bool) Bool),
@@ -100,4 +99,27 @@ parallelInverters :: (Bool, Bool) -> (Bool, Bool)
   6. nandGate x = orGate (parallelInverters x)
   7. parallelInverters (splittedWire x) = splittedWire (inverter x)
   8. parallelInverters (parallelInverters x) = x
+-}
+
+main = quickSpec [
+        con "arr" (arr :: (B -> C) -> Circuit B C),
+        con "first" (first :: Circuit B C -> Circuit (B, D) (C, D)),
+        con "second" (second :: Circuit B C -> Circuit (D, B) (D, C)),
+        con "(***)" ((***) :: Circuit B C -> Circuit D E -> Circuit (B, D) (C, E)),
+        con "(&&&)" ((&&&) :: Circuit B C -> Circuit B D -> Circuit B (C, D))
+   ]
+
+{-
+== Functions ==
+    arr :: (a -> b) -> a -> b
+  first :: (a -> b) -> (a, c) -> (b, c)
+ second :: (a -> b) -> (c, a) -> (c, b)
+((***)) :: (a -> b) -> (c -> d) -> (a, c) -> (b, d)
+((&&&)) :: (a -> b) -> (a -> c) -> a -> (b, c)
+
+== Laws ==
+  1. arr f = f
+  2. first f (second g x) = (f (***) g) x
+  3. second f (first g x) = (g (***) f) x
+  4. (f (***) g) ((h (&&&) h) x) = (f (&&&) g) (h x)
 -}
