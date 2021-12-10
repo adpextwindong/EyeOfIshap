@@ -2,6 +2,7 @@
 module Main where
 
 import Control.Arrow
+import Control.Applicative
 import QuickSpec
 
 --https://www.youtube.com/watch?v=6Vab1_icBWU
@@ -49,6 +50,25 @@ norGate' :: Circuit (Bool, Bool) Bool
 norGate' = proc (a, b) -> do
     m1 <- orGate' -< (a, b)
     inverter -< m1
+
+--NAND construction
+--https://en.wikipedia.org/wiki/Logic_gate#/media/File:XNOR_from_NAND.svg
+xnorGate' :: Circuit (Bool, Bool) Bool
+xnorGate' = proc (a, b) -> do
+    m1 <- nandGate -< (a,b)
+
+    m2 <- nandGate -< (a,m1)
+    m3 <- nandGate -< (b,m1)
+
+    m4 <- nandGate -< (m2,m3)
+
+    nandGate -< (m4,m4)
+
+inputsPairs = liftA2 (,) vals vals
+    where
+        vals = [False,True]
+
+xnorTruthTable = xnorGate' <$> inputsPairs
 
 main :: IO ()
 main = quickSpec [
