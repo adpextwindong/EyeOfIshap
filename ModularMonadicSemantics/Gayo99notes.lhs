@@ -58,6 +58,7 @@ data B a = BCons Bool | Not a | Less a a
 type ArithBool = Fix (SumF N B)
 
 t_x = Fix $ S $ Right $ BCons True :: ArithBool
+t_y = Fix (S (Right (Less (Fix (S (Left (Cons 5)))) (Fix (S (Left (Cons 5))))))) :: ArithBool
 \end{code}
 
 
