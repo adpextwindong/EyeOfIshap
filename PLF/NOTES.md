@@ -11,8 +11,10 @@
 [Winskel, Glynn. (1993). The Formal Semantics of Programming Languages: An Introduction. MIT
 Press.](Winskel_FSPL.pdf)
 
-## [Hudak's - Formal Semantics Course](http://wwwes/hudak/CS430F0.cs.yale.edu/hom7/index.htm)
+## [Hudak's - Formal Semantics Course](http://www.cs.yale.edu/homes/hudak/CS430F07/
 
 Textbook: [Theories of Programming Languages - John C. Reynolds](Reynolds_TPL.pdf)
 
 ## [Walkingshaw's PL Course](https://web.engr.oregonstate.edu/~walkiner/teaching/cs581-fa20/)
+
+## [Implementing a Propositional Logic Theorem Prover in Haskell](http://www.cs.nott.ac.uk/~psxld/papers/led_bsc_dissertation.pdf)
