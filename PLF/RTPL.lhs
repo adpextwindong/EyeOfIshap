@@ -8,6 +8,7 @@
 \begin{verbatim}
 \begin{code}
 
+import qualified Data.Map.Strict as M
 import Control.Monad.Reader
 
 \end{code}
@@ -44,7 +45,8 @@ Assignments -> States
 
 -- A predefined nonterminal denoting a
 -- countably infinite set of variables (with unspecified representations)
-data Var
+data Var = V
+    deriving (Eq, Ord)
 
 data IntExp = ILit Int
             | UnaryMinus Var
@@ -117,5 +119,43 @@ $\llbracket - \rrbracket_{intexp} \in <intexp> \rightarrow \Sigma \rightarrow Z$
 \newline
 $\llbracket - \rrbracket_{assert} \in <assert> \rightarrow \Sigma \rightarrow Z$
 
+\begin{verbatim}
+\begin{code}
+
+{-
+data Assert = ATrue
+            | AFalse
+            | EQ IntExp IntExp
+            | NEQ IntExp IntExp
+            | LT IntExp IntExp
+            | LTE IntExp IntExp
+            | GT IntExp IntExp
+            | GTE IntExp IntExp
+            | Not Assert
+            | And Assert Assert
+            | Or Assert Assert
+            | Implies Assert Assert
+            | IFF Assert Assert
+            | VForAll Var Assert
+            | VExists Var Assert
+-}
+
+type State a = M.Map Var a
+
+denoIntExp :: IntExp -> State Int -> Int
+denoIntExp (ILit i) env             = i
+denoIntExp (UnaryMinus v) env       = negate $ env M.! v
+denoIntExp (Plus e0 e1) env         = (denoIntExp e0 env) + (denoIntExp e1 env)
+denoIntExp (BinaryMinus e0 e1) env  = (denoIntExp e0 env) - (denoIntExp e1 env)
+denoIntExp (Mul e0 e1) env          = (denoIntExp e0 env) * (denoIntExp e1 env)
+denoIntExp (Div e0 e1) env          = (denoIntExp e0 env) `div` (denoIntExp e1 env)
+denoIntExp (Rem e0 e1) env          = (denoIntExp e0 env) `rem` (denoIntExp e1 env)
+
+--TODO deno assert page 8
+
+
+
+\end{code}
+\end{verbatim}
 
 \end{document}
