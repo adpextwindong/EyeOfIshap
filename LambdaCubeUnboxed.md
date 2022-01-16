@@ -2,12 +2,14 @@
 
 Sources:
 
-- Nederpelt, R., Geuvers, H. (2014). Type Theory and Formal Proof: An Introduction. Cambridge University Press.
-- Barendregt, H. P. (1992). Lambda Calculi with Types.
-- Wadler, P. (2015). Propositions as Types. Communications of the ACM, 58(12), 75-84
+- [Nederpelt, R., Geuvers, H. (2014). Type Theory and Formal Proof: An Introduction. Cambridge University Press.](https://drive.google.com/file/d/10yEDaYdMpINOB3H0AE3SrDWPDvzhGOl-/view?usp=sharing)
+- [Barendregt, H. P. (1992). Lambda Calculi with Types.](https://drive.google.com/file/d/1LiiYgG_Yl-sQETxdNxw_C2nZsf9HggA8/view?usp=sharing)
+- [Wadler, P. (2015). Propositions as Types. Communications of the ACM, 58(12), 75-84](https://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf)
 - Polymorhpic λ-Calculus:
-  - Girad, J. Y., Taylor, P., Lafont, Y. (1989). Proofs and types (Vol. 7). Cambridge: Cambridge university press.
-  - Pierce, B. Dietzen, S., Michaylov, S. (1989). Programming in Higher-Order Typed Lambda-Calculi
+  - [Girad, J. Y., Taylor, P., Lafont, Y. (1989). Proofs and types (Vol. 7). Cambridge: Cambridge university press.](https://people.mpi-sws.org/~dreyer/ats/papers/girard.pdf)
+  - [Pierce, B. Dietzen, S., Michaylov, S. (1989). Programming in Higher-Order Typed Lambda-Calculi](https://drive.google.com/file/d/12TkFzUbN_i-w0IDceT4fvbYpmDpZT8xh/view?usp=sharing)
+
+NOTE: [Tech Report for Pierce Programming in Higher-Order Typed Lambda-Calculi](http://www.cis.upenn.edu/~bcpierce/papers/leap.pdf)
 
 ## [1.1 - Introduction to the Untyped λ calculus](https://www.youtube.com/watch?v=233A3bN0UBE&list=PLNwzBl6BGLwOKBFVbvp-GFjAA_ESZ--q4&index=2)
 
