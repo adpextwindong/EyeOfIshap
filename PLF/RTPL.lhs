@@ -8,6 +8,8 @@
 \begin{verbatim}
 \begin{code}
 
+{-# LANGUAGE TupleSections #-}
+
 import qualified Data.Map.Strict as M
 import Control.Monad.Reader
 
@@ -45,10 +47,11 @@ Assignments -> States
 
 -- A predefined nonterminal denoting a
 -- countably infinite set of variables (with unspecified representations)
-data Var = V
+data Var = V Char
     deriving (Eq, Ord)
 
 data IntExp = ILit Int
+            | IVar Var
             | UnaryMinus Var
             | Plus IntExp IntExp
             | BinaryMinus IntExp IntExp
@@ -140,11 +143,12 @@ data Assert = ATrue
             | VExists Var Assert
 -}
 
-type State a = M.Map Var a
+type State a = M.Map Char a
 
 denoIntExp :: IntExp -> State Int -> Int
 denoIntExp (ILit i) env             = i
-denoIntExp (UnaryMinus v) env       = negate $ env M.! v
+denoIntExp (UnaryMinus (V k)) env  = negate $ env M.! k
+denoIntExp (IVar (V k)) env         = env M.! k
 denoIntExp (Plus e0 e1) env         = (denoIntExp e0 env) + (denoIntExp e1 env)
 denoIntExp (BinaryMinus e0 e1) env  = (denoIntExp e0 env) - (denoIntExp e1 env)
 denoIntExp (Mul e0 e1) env          = (denoIntExp e0 env) * (denoIntExp e1 env)
@@ -152,8 +156,35 @@ denoIntExp (Div e0 e1) env          = (denoIntExp e0 env) `div` (denoIntExp e1 e
 denoIntExp (Rem e0 e1) env          = (denoIntExp e0 env) `rem` (denoIntExp e1 env)
 
 --TODO deno assert page 8
+denoAssert :: Assert -> State Int -> Bool
+denoAssert (ATrue) _ = True
+denoAssert (AFalse) _ = False
+denoAssert (Main.EQ e0 e1) env  = (denoIntExp e0 env) == (denoIntExp e1 env)
+denoAssert (NEQ e0 e1) env      = (denoIntExp e0 env) /= (denoIntExp e1 env)
+denoAssert (Main.LT e0 e1) env  = (denoIntExp e0 env) < (denoIntExp e1 env)
+denoAssert (LTE e0 e1) env      = (denoIntExp e0 env) <= (denoIntExp e1 env)
+denoAssert (Main.GT e0 e1) env  = (denoIntExp e0 env) > (denoIntExp e1 env)
+denoAssert (GTE e0 e1) env      = (denoIntExp e0 env) >= (denoIntExp e1 env)
+denoAssert (Not e) env          = not (denoAssert e env)
+denoAssert (And e1 e2) env      = denoAssert e1 env && denoAssert e2 env
+denoAssert (Or e1 e2) env       = denoAssert e1 env || denoAssert e2 env
 
+denoAssert (Implies e1 e2) env | denoAssert e1 env = denoAssert e2 env
+                               | otherwise = True
 
+denoAssert (IFF e1 e2) env = denoAssert (Implies e1 e2) env && denoAssert (Implies e2 e1) env
+
+--Hudak does a "diagonalization" algorithmn.
+--We can leverage AND short circuiting on a False. Otherwise it doesnt terminate
+denoAssert (VForAll (V k) e) env = and (map f (interleave [0,1..] [-1,-2..]))
+    where f i = denoAssert e (M.insert k i env)
+
+--Same idea but with OR
+denoAssert (VExists (V k) e) env = or (map f (interleave [0,1..] [-1,-2..]))
+    where f i = denoAssert e (M.insert k i env)
+
+interleave :: [a] -> [a] -> [a]
+interleave (x:xs) (y:ys) = x : y : interleave xs ys
 
 \end{code}
 \end{verbatim}
