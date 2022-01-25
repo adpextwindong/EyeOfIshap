@@ -1,3 +1,3 @@
 # Eye of Ishap
 
-![Patrus](patrus.png)
+![Patrus](res/patrus.png)
