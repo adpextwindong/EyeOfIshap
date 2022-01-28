@@ -1,4 +1,6 @@
-import Data.Map.Strict as M
+import qualified Data.Map.Strict as M
+import Data.Bifunctor
+import Data.Foldable (foldr)
 
 data Term v
   = Var v
@@ -34,3 +36,5 @@ ty :: Term Char
 ty = Lam 'x' (Lam 'y' (Lam 'z' (App (App (Var 'x') (Var 'y')) (Var 'z'))))
 
 tz = App ty ty
+
+y_comb = Lam 'f' (App (Lam 'x' (App (Var 'f') (App (Var 'x') (Var 'x')))) (Lam 'x' (App (Var 'f') (App (Var 'x') (Var 'x')))))
