@@ -10,6 +10,7 @@
 
 {-# LANGUAGE TupleSections #-}
 
+import qualified Data.Set as S
 import qualified Data.Map.Strict as M
 import Control.Monad.Reader
 
@@ -52,7 +53,7 @@ data Var = V Char
 
 data IntExp = ILit Int
             | IVar Var
-            | UnaryMinus Var
+            | UnaryMinus IntExp
             | Plus IntExp IntExp
             | BinaryMinus IntExp IntExp
             | Mul IntExp IntExp
@@ -147,7 +148,7 @@ type State a = M.Map Char a
 
 denoIntExp :: IntExp -> State Int -> Int
 denoIntExp (ILit i) env             = i
-denoIntExp (UnaryMinus (V k)) env  = negate $ env M.! k
+denoIntExp (UnaryMinus e) env       = negate $ denoIntExp e env
 denoIntExp (IVar (V k)) env         = env M.! k
 denoIntExp (Plus e0 e1) env         = (denoIntExp e0 env) + (denoIntExp e1 env)
 denoIntExp (BinaryMinus e0 e1) env  = (denoIntExp e0 env) - (denoIntExp e1 env)
