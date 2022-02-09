@@ -190,4 +190,71 @@ interleave (x:xs) (y:ys) = x : y : interleave xs ys
 \end{code}
 \end{verbatim}
 
+\subsection{1.3 Validity and Inference}
+
+Terminology:
+
+Valid : When $\llbracket p \rrbracket _assert \sigma = true$ for all states $\sigma in \Sigma$, we say that p is valid.
+
+Unsatisfiable: When $\llbracket p \rrbracket _assert \sigma = false$ for all states $\sigma in \Sigma$, we say that p is unsatisfiable.
+
+Stronger/Weaker: When $p_0 \rightarrow p_1$ is valid or, equivalently, when every state satisfying $\p_0$ also satisfies $p_1$, we say that $p_0$ is stronger than $p_1$ and that $p_1$ is weaker than $p_0$.
+
+Sound: If there is a proof of an assertion p, then p should be valid. (For all assignments its true) This wil occur provided that each inference rule is sound, which means that, for every instance of the rule, if the premisses are all valid, the conclusion is valid.
+
+Complete: A set of inference rules is said to be complete if it can be used to prove every valid assertion. (If validity is defined as in this chapter, then no finite set of inference rules is complete. Godels imcpleteness theorem. But if validity is defined to be logical validity, then there are finite sets of inference rules that are known to be complete.)
+
+Logically valid: In the theoretical study of logic, considerable attention is paid to the situation where the syntax and semantics of the operations for constructing assertions are fixed, but the semantics of the operations for constructing expressions is varied over arbitrary functions on an arbitrary set (so that one would no longer speak of integer expressions). When an assertion holds for all such variations (as well as for states), it is said to be logically valid.
+
+\subsection{1.4 Binding and Substitution}
+
+Binding's mistreament is a surprisingly subtle source of language design errors.
+
+Closed: A phrase with no free occurrences of variables is said to be closed.
+
+Example:
+forall x. (x /= y \/ forall y. (x = y \/ forall x. x + y /= x))
+       1   1   FREE         2   1   2           3  3   2    3
+
+Premise
+------
+Conclusion
+
+
+Caution: Each step in a proof must be a valid assertion, not just an assertion that is true in particular states.
+
+\begin{verbatim}
+\begin{code}
+
+freeVarsInt :: IntExp -> S.Set Var
+freeVarsInt (ILit _)            = S.empty
+freeVarsInt (IVar v)            = S.singleton v
+freeVarsInt (UnaryMinus e)      = freeVarsInt e
+freeVarsInt (Plus e1 e2)        = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsInt (BinaryMinus e1 e2) = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsInt (Mul e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsInt (Div e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsInt (Rem e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
+
+freeVarsAssert :: Assert -> State Int -> S.Set Var
+
+freeVarsAssert (ATrue) _           = S.empty
+freeVarsAssert (AFalse) _          = S.empty
+freeVarsAssert (Main.EQ e1 e2) env = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (NEQ e1 e2) env     = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (Main.LT e1 e2) env = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (LTE e1 e2) env     = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (Main.GT e1 e2) env = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (GTE e1 e2) env     = S.union (freeVarsInt e1) (freeVarsInt e2)
+freeVarsAssert (Not e) env         = freeVarsAssert e env
+freeVarsAssert (And e1 e2) env     = S.union (freeVarsAssert e1 env) (freeVarsAssert e2 env)
+freeVarsAssert (Or e1 e2) env      = S.union (freeVarsAssert e1 env) (freeVarsAssert e2 env)
+freeVarsAssert (Implies e1 e2) env = S.union (freeVarsAssert e1 env) (freeVarsAssert e2 env)
+freeVarsAssert (IFF e1 e2) env     = S.union (freeVarsAssert e1 env) (freeVarsAssert e2 env)
+freeVarsAssert (VForAll v e) env   = S.difference (freeVarsAssert e env) (S.singleton v)
+freeVarsAssert (VExists v e) env   = S.difference (freeVarsAssert e env) (S.singleton v)
+
+\end{code}
+\end{verbatim}
+
 \end{document}
