@@ -13,6 +13,8 @@
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
 import Control.Monad.Reader
+import Control.Concurrent.Supply (Supply, newSupply, freshId, splitSupply)
+import Data.Bifunctor
 
 \end{code}
 \end{verbatim}
@@ -48,11 +50,15 @@ Assignments -> States
 
 -- A predefined nonterminal denoting a
 -- countably infinite set of variables (with unspecified representations)
-data Var = V Char
+data Var k = V k
     deriving (Eq, Ord)
 
+type State key a = M.Map key a
+
+type Name = Int --We will be using Control.Concurrent.Supply
+
 data IntExp = ILit Int
-            | IVar Var
+            | IVar (Var Name)
             | UnaryMinus IntExp
             | Plus IntExp IntExp
             | BinaryMinus IntExp IntExp
@@ -73,8 +79,8 @@ data Assert = ATrue
             | Or Assert Assert
             | Implies Assert Assert
             | IFF Assert Assert
-            | VForAll Var Assert
-            | VExists Var Assert
+            | VForAll (Var Name) Assert
+            | VExists (Var Name) Assert
 
 \end{code}
 \end{verbatim}
@@ -126,27 +132,7 @@ $\llbracket - \rrbracket_{assert} \in <assert> \rightarrow \Sigma \rightarrow Z$
 \begin{verbatim}
 \begin{code}
 
-{-
-data Assert = ATrue
-            | AFalse
-            | EQ IntExp IntExp
-            | NEQ IntExp IntExp
-            | LT IntExp IntExp
-            | LTE IntExp IntExp
-            | GT IntExp IntExp
-            | GTE IntExp IntExp
-            | Not Assert
-            | And Assert Assert
-            | Or Assert Assert
-            | Implies Assert Assert
-            | IFF Assert Assert
-            | VForAll Var Assert
-            | VExists Var Assert
--}
-
-type State a = M.Map Char a
-
-denoIntExp :: IntExp -> State Int -> Int
+denoIntExp :: IntExp -> State Name Int -> Int
 denoIntExp (ILit i) env             = i
 denoIntExp (UnaryMinus e) env       = negate $ denoIntExp e env
 denoIntExp (IVar (V k)) env         = env M.! k
@@ -157,7 +143,7 @@ denoIntExp (Div e0 e1) env          = (denoIntExp e0 env) `div` (denoIntExp e1 e
 denoIntExp (Rem e0 e1) env          = (denoIntExp e0 env) `rem` (denoIntExp e1 env)
 
 --TODO deno assert page 8
-denoAssert :: Assert -> State Int -> Bool
+denoAssert :: Assert -> State Name Int -> Bool
 denoAssert (ATrue) _ = True
 denoAssert (AFalse) _ = False
 denoAssert (Main.EQ e0 e1) env  = (denoIntExp e0 env) == (denoIntExp e1 env)
@@ -202,6 +188,16 @@ Stronger/Weaker: When $p_0 \rightarrow p_1$ is valid or, equivalently, when ever
 
 Sound: If there is a proof of an assertion p, then p should be valid. (For all assignments its true) This wil occur provided that each inference rule is sound, which means that, for every instance of the rule, if the premisses are all valid, the conclusion is valid.
 
+\begin{align*}
+
+Forall instances of each inference rule
+
+Premise Valid
+-------------
+Conclusion Valid
+
+\end{align*}
+
 Complete: A set of inference rules is said to be complete if it can be used to prove every valid assertion. (If validity is defined as in this chapter, then no finite set of inference rules is complete. Godels imcpleteness theorem. But if validity is defined to be logical validity, then there are finite sets of inference rules that are known to be complete.)
 
 Logically valid: In the theoretical study of logic, considerable attention is paid to the situation where the syntax and semantics of the operations for constructing assertions are fixed, but the semantics of the operations for constructing expressions is varied over arbitrary functions on an arbitrary set (so that one would no longer speak of integer expressions). When an assertion holds for all such variations (as well as for states), it is said to be logically valid.
@@ -226,7 +222,7 @@ Caution: Each step in a proof must be a valid assertion, not just an assertion t
 \begin{verbatim}
 \begin{code}
 
-freeVarsInt :: IntExp -> S.Set Var
+freeVarsInt :: IntExp -> S.Set (Var Name)
 freeVarsInt (ILit _)            = S.empty
 freeVarsInt (IVar v)            = S.singleton v
 freeVarsInt (UnaryMinus e)      = freeVarsInt e
@@ -236,7 +232,7 @@ freeVarsInt (Mul e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
 freeVarsInt (Div e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
 freeVarsInt (Rem e1 e2)         = S.union (freeVarsInt e1) (freeVarsInt e2)
 
-freeVarsAssert :: Assert -> State Int -> S.Set Var
+freeVarsAssert :: Assert -> State Name Int -> S.Set (Var Name)
 
 freeVarsAssert (ATrue) _           = S.empty
 freeVarsAssert (AFalse) _          = S.empty
@@ -253,6 +249,80 @@ freeVarsAssert (Implies e1 e2) env = S.union (freeVarsAssert e1 env) (freeVarsAs
 freeVarsAssert (IFF e1 e2) env     = S.union (freeVarsAssert e1 env) (freeVarsAssert e2 env)
 freeVarsAssert (VForAll v e) env   = S.difference (freeVarsAssert e env) (S.singleton v)
 freeVarsAssert (VExists v e) env   = S.difference (freeVarsAssert e env) (S.singleton v)
+
+\end{code}
+\end{verbatim}
+
+\subsection{Capture Avoiding Substitution}
+
+Given the sound axiom schema
+
+---------------------------- (1.13)
+(forall v. p) => (p/v -> e)
+
+replace p by exits y. y > x
+replace v by x
+replace e by y + 1
+
+(forall x. exist y. y > x) => ((exists y. y > x) / x -> y + 1).
+
+Naively carrying this substitution out (without noticing e has a y in it!!) gives us
+
+(forall x. exists y. y > x) => (exists y. y > y + 1)
+
+The left side is true but the right side is false due to the collision of bindings messing things up. Y is already captured by the exists binder and is a free occurance in $y + 1$
+
+To avoid this, we must define substitution so that bound varaibles are renamed before carrying out the replacement whenever such renaming is necessary to avoid capture.
+
+Instead of defining substitution for a single variable, it is simpler to define simulatenous substituion for all variables.
+
+
+\begin{verbatim}
+\begin{code}
+
+data SubMap = SubMap {
+                subs :: M.Map (Var Name) IntExp --SubstituionMap from the set of vars to intexp
+               ,nameSupply :: Supply
+              }
+
+splitSubMapSupply (SubMap subs ns) = let (l,r) = splitSupply ns in ((SubMap subs l),(SubMap subs r))
+
+simulSubstInt :: IntExp -> SubMap -> IntExp
+simulSubstInt e@(ILit _) submap           = e
+simulSubstInt (IVar v) submap             = (subs submap) M.! v
+simulSubstInt (UnaryMinus e) submap       = UnaryMinus (simulSubstInt e submap)
+simulSubstInt (Plus e1 e2) submap         = Plus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstInt (BinaryMinus e1 e2) submap  = BinaryMinus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstInt (Mul e1 e2) submap          = Mul (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstInt (Div e1 e2) submap          = Div (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstInt (Rem e1 e2) submap          = Rem (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+
+simulSubstAssert :: Assert -> SubMap -> Assert
+simulSubstAssert (ATrue) submap           = ATrue
+simulSubstAssert (AFalse) submap          = AFalse
+simulSubstAssert (Main.EQ e1 e2) submap   = Main.EQ (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (NEQ e1 e2) submap       = NEQ (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (Main.LT e1 e2) submap   = Main.LT (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (LTE e1 e2) submap       = LTE (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (Main.GT e1 e2) submap   = Main.GT (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (GTE e1 e2) submap       = GTE (simulSubstInt e1 submap) (simulSubstInt e2 submap)
+simulSubstAssert (Not e) submap           = Not (simulSubstAssert e submap)
+simulSubstAssert (And e1 e2) submap       = And (simulSubstAssert e1 submap) (simulSubstAssert e2 submap)
+simulSubstAssert (Or e1 e2) submap        = Or (simulSubstAssert e1 submap) (simulSubstAssert e2 submap)
+simulSubstAssert (Implies e1 e2) submap   = Implies (simulSubstAssert e1 submap) (simulSubstAssert e2 submap)
+simulSubstAssert (IFF e1 e2) submap       = IFF (simulSubstAssert e1 submap) (simulSubstAssert e2 submap)
+
+simulSubstAssert (VForAll vold e) submap = VForAll vnew (simulSubstAssert e extendedSubMap)
+  where (vnew, nextSupply) = first V $ freshId (nameSupply submap)
+        extendedSubMap = SubMap (moveKey (subs submap) vold vnew) nextSupply
+
+simulSubstAssert (VExists v e) submap = undefined
+
+moveKey :: (Ord k) => M.Map k a -> k -> k -> M.Map k a
+moveKey map oldKey newKey = M.insert newKey v (M.delete oldKey map)
+    where v = map M.! oldKey
+
+--TODO test how this namesupply works and if we need to split it on e1 e2 recurses
 
 \end{code}
 \end{verbatim}
