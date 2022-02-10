@@ -292,7 +292,9 @@ splitSubMapSupply (SubMap subs ns) = let (l,r) = splitSupply ns in ((SubMap subs
 
 simulSubstInt :: IntExp -> SubMap -> IntExp
 simulSubstInt e@(ILit _) submap           = e
-simulSubstInt (IVar v) submap             = (subs submap) M.! v
+simulSubstInt (IVar v) submap             = case M.lookup v (subs submap) of
+                                              Just e -> e
+                                              Nothing -> IVar v
 simulSubstInt (UnaryMinus e) submap       = UnaryMinus (simulSubstInt e submap)
 simulSubstInt (Plus e1 e2) submap         = Plus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
 simulSubstInt (BinaryMinus e1 e2) submap  = BinaryMinus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
