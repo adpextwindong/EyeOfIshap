@@ -15,6 +15,7 @@ import qualified Data.Map.Strict as M
 import Control.Monad.Reader
 import Control.Concurrent.Supply (Supply, newSupply, freshId, splitSupply)
 import Data.Bifunctor
+import Data.Char
 
 \end{code}
 \end{verbatim}
@@ -51,7 +52,7 @@ Assignments -> States
 -- A predefined nonterminal denoting a
 -- countably infinite set of variables (with unspecified representations)
 data Var k = V k
-    deriving (Eq, Ord)
+    deriving (Eq, Ord, Show)
 
 type State key a = M.Map key a
 
@@ -65,6 +66,7 @@ data IntExp = ILit Int
             | Mul IntExp IntExp
             | Div IntExp IntExp
             | Rem IntExp IntExp
+            deriving Show
 
 data Assert = ATrue
             | AFalse
@@ -81,6 +83,7 @@ data Assert = ATrue
             | IFF Assert Assert
             | VForAll (Var Name) Assert
             | VExists (Var Name) Assert
+            deriving Show
 
 \end{code}
 \end{verbatim}
@@ -313,16 +316,49 @@ simulSubstAssert (Implies e1 e2) submap   = Implies (simulSubstAssert e1 submap)
 simulSubstAssert (IFF e1 e2) submap       = IFF (simulSubstAssert e1 submap) (simulSubstAssert e2 submap)
 
 simulSubstAssert (VForAll vold e) submap = VForAll vnew (simulSubstAssert e extendedSubMap)
-  where (vnew, nextSupply) = first V $ freshId (nameSupply submap)
-        extendedSubMap = SubMap (moveKey (subs submap) vold vnew) nextSupply
+  where (vnew, extendedSubMap) = extendSubMapForQualifier vold e submap
 
-simulSubstAssert (VExists v e) submap = undefined
+simulSubstAssert (VExists vold e) submap = VExists vnew (simulSubstAssert e extendedSubMap)
+ where (vnew, extendedSubMap) = extendSubMapForQualifier vold e submap
 
-moveKey :: (Ord k) => M.Map k a -> k -> k -> M.Map k a
-moveKey map oldKey newKey = M.insert newKey v (M.delete oldKey map)
-    where v = map M.! oldKey
+extendSubMapForQualifier vold e (SubMap submap ns) = (vnew, extendedSubMap)
+  where (vnew, nextSupply) = first V $ freshId ns
+        withVnew       = M.insert vold (IVar vnew) submap
+        extendedSubMap = SubMap withVnew nextSupply
 
 --TODO test how this namesupply works and if we need to split it on e1 e2 recurses
+{-
+--Example 1.13
+x = V $ ord 'x'
+y = V $ ord 'y'
+
+--original = VForAll x p
+p = (VExists y (Main.GT (IVar y) (IVar x)))
+e = Plus (IVar y) (ILit 1)
+
+--Performing the (forall v.p) => (p/v -> e)
+exampleMap ns = SubMap (M.fromList [(x,e)]) ns
+
+testSubTerm :: SubMap -> Assert
+testSubTerm = simulSubstAssert p
+
+test :: IO Assert
+test = do
+  ns <- newSupply
+  return $ testSubTerm (exampleMap ns)
+-}
+
+{-
+--------------------------
+(forall v.p) => (p/v -> e)
+
+(forall x. exists y. y > x) => ((exists y. y > x) / x -> y + 1)
+
+simulSubstAssert (VExists y (Main.GT (IVar y) (IVar x))) (SubMap (M.fromList [(x, (Plus (IVar y) (ILit 1)))]) ns)
+
+= VExists (V 0) (GT (IVar (V 0)) (Plus (IVar (V 121)) (ILit 1)))
+exists a. a > y + 1
+-}
 
 \end{code}
 \end{verbatim}
