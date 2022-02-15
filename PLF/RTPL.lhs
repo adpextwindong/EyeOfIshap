@@ -292,7 +292,9 @@ splitSubMapSupply (SubMap subs ns) = let (l,r) = splitSupply ns in ((SubMap subs
 
 simulSubstInt :: IntExp -> SubMap -> IntExp
 simulSubstInt e@(ILit _) submap           = e
-simulSubstInt (IVar v) submap             = (subs submap) M.! v
+simulSubstInt (IVar v) submap             = case M.lookup v (subs submap) of
+                                              Just e -> e
+                                              Nothing -> IVar v
 simulSubstInt (UnaryMinus e) submap       = UnaryMinus (simulSubstInt e submap)
 simulSubstInt (Plus e1 e2) submap         = Plus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
 simulSubstInt (BinaryMinus e1 e2) submap  = BinaryMinus (simulSubstInt e1 submap) (simulSubstInt e2 submap)
@@ -327,10 +329,13 @@ extendSubMapForQualifier vold e (SubMap submap ns) = (vnew, extendedSubMap)
         extendedSubMap = SubMap withVnew nextSupply
 
 --TODO test how this namesupply works and if we need to split it on e1 e2 recurses
-{-
 --Example 1.13
 x = V $ ord 'x'
 y = V $ ord 'y'
+z = V $ ord 'z'
+t = V $ ord 't'
+n = V $ ord 'n'
+d = V $ ord 'd'
 
 --original = VForAll x p
 p = (VExists y (Main.GT (IVar y) (IVar x)))
@@ -339,15 +344,24 @@ e = Plus (IVar y) (ILit 1)
 --Performing the (forall v.p) => (p/v -> e)
 exampleMap ns = SubMap (M.fromList [(x,e)]) ns
 
-testSubTerm :: SubMap -> Assert
-testSubTerm = simulSubstAssert p
+testSubTerm :: Assert -> SubMap -> Assert
+testSubTerm p = simulSubstAssert p
 
-test :: IO Assert
-test = do
+test :: Assert -> M.Map (Var Name) IntExp -> IO Assert
+test p smap = do
   ns <- newSupply
-  return $ testSubTerm (exampleMap ns)
--}
+  return $ testSubTerm p (SubMap smap ns)
 
+ta = Implies (VForAll x (VForAll z (And (Main.LT (IVar x) (IVar t)) (LTE (IVar t) (IVar z))))) (VExists y (And (LTE (IVar x) (IVar y)) (Main.LT (IVar y) (IVar z))))
+--ta = Implies (ATrue) (VExists y (And (LTE (IVar x) (IVar y)) (Main.LT (IVar y) (IVar z))))
+
+ae = M.fromList [(t, (Plus (IVar x) (Plus (IVar y) (IVar z))))]
+
+tb = VForAll d (Implies (VExists n (Main.EQ (IVar x) (Mul (IVar n) (IVar d)))) (VExists n (Main.EQ (IVar y) (Mul (IVar n) (IVar d)))))
+be = M.fromList [(n,IVar x),(d,IVar y)]
+
+tc = VForAll x (VExists y (Implies (Main.LT (IVar x) (IVar z)) (And (Main.LT (IVar x) (IVar y)) (Main.LT (IVar y) (IVar z)))))
+ce = M.fromList [(y, IVar x),(z,IVar y),(x,IVar z)]
 {-
 --------------------------
 (forall v.p) => (p/v -> e)
