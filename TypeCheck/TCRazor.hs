@@ -1,4 +1,3 @@
-{-# LANGUAGE GADTs #-}
 import Data.Void (Void)
 
 data Ty
@@ -33,12 +32,12 @@ data TyError
   = TypeMismatch String -- Expected vs Given
   deriving Show
 
-data TExpr where
-  TConstInt :: Int -> TExpr
-  TConstBool :: Bool -> TExpr
-  TAdd :: TExpr -> TExpr -> TExpr
-  TEqual :: TExpr -> TExpr -> TExpr --EQ is only between prims
-  TIFE :: Ty -> TExpr -> TExpr -> TExpr
+data TExpr
+  = TConstInt Int
+  | TConstBool Bool
+  | TAdd TExpr TExpr
+  | TEqual TExpr TExpr --EQ is only between prims
+  | TIFE Ty TExpr TExpr
   deriving Show
 
 tyOf :: TExpr -> Ty
