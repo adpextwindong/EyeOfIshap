@@ -377,4 +377,10 @@ exists a. a > y + 1
 \end{code}
 \end{verbatim}
 
+\section{2 - The Simple Imperative Language}
+
+This chapter introduces the notion of bottom $\perp$, nontermination.
+Vocab:
+DR SEM EQ - Direct Semantic Equation, where "direct" distinguishes the kind of semantics from the continuation semantics that will be introduced in Chapter 5.
+
 \end{document}
