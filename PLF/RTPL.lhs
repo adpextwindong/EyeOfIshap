@@ -419,23 +419,38 @@ A partially ordered set P is called a predomain if every chain of elements of P 
 
 Continuous
 
-A function $f$ from a predomain $P$ to a predomain $P'$ is said to be continuous from $P$ to $P'$ if it preserves the limits of chains, that is, if, for every chain $x_0 \sqsubseteq x_1 \sqsubseteq ...$ of the elements of $P$, the  function $f$ maps the limits of the chain on an lement of $P'$ that is the least upper bound of ${fx_0,fx_1,...}$.
+A function $f$ from a predomain $P$ to a predomain $P'$ is said to be continuous from $P$ to $P'$ if it preserves the limits of chains, that is, if, for every chain $x_0 \sqsubseteq x_1 \sqsubseteq ...$ of the elements of $P$, the  function $f$ maps the limits of the chain on an element of $P'$ that is the least upper bound of ${fx_0,fx_1,...}$.
 
 A continuous function is monotone.
 
 A monotone function $f$ will map a chain $x_0 \sqsubseteq x_1 \sqsubseteq ...$ into another chain $fx_0 \sqsubseteq fx_1 \sqsubseteq ...$, which must posses some limit.
 
 
-Page 35 2.4 - The Least Fixed-Point Theorem
+\subsubsection{2.4 - The Least Fixed-Point Theorem}
 
 If $D$ is a domain and $f$ is continous function from $D$ to $D$, then
 
 $x = \sqcup_{x=0}^\infty f^n \perp$
 
+x is the least upperbound of f applied to itself after bottom n-1 times.
+
 is the least fixed-point of f. In other words, $f x = x$ and, whenever $fy = y$, $x \sqsubseteq y$.
 
+While b do c is a fixed point of the function $F \in (\Sigma \rightarrow \Sigma_perp) \rightarrow (\Sigma \rightarrow \Sigma_perp)$ such that
 
+$F f \sigma = if \llbracket b \rrbracket_boolexp \sigma then f_{\perp\perp}(\llbracket c \rrbracket_command \sigma) else \sigma$
 
+It can be shown that this function is continuous. Thus, the least fixed-point theorem assures us that the unwinding equation has a solution, and it gives us a criteria - leastness - for picking out a particular solution. If we make the leap of faith taht the least solution is the right solution, then we have
 
+DR SEM EQ: while
+
+$\llbracket while b do c\rrbracket_comm = Y_{\Sigma\rightarrow\Sigma_\perp} F
+  where F f \sigma = if \llbracket b \rrbracket_boolexp \sigma then f_{\perp\perp}(\llbracket c \rrbracket_command \sigma) else \sigma$
+
+\subsubsection{2.5 Varaible Declarations and Substition}
+
+Semantically, newvar $v:= e$ in $c$ initializes the variable $v$ to the value of $e$, executes $c$, and, if $c$ terminates, resets $v$ to whatever value it had before initialization.
+
+This reset is like a local var going out of scope and whatever it shadowed retaking its place.
 
 \end{document}
