@@ -383,4 +383,59 @@ This chapter introduces the notion of bottom $\perp$, nontermination.
 Vocab:
 DR SEM EQ - Direct Semantic Equation, where "direct" distinguishes the kind of semantics from the continuation semantics that will be introduced in Chapter 5.
 
+Nontermination (bottom) complicates the denotational semantic formulation. Beginning with sequencing of statements, $[\gamma1;\gamma2]$ it is possible $\gamma1$ fails to terminate, therefore $\gamma1;\gamma2$ would fail to terminate. Therefore we extend functions to a domain including $\perp$ by mapping $\perp$ to $\perp$.
+
+If $f$ is a function from $\Sigma$ to $\Sigma_\perp$, we write $f\perp\perp = if \sigma = \perp then \perp else f \sigma$.
+
+Sequential composition's direct semantic equation then looks like
+
+$\llbracket c_0 ; c_1 \rrbracket _comm \sigma = (\llbracket c_1\rrbracket) \perp\perp (\llbracket c_0 \rrbracket _comm \sigma ).$
+
+A naive attempt at a While dr sem eq can lead to
+
+$\llbracket while b do c \rrbracket_commm \sigma = \llbracket if b then (c; while b do c) else skip \rrbracket _comm \sigma$
+
+This unfortunately isn't a semantic equation because it does not describe the meaning of while purely in terms of the meaning of its subprhases b and c.
+
+A pathological example is
+
+$\llbracket while true do skip \rrbracket _comm \sigma = \llbracket while true do skip \rrbracket _comm sigma$
+
+This is satisfied by every function in $\Sigma \rightarrow \Sigma_\perp$ and is a command that never terminates.
+
+Overcoming this will introduct rudiements of domain theory.
+
+\subsection{Domains and Continous Functions}
+
+Page 29 onwards contains a lot of definitions.
+Page 463 contains information on the cup/cap notation
+
+$\sqcup X for the least upper bound of X$
+$\sqcap X for the greasted lower bound of X$
+
+A chain is a countably infinite increasing sequence, $x_0 \sqsubseteq x_1 \sqsubseteq x_2 \sqsubseteq ...$
+
+A partially ordered set P is called a predomain if every chain of elements of P has a limit in P. A predomain with a least element, which we will denote by $\perp$, is called a domain.
+
+Continuous
+
+A function $f$ from a predomain $P$ to a predomain $P'$ is said to be continuous from $P$ to $P'$ if it preserves the limits of chains, that is, if, for every chain $x_0 \sqsubseteq x_1 \sqsubseteq ...$ of the elements of $P$, the  function $f$ maps the limits of the chain on an lement of $P'$ that is the least upper bound of ${fx_0,fx_1,...}$.
+
+A continuous function is monotone.
+
+A monotone function $f$ will map a chain $x_0 \sqsubseteq x_1 \sqsubseteq ...$ into another chain $fx_0 \sqsubseteq fx_1 \sqsubseteq ...$, which must posses some limit.
+
+
+Page 35 2.4 - The Least Fixed-Point Theorem
+
+If $D$ is a domain and $f$ is continous function from $D$ to $D$, then
+
+$x = \sqcup_{x=0}^\infty f^n \perp$
+
+is the least fixed-point of f. In other words, $f x = x$ and, whenever $fy = y$, $x \sqsubseteq y$.
+
+
+
+
+
 \end{document}
