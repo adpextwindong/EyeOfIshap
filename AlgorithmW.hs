@@ -2,6 +2,7 @@
  - Damas 82 - Principal type-schemes for functional programs
  - Grabmuller 06 - Algorithm W Step by Step
  - https://cseweb.ucsd.edu/classes/wi14/cse230-a/lectures/lec-inference.html
+ - TODO https://okmij.org/ftp/ML/generalization.html
  -}
 
 import qualified Data.Map as M
