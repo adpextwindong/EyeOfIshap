@@ -1,0 +1,44 @@
+\documentclass[a4paper,landscape]{memoir}
+\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{bussproofs}
+\usepackage{comment}
+
+\begin{document}
+\begin{vplace}[0.7]
+
+\begin{center}
+%DAGGER
+    \AxiomC{}
+    \LeftLabel{TAUT:}
+    \UnaryInfC{$x:\alpha\vdash x:\alpha$}
+    \LeftLabel{ABS:}
+    \UnaryInfC{$\vdash(\lambda x.x):\alpha\rightarrow\alpha$}
+    \LeftLabel{GEN:}
+    \UnaryInfC{$\vdash(\lambda x.x):\forall \alpha(\alpha\rightarrow\alpha)$}
+%DAGGER
+
+%CROSS
+    \AxiomC{}
+    \LeftLabel{TAUT:}
+    \UnaryInfC{$i:\forall\alpha(\alpha\rightarrow\alpha)\vdash i:\forall\alpha(\alpha\rightarrow\alpha)$}
+    \LeftLabel{INST:}
+    \UnaryInfC{$i:\forall\alpha(\alpha\rightarrow\alpha)\vdash i:(\alpha\rightarrow\alpha)\rightarrow(\alpha\rightarrow\alpha)$}
+    
+    \AxiomC{}
+    \LeftLabel{TAUT:}
+    \UnaryInfC{$i:\forall\alpha(\alpha\rightarrow\alpha)\vdash i:\forall\alpha(\alpha\rightarrow\alpha)$}
+    \LeftLabel{INST:}
+    \UnaryInfC{$i:\forall\alpha(\alpha\rightarrow\alpha)\vdash i:\alpha\rightarrow\alpha$}
+    \LeftLabel{COMB:}
+\BinaryInfC{$i:\forall\alpha(\alpha\rightarrow\alpha)\vdash i$ $i:\alpha\rightarrow\alpha$}
+%CROSS
+
+
+\LeftLabel{LET:}
+\BinaryInfC{$\vdash($let $i = (\lambda x.x)$ in $i$ $i): \alpha\rightarrow\alpha$}
+\DisplayProof
+\end{center}
+\end{vplace}
+
+\end{document}
