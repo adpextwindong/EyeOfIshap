@@ -6,3 +6,5 @@
 - [Levesque public slides](https://www.cs.toronto.edu/~hector/PublicKRSlides.pdf)
 
 For an intuitive introduction to [resolution/unification/substitution in the context of first order logic](https://youtu.be/_Iz83hfkFds?t=546)
+
+- [Robison algorithm for most general unifier](https://www.youtube.com/watch?v=P8ocbTJgeGo)
