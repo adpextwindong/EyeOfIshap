@@ -79,3 +79,36 @@ of two well-known algorithms, Huet's [7] and Paterson and Wegman's [15].
 ## Section 2
 
 ### Algorithm 1
+
+The following nondeterministic algorithm shows how a set of equations can be transformed into an equivalent set of equations in solved form.
+
+Given a set of equations, repeatedly perform any of the following transformations. If no transformation applies, stop with success.
+
+```haskell
+--notVar viewPattern
+--To be applied to a set of equations
+
+type Eqn = (Expr,Expr)
+
+alg :: Set Eqn -> M (Set Eqn)
+alg = undefined
+
+eqVars :: Eqn -> Maybe Eqn
+
+--Maybe convert Set Eqn to [Eqn] and use a zipper or something
+--splitMember probably is the best as it works in logn time
+--ConcatMaybes for generating possible transformation?
+
+
+--Given the original set of equations, looking at eu
+transformations :: Set Eqn -> Eqn -> [Set Eqn]
+
+transformations _ ((notVar -> Just t), (Var x))               = SWAP (x,t)             -- A
+transformations _ (eqVars -> Just _)                          = Erase                  -- B
+transformations _ tx@(fn sym _) ty@(fn symp _)  | sym /= symp = Fail                   -- C
+                                                | otherwise   = TermReduction (tx,ty)
+
+transformations s (occursElseNotEq s -> Just )                = ApplyVarElim           -- D
+transformations s (occursElseNotEq s -> Nothing)              = Fail
+
+```
