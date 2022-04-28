@@ -8,6 +8,7 @@
 - [Roman Cheplyaka - Generic Unification](https://ro-che.info/articles/2017-06-17-generic-unification)
 - [Handbook of automated reasoning Vol. 1 - Chapter 8 1.2 History and applications](https://cloudflare-ipfs.com/ipfs/bafykbzaceaazizzz5zga7bgogllndxijks457hdym6h6igovzrmk7huatdqqa?filename=Robinson%20A.%2C%20Voronkov%20A.%20%28eds.%29%20-%20Handbook%20of%20automated%20reasoning%20Vol.%201%20%5B...%5D-Amsterdam%20%5Bu.a%5D%20Elsevier%20%5Bu.a.%5D%20%282001%29.djvu)
 - [Type inference for ML](https://www.ccs.neu.edu/home/amal/course/7480-s12/inference-notes.pdf)
+- [MM Unification Algorithm Notes](http://www.ale.cs.toronto.edu/docs/ref/ale_trale_ref/ale_trale_ref-node4.html)
 
 ## Misc common place
 
@@ -20,8 +21,18 @@ In the first-order case, the clauses one starts with may contain variables. Herb
 
 Instead of using all ground unifiers for instantiation, Robinson proposed to lift the resolution principle to terms with variables, and apply only the most general unifier $\sigma$ of $s$ and $t$. In the example, this yields the resolvent $(C \vee C\prime)\sigma$
 
+## Historical Notes from [F.Pfenning's notes](http://symbolaris.com/course/constlog16/18-unicomp.pdf#page=4)
 
-## Common Place
+"It is possible to improve the complexity of unification to linear in the size of the input terms if a different represntation fro the terms and substitutions is chose, such as a set of multi-equations [FP4, FP5], or dag structures with parent pointers [FP6]..."
+
+Multi-equations : Martelli Montanari
+Dag structures with parent poitners : Paterson Wegman
+
+- FP4 Alberto Martelli and Ugo Montanari. Unification in linear time and space: A structured presentation. Internal Report B76-16, Istituto di Elaborazione delle Informazione, Consiglio Nazionale delle Ricerche, Pisa, Italy, July 1976.
+- FP5 Alberto Martelli and Ugo Montanari. An efficient unification algorithm. ACM Transactions on Programming Languages and Systems, 4(2):258–282, April 1982.
+- FP6 [15] M. S. Paterson and M. N. Wegman. Linear unification. Journal of Computer and System Sciences, 16(2):158–167, April 1978
+
+## Section 1
 
 - [10] [Predicate Logic as a Programming Language](https://www.doc.ic.ac.uk/~rak/papers/IFIP%2074.pdf)
 
@@ -64,3 +75,7 @@ of two well-known algorithms, Huet's [7] and Paterson and Wegman's [15].
 
 - [7] HUET, G.  Resolution d'Equations dans des Langages d'Ordre 1,2,...ω (These d'etat). Universite de Paris VII.
 - [15] [PATERSON, M.S., AND WEGMAN, M.N. Linear unification. J. Comput. Syst. Sci. 16, 2 (April 1978), 158-167.](https://dl.acm.org/doi/pdf/10.1145/800113.803646)
+
+## Section 2
+
+### Algorithm 1
