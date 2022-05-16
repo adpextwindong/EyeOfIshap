@@ -46,3 +46,9 @@ Pfenning 2000; Dunfield and Pfenning 2004); termination checking (Abel 2004); hi
 2007; Dunfield 2009); refinement types for LF (Lovas 2010); contextual modal types (Pientka 2008); compiler intermediate representations (Chlipala et al. 2005); and object-oriented languages including C (Bierman et al. 2007) and Scala (Odersky et al. 2001).
 As can be seen, it scales well to advanced type systems; moreover,
 it is easy to implement, and yields relatively high-quality error messages (Peyton Jones et al. 2007)."
+
+## Delimited Continuations
+
+From ["Delimited continuations in operating systems Oleg Kiselyov and Chung-chieh Shan"](https://okmij.org/ftp/continuations/ZFS/context-OS.pdf)
+
+A continuation is _delimited_ when it produces an intermediate answer rather than the final outcome of the entire computation. For example, the increment function is a delimited continuation when taken as the meaning of “1 + ” in the program “print(1 + 2 × 3)”. Similarly, we treat a function from file handles to content summaries as a delimited continuation when we view the summarization program as part of an operating system that reaches its final outcome only when the computer shuts down months later. The _delimiter_ (or prompt) is the boundary between the producer of the intermediate answer (such as the summarization program) and the rest of the system.
