@@ -58,3 +58,9 @@ A continuation is _delimited_ when it produces an intermediate answer rather tha
 From ["A Rational Deconstruction of Landin’s SECD Machine Olivier Danvy"](https://www.brics.dk/RS/03/33/BRICS-RS-03-33.pdf)
 
 We have characterized the denotational content of the SECD machine as an evaluator with a callee-save strategy for the environment and a control delimiter. In doing so, we have outlined a methodology for extracting the denotational content of abstract machines in the form of a compositional evaluation function. This methodology is reversible and enables one to extract the (small-step) operational content of evaluation functions in the form of an abstract machine in a fairly mechanical way: one closure-converts its expressible and denotable values to make them first-order; one CPS-transforms the closure-converted evaluation function to make it tail-recursive, i.e., iterative, and to materialize its control flow into continuations; and one defunctionalizes these continuations to make the evaluation function first order, thereby obtaining a transition function, i.e., a finite-state, iterative abstract machine. Optionally, one introduces a data stack to hold intermediate results.
+
+## First-Class Functions
+
+From ["Defuncitonalization at Work by Olivier Danvy"](http://staff.ustc.edu.cn/~bjhua/courses/ats/2015/readings/defunctionalization.pdf)
+
+First-class functions are often represented with _closures_, i.e., expressible values pairing a code pointer and the denotable values of the variables occurring free in that code, as proposed by Landin in the mid-1960's [...]. Today, closures are the most common representation of first-class functions in the world of eager functional programming [...], as well as a standard representation for implementing object-oriented programs [...]. They are also used to implement higher-order logic programming [...].
