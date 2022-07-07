@@ -16,12 +16,34 @@ And so where can we raise the abstraction from logs metrics and traces?
 - Take ideas from Stella Cotton's USENIX talk [LISA17 - Distributed Tracing: From Theory to Practice](https://www.youtube.com/watch?v=fwVFshJz1Gs) and [So, you want to trace your distributed system? Key design insights from years of practical experience](https://www.pdl.cmu.edu/ftp/SelfStar/CMU-PDL-14-102.pdf)
   - Logical clock increment over context switches.
 
+### Modes to build out in the test bed
+
+- Simple CRUD operations
+- OOM
+- Clock skew/clock drift
+- Message dropping (No response comes back)
+- Failure of async callbacks from other servers like JDE
+- DB call fails/transaction failure
+- Backtracking in user flow
+- User side input errors
+
+
+Should user actions be totally reconstructable from server + client side logs?
+
 ### Spare Ideas
 
 - Assigning positive/negative blame when we interact with systems we can log into. See Phil Wadler's talk [Faith, Evolution, and Programming Languages](https://www.youtube.com/watch?v=8frGknO8rIg)
 
 - Completeness of middleware logging, all subrequests spawned (and db calls) should be logged.
 
+- Log standardization
+
+- Logs should have a Show/Read instance
+  - Tool, time, person who did it, role/roles, user flow tag
+
+#### Considerations
+
+- User Impersonation for administration/debugging
 
 #### Abstractions
 
